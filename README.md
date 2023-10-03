@@ -24,6 +24,6 @@ polarizationtools is licensed under the BSD 3-Clause License - see the
 
 ## References
 
-[1] https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
-[2] https://ui.adsabs.harvard.edu
-[3] https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.3715B/abstract
+1. [Kiehlmann et al, 2016](https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract)
+2. [Pavlidou et al, 2014](https://ui.adsabs.harvard.edu/abs/2014MNRAS.442.1693P/abstract)
+3. [Blinov et al, 2021](https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.3715B/abstract)
