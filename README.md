@@ -10,7 +10,9 @@ Python3 tools to deal with astrophysical polarization data.
 ### Module details
 
 * **evpatools.py**
-    * **EVPAanalyzer** class: Shift EVPA data points to account for the 180 degrees ambiguity, following [1].
+    * **EVPAanalyzer** class:
+        * Shift EVPA data points to account for the 180 degrees ambiguity, following [1].
+        * Identify rotations according to the definitions of [4] or [5].
 * **misc.py**
     * **debias_pol** function: Debias the fractional linear polarization, following [2].
 * **stokesconversion.py**
@@ -27,3 +29,5 @@ polarizationtools is licensed under the BSD 3-Clause License - see the
 1. [Kiehlmann et al, 2016](https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract)
 2. [Pavlidou et al, 2014](https://ui.adsabs.harvard.edu/abs/2014MNRAS.442.1693P/abstract)
 3. [Blinov et al, 2021](https://ui.adsabs.harvard.edu/abs/2021MNRAS.501.3715B/abstract)
+4. [Blinov et al, 2015](https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract)
+5. [Kiehlmann et al, 2016](https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract)
