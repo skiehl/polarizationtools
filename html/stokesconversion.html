@@ -1,0 +1,2204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>stokesconversion API documentation</title>
+<meta name="description" content="A tool to converte Stokes parameters to linear polarization." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>stokesconversion</code></h1>
+</header>
+<section id="section-intro">
+<p>A tool to converte Stokes parameters to linear polarization.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&#34;&#34;&#34;A tool to converte Stokes parameters to linear polarization.
+&#34;&#34;&#34;
+
+from math import sqrt, pi, exp, erf, cos
+import numpy as np
+from scipy.integrate import quad
+from scipy.optimize import minimize
+from scipy.stats import norm as dist_norm
+
+__author__ = &#34;Sebastian Kiehlmann&#34;
+__credits__ = [&#34;Sebastian Kiehlmann&#34;, &#34;Dmitry Blinov&#34;]
+__license__ = &#34;BSD&#34;
+__maintainer__ = &#34;Sebastian Kiehlmann&#34;
+__email__ = &#34;skiehlmann@mail.de&#34;
+__status__ = &#34;Production&#34;
+
+#==============================================================================
+# CLASSES
+#==============================================================================
+
+class StokesConversion():
+    &#34;&#34;&#34;A tool to converte Stokes parameters to linear polarization.
+    &#34;&#34;&#34;
+
+    #--------------------------------------------------------------------------
+    def __init__(self):
+        &#34;&#34;&#34;Create instance of StokesConversion.
+
+        Returns
+        -------
+        None.
+        &#34;&#34;&#34;
+
+        self.stokes_i = None
+        self.stokes_q = None
+        self.stokes_u = None
+        self.stokes_i_err = None
+        self.stokes_q_err = None
+        self.stokes_u_err = None
+        self.pol = None
+        self.pol_sq = None
+        self.pol_mas = None
+        self.pol_err = None
+        self.unc = False
+
+    #--------------------------------------------------------------------------
+    def _set_stokes(self, stokes_q, stokes_u, stokes_i=None):
+        &#34;&#34;&#34;Set the Stokes data for conversion.
+
+        Parameters
+        ----------
+        stokes_q : numpy.ndarray
+            Stokes Q or q=Q/I.
+        stokes_u : numpy.ndarray
+            Stokes U or u=U/I.
+        stokes_i : numpy.ndarray, optional
+            Stokes I. If not provided, stokes_q and stokes_u inputs are
+            interpreted as q=Q/I and u=U/I. The default is None.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.single_val = False
+        self.stokes_i = np.asarray(stokes_i)
+
+        if stokes_i is None:
+            self.stokes_q = np.asarray(stokes_q)
+            self.stokes_u = np.asarray(stokes_u)
+        else:
+            self.stokes_q = np.asarray(stokes_q) / self.stokes_i
+            self.stokes_u = np.asarray(stokes_u) / self.stokes_i
+
+        # make single values arrays of dimension 1:
+        if not self.stokes_q.shape:
+            self.single_val = True
+            self.stokes_q = np.expand_dims(self.stokes_q, 0)
+            self.stokes_u = np.expand_dims(self.stokes_u, 0)
+            if self.stokes_i is not None:
+                self.stokes_i = np.expand_dims(self.stokes_i, 0)
+
+    #--------------------------------------------------------------------------
+    def _ratio_err(self, x, x_err, y, y_err):
+        &#34;&#34;&#34;Calculate the uncertainty of the ratio of two Gaussian distributed
+        quantities.
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            Numerator quantity of the ratio.
+        x_err : numpy.ndarray
+            Uncertainty of the numerator.
+        y : numpy.ndarray
+            Denominator quantity of the ratio.
+        y_err : numpy.ndarray
+            Uncertainty of the denominator.
+
+        Returns
+        -------
+        numpy.ndarray
+            Uncertainty of the ratio.
+
+        Notes
+        -----
+        The calculation is valid for an uncorrelated noncentral normal ratio.
+        This approach currently does not allow zero values.
+
+        References
+        ----------
+        [1] https://en.wikipedia.org/wiki/Ratio_distribution#Normal_ratio_distributions
+        &#34;&#34;&#34;
+
+        return (x / y)**2 * ((x_err / x)**2 + (y_err / y)**2)
+
+    #--------------------------------------------------------------------------
+    def _set_stokes_err(self, stokes_q_err, stokes_u_err, stokes_i_err=None):
+        &#34;&#34;&#34;Set the Stokes uncertainties.
+
+        Parameters
+        ----------
+        stokes_q_err : numpy.ndarray
+            Uncertainty of Stokes Q or q=Q/I.
+        stokes_u_err : numpy.ndarray
+            Uncertainty of Stokes U or u=U/I.
+        stokes_i_err : numpy.ndarray, optional
+            Uncertainty of Stokes I. If not provided, stokes_q_err and
+            stokes_u_err inputs are interpreted as uncertainties of q=Q/I and
+            u=U/I. The default is None.
+
+        Returns
+        -------
+        None.
+        &#34;&#34;&#34;
+
+        self.unc = True
+        self.stokes_i_err = stokes_i_err
+
+        if stokes_i_err is None:
+            self.stokes_q_err = stokes_q_err
+            self.stokes_u_err = stokes_u_err
+        else:
+            self.stokes_q_err = self._ratio_err(
+                    self.stokes_q, stokes_q_err, self.stokes_i, stokes_i_err)
+            self.stokes_u_err = self._ratio_err(
+                    self.stokes_u, stokes_u_err, self.stokes_i, stokes_i_err)
+
+    #--------------------------------------------------------------------------
+    def _calc_pol_from_stokes(self):
+        &#34;&#34;&#34;Convertes Stokes q and u into linear fractional polarization and
+        angle.
+
+        Returns
+        -----
+        None.
+        &#34;&#34;&#34;
+
+        self.pol_sq = self.stokes_q**2 + self.stokes_u**2
+        self.pol = np.sqrt(self.pol_sq)
+        self.evpa = 0.5 * np.arctan2(self.stokes_u, self.stokes_q)
+
+    #--------------------------------------------------------------------------
+    def _check_pol(self):
+        &#34;&#34;&#34;Check if fractional polarization values exceed 1.
+
+        Raises
+        ------
+        Warning
+            Raise if any values exceed 1.
+
+        Returns
+        -------
+        None.
+        &#34;&#34;&#34;
+
+        # check if any linear polarization values exceed 1 (by more than bit
+        # precision):
+        if np.any(np.logical_and(self.pol &gt; 1., ~np.isclose(self.pol, 1.))):
+            raise Warning(
+                &#34;Some fractional polarization values exceed 1.&#34;)
+
+    #--------------------------------------------------------------------------
+    def _calc_pol_err(self):
+        &#34;&#34;&#34;Calculate the  uncertainty of the fractional polarization.
+
+        Returns
+        -------
+        None.
+
+        Notes
+        -----
+        The estimate is defined in [1] eq. 31. Eq. 31 is valid for uncorrelated
+        uncertainties in Stokes q and u. The correlated case is currently not
+        implemented.
+
+        References
+        ----------
+        [1] Plaszczynski et al, 2014
+            https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+
+        &#34;&#34;&#34;
+
+        norm = self.stokes_q**2 + self.stokes_u**2
+        pol_var = (self.stokes_q**2 * self.stokes_q_err**2 +
+                   self.stokes_u**2 * self.stokes_u_err**2) / norm
+        self.pol_err = np.sqrt(pol_var)
+
+    #--------------------------------------------------------------------------
+    def _calc_pol_mas(self):
+        &#34;&#34;&#34;Calculate the  modified asymptotic (MAS) estimator of the fractional
+        polarization.
+
+        Returns
+        -------
+        None.
+
+        Notes
+        -----
+        The estimate is defined in [1] eq. 37 and 30. Eq. 30 is valid for
+        uncorrelated uncertainties in Stokes q and u. The correlated case is
+        currently not implemented.
+
+        References
+        ----------
+        [1] Plaszczynski et al, 2014
+            https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+
+        &#34;&#34;&#34;
+
+        norm = self.stokes_q**2 + self.stokes_u**2
+        noise_bias_sq = (self.stokes_q**2 * self.stokes_u_err**2 +
+                         self.stokes_u**2 * self.stokes_q_err**2) / norm
+
+        self.pol_mas = self.pol - noise_bias_sq \
+                * (1. - np.exp(-self.pol_sq / noise_bias_sq)) \
+                / (2. * self.pol)
+
+    #--------------------------------------------------------------------------
+    def _evpa_pdf(self, theta, pol_snr):
+        &#34;&#34;&#34;Probability density function of EVPA measurements as defined by [1].
+
+        Parameters
+        ----------
+        theta : float
+            Angle in radians.
+        pol_snr : float
+            Fractional polarization signal-to-noise-ratio.
+
+        Returns
+        -------
+        prob : float
+            Probability density at angle theta.
+
+        References
+        -----
+        [1] Naghizadeh-Khouei &amp; Clarke, 1993
+            https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+        &#34;&#34;&#34;
+
+        const = 1. / sqrt(pi)
+        eta = pol_snr * cos(2. * theta) / sqrt(2.)
+        prob = const * (const + eta * exp(eta**2.) * (1. + erf(eta)))
+        prob = prob * exp(-pol_snr**2. / 2.)
+
+        return prob
+
+    #--------------------------------------------------------------------------
+    def _integrate_pdf(self, evpa, pol_snr):
+        &#34;&#34;&#34;Integration of EVPA PDF from -evpa to evpa.
+
+        Parameters
+        ----------
+        evpa : float
+            Angle in radians.
+        pol_snr : float
+            Fractional polarization signal-to-noise-ratio.
+
+        Returns
+        -------
+        prob : float
+            Integrated probability.
+        &#34;&#34;&#34;
+
+        integ = quad(self._evpa_pdf, -evpa, evpa, args=(pol_snr))
+
+        return integ[0]
+
+    #--------------------------------------------------------------------------
+    def _prob_diff(self, evpa, pol_snr, prob):
+        &#34;&#34;&#34;Calculate probability difference for minimization.
+
+        Parameters
+        ----------
+        evpa : float
+            Angle in radians.
+        pol_snr : float
+            Fractional polarization signal-to-noise-ratio.
+        prob : float
+            Target probability.
+
+        Returns
+        -------
+        float
+            Difference between estimated and target probability.
+        &#34;&#34;&#34;
+
+        return abs(self._integrate_pdf(evpa, pol_snr) - prob)
+
+    #--------------------------------------------------------------------------
+    def _calc_evpa_err(self, sigma=1., approx_snr=20.):
+        &#34;&#34;&#34;Calculate the EVPA uncertainties.
+
+        Parameters
+        ----------
+        sigma : float, optional
+            Define the uncertainty in terms of sigma. The default is 1..
+        approx_snr : float, optional
+            For fractional polarization signal-to-noise-ratios larger than this
+            value the EVPA uncertainty is approximated. The default is 20..
+
+        Returns
+        -------
+        None.
+
+        Notes
+        -----
+        This implements the method of [1].
+
+        References
+        -----
+        [1] Naghizadeh-Khouei &amp; Clarke, 1993
+            https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+        &#34;&#34;&#34;
+
+        prob = dist_norm.cdf(sigma) - dist_norm.cdf(-sigma)
+        pol_snr = self.pol_mas / self.pol_err
+
+        # for high SNR get approximation of EVPA uncertainty:
+        hisnr = pol_snr &gt;= approx_snr
+        self.evpa_err = np.zeros(pol_snr.size, dtype=float)
+        self.evpa_err[hisnr] = 0.5 / pol_snr[hisnr]
+
+        # for low SNR calculate proper uncertainty:
+        low_snr = np.nonzero(~hisnr)[0]
+        for i in low_snr:
+            # minimization:
+            # start value pi/50. = 3.6 deg is just a reasonable guess
+            res = minimize(
+                    self._prob_diff, [pi/50.], args=(pol_snr[i], prob),
+                    method=&#39;Nelder-Mead&#39;, tol=1e-5)
+
+            # catch minimization issues:
+            if not res.success:
+                print(&#39;WARNING: Problem with data point {0:d}&#39;.format(i))
+
+            self.evpa_err[i] = res.x[0]
+
+    #--------------------------------------------------------------------------
+    def _return(self, sigma, unit):
+        &#34;&#34;&#34;Prepare the return tuple.
+
+        Parameters
+        ----------
+        sigma : float
+            Define the uncertainty in terms of sigma.
+        unit : str
+            If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+            are returned in degrees; otherwise in radians.
+
+        Returns
+        -------
+        results : tuple
+            Tuple with the linear polarization properties and (optionally) the
+            corresponding uncertainties.
+        &#34;&#34;&#34;
+
+        # include uncertainty estimates in return tuple:
+        if self.unc:
+            if unit==&#39;deg&#39;:
+                results = (
+                        self.pol, self.pol_mas, self.pol_err*sigma,
+                        np.degrees(self.evpa), np.degrees(self.evpa_err))
+            else:
+                results = (
+                        self.pol, self.pol_mas, self.pol_err*sigma, self.evpa,
+                        self.evpa_err)
+
+        # no uncertainty estimates:
+        else:
+            if unit==&#39;deg&#39;:
+                results = (self.pol, np.degrees(self.evpa))
+            else:
+                results = (self.pol, self.evpa)
+
+        # reduce to single values, if input was single values:
+        if self.single_val:
+            results = tuple([np.squeeze(res) for res in results])
+
+        return results
+
+    #--------------------------------------------------------------------------
+    def convert(
+            self, stokes_q, stokes_u, stokes_i=None, stokes_q_err=None,
+            stokes_u_err=None, stokes_i_err=None, sigma=1., approx_snr=20.,
+            unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+        Parameters
+        ----------
+        stokes_q : numpy.ndarray
+            Stokes Q or q=Q/I.
+        stokes_u : numpy.ndarray
+            Stokes U or u=U/I.
+        stokes_i : numpy.ndarray, optional
+            Stokes I. If not provided, stokes_q and stokes_u inputs are
+            interpreted as q=Q/I and u=U/I. The default is None.
+        stokes_q_err : numpy.ndarray, optional
+            Uncertainty of Stokes Q or q=Q/I. If not provided, uncertainties
+            are not calculated. The default is None.
+        stokes_u_err : numpy.ndarray, optional
+            Uncertainty of Stokes U or u=U/I. If not provided, uncertainties
+            are not calculated. The default is None.
+        stokes_i_err : numpy.ndarray, optional
+            Uncertainty of Stokes I. Only required, if stokes_i, stokes_q_err,
+            and stokes_u_err are given. If not provided, uncertainties
+            are not calculated. The default is None.
+        sigma : float, optional
+            Define the uncertainty in terms of sigma. The default is 1..
+        approx_snr : float, optional
+            For fractional polarization signal-to-noise-ratios larger than this
+            value the EVPA uncertainty is approximated. The default is 20..
+        unit : str, optional
+            If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+            are returned in degrees; otherwise in radians. The default is
+            &#39;rad&#39;.
+
+        Raises
+        ------
+        ValueError
+            If &#39;sigma&#39;, &#39;approx_snr&#39;, or &#39;unit&#39; have invalid inputs.
+
+        Returns
+        -------
+        results : tuple
+            If no uncertainties are given the tuple contains:
+            fractional polarization and EVPA.
+            If uncertainties are given, the tuple contains:
+            fractional polarization, fractional polarization modified
+            asymptotic estimator [1], fractional polarization uncertainty [1],
+            EVPA, EVPA uncertainty [2]. EVPA and EVPA uncertainty are given in
+            degrees or radians, as defined by the &#39;unit&#39; input.
+
+        References
+        -----
+        [1] Plaszczynski et al, 2014
+            https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+        [2] Naghizadeh-Khouei &amp; Clarke, 1993
+            https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+        &#34;&#34;&#34;
+
+        # check and convert inputs:
+        stokes_q = np.asarray(stokes_q, dtype=float)
+        stokes_u = np.asarray(stokes_u, dtype=float)
+        if stokes_i is not None:
+            stokes_i = np.asarray(stokes_i, dtype=float)
+        if stokes_q_err is not None:
+            stokes_q_err = np.asarray(stokes_q_err, dtype=float)
+        if stokes_u_err is not None:
+            stokes_u_err = np.asarray(stokes_u_err, dtype=float)
+        if stokes_i_err is not None:
+            stokes_i_err = np.asarray(stokes_i_err, dtype=float)
+        if type(sigma) not in (float, int) or sigma &lt;= 0:
+            raise ValueError(
+                    &#34;&#39;sigma&#39; needs to be int or float with value larger than &#34;\
+                    &#34; zero.&#34;)
+        if type(approx_snr) not in (float, int) or approx_snr &lt;= 0:
+            raise ValueError(
+                    &#34;&#39;approx_snr&#39; needs to be int or float with value larger &#34;\
+                    &#34;than zero.&#34;)
+        if not unit in (&#39;rad&#39;, &#39;deg&#39;):
+            raise ValueError(&#34;&#39;unit&#39; needs to be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+        # store inputs:
+        self._set_stokes(stokes_q, stokes_u, stokes_i=stokes_i)
+        unc = False
+        if stokes_q_err is not None and stokes_u_err is not None:
+            unc = True
+            self._set_stokes_err(
+                    stokes_q_err, stokes_u_err, stokes_i_err=stokes_i_err)
+
+        # calculate linear polarization properties:
+        self._calc_pol_from_stokes()
+        self._check_pol()
+
+        # calculate uncertainties:
+        if unc:
+            self._calc_pol_err()
+            self._calc_pol_mas()
+            self._calc_evpa_err(sigma=sigma, approx_snr=approx_snr)
+
+        # prepare return tuple:
+        results = self._return(sigma, unit)
+
+        return results
+
+#==============================================================================
+
+class StokesConversionSimple():
+    &#34;&#34;&#34;A tool to converte Stokes parameters to linear polarization and vice
+    versa with simple Gaussian error propagation.
+    &#34;&#34;&#34;
+
+    #--------------------------------------------------------------------------
+    def __init__(self):
+        &#34;&#34;&#34;Create instance of StokesConversionSimple.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        pass
+
+    #--------------------------------------------------------------------------
+    def _convert_angle(self, evpa, angle_unit_in, angle_unit_out):
+        &#34;&#34;&#34;Convert angle from radians to degree or vice versa, if needed.
+
+        Parameters
+        ----------
+        evpa : numpy.ndarray
+            Linear polarization angle in radians.
+        angle_unit_in : str
+            Unit of the input angle. Must be &#39;rad&#39; or &#39;deg&#39;.
+        angle_unit_out : str
+            Unit of the output angle. Must be &#39;rad&#39; or &#39;deg&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if angle_unit is not &#39;rad&#39; or &#39;deg&#39;.
+
+        Returns
+        -------
+        evpa : numpy.ndarray
+            The converted EVPA.
+        &#34;&#34;&#34;
+
+        # check input:
+        if angle_unit_in.lower() not in [&#39;rad&#39;, &#39;deg&#39;]:
+            raise ValueError(
+                &#34;`angle_unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+        if angle_unit_out.lower() not in [&#39;rad&#39;, &#39;deg&#39;]:
+            raise ValueError(
+                &#34;`angle_unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+        # convert from radians to degrees:
+        if angle_unit_in == &#39;rad&#39; and angle_unit_out == &#39;deg&#39;:
+            evpa = np.degrees(evpa)
+
+        # convert from radians to degrees:
+        elif angle_unit_in == &#39;deg&#39; and angle_unit_out == &#39;rad&#39;:
+                evpa = np.radians(evpa)
+
+        return evpa
+
+    #--------------------------------------------------------------------------
+    def _set_stokes(self, stokes_q, stokes_u, stokes_q_err, stokes_u_err):
+        &#34;&#34;&#34;Set the Stokes parameters for conversion.
+
+        Parameters
+        ----------
+        stokes_q : array-like
+            Stokes q=Q/I.
+        stokes_u : array-like
+            Stokes u=U/I.
+        stokes_q_err : array-like
+            Stokes q uncertainties.
+        stokes_u_err : array-like
+            Stokes u uncertainties.
+
+        Raises
+        ------
+        ValueError
+            Raised, if uncertainties are given for only one of the two Stokes
+            parameters.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.stokes_q = np.asarray(stokes_q)
+        self.stokes_u = np.asarray(stokes_u)
+
+        if stokes_q_err is None and stokes_q_err is None:
+            self.propagate_err = False
+
+        elif stokes_q_err is not None and stokes_q_err is not None:
+            self.stokes_q_err = np.asarray(stokes_q_err)
+            self.stokes_u_err = np.asarray(stokes_u_err)
+            self.propagate_err = True
+
+        else:
+            raise ValueError(
+                    &#34;Either set uncertainties for both q and u or neither.&#34;)
+
+    #--------------------------------------------------------------------------
+    def _set_pol(self, pol, evpa, pol_err, evpa_err, angle_unit):
+        &#34;&#34;&#34;Set the Stokes parameters for conversion.
+
+        Parameters
+        ----------
+        pol : array-like
+            Linear fractional polarization.
+        evpa : array-like
+            Linear polarization angle in radians or degrees.
+        pol_err : array-like
+            UNcertainties of the linear fractional polarization.
+        evpa_err : array-like
+            Uncertainties of the linear polarization angle in radians or
+            degrees.
+        angle_unit : str
+            Unit of the polarization angle. Must be &#39;rad&#39; of &#39;deg&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if uncertainties are given for only one of the two
+            polarization parameters.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.pol = np.asarray(pol)
+        self.evpa = np.asarray(evpa)
+        self.evpa = self._convert_angle(self.evpa, angle_unit, &#39;rad&#39;)
+        self.evpa = np.mod(self.evpa, np.pi)
+
+        # check polarzation input:
+        if np.any(pol) &gt; 1:
+            raise ValueError(
+                &#34;Fractional linear polarization cannot be larger than 1.&#34;)
+
+        if pol_err is None and evpa_err is None:
+            self.propagate_err = False
+
+        elif pol_err is not None and evpa_err is not None:
+            self.pol_err = np.asarray(pol_err)
+            self.evpa_err = np.asarray(evpa_err)
+            self.propagate_err = True
+
+        else:
+            raise ValueError(
+                    &#34;Either set uncertainties for both pol and evpa or &#34;
+                    &#34;neither.&#34;)
+
+    #--------------------------------------------------------------------------
+    def _stokes_to_pol(self):
+        &#34;&#34;&#34;Convertes Stokes q and u parameters into linear polarization
+        fraction and angle.
+
+        Raises
+        ------
+        ValueError
+            Raised, when the input data results in fractional polarization
+            larger than 1.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.pol = np.sqrt(self.stokes_q**2 + self.stokes_u**2)
+
+        # check that the fractional polarization does not exceed 1:
+        if np.any(self.pol &gt; 1):
+            raise ValueError(
+                    &#34;Some Stokes q and u values result in a fractional &#34;
+                    &#34;polarization larger than 1.&#34;)
+
+        self.evpa = 0.5 * np.arctan2(self.stokes_u, self.stokes_q)
+
+    #--------------------------------------------------------------------------
+    def _stokes_to_pol_err(self):
+        &#34;&#34;&#34;Propagates Stokes uncertainties into linear polarization
+        uncertainties.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.pol_err = np.sqrt(
+                (self.stokes_q**2 * self.stokes_q_err**2 \
+                 + self.stokes_u**2 * self.stokes_u_err**2)) \
+                / self.pol
+        self.evpa_err = np.sqrt(
+                self.stokes_q**2 * self.stokes_u_err**2 \
+                + self.stokes_u**2 * self.stokes_q_err**2) / self.pol**2 / 2
+
+    #--------------------------------------------------------------------------
+    def _pol_to_stokes(self):
+        &#34;&#34;&#34;Convertes the linear polarization fraction and angle into Stokes q
+        and u parameters.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        sel = np.logical_and(
+                self.evpa &gt;= np.pi / 4, self.evpa &lt; np.pi * 3 / 4)
+        sign_q = np.where(sel, -1., 1.)
+        sel = self.evpa &gt;= np.pi / 2
+        sign_u = np.where(sel, -1., 1.)
+
+        tanevpa = np.tan(2 * self.evpa)
+        tanevpasq = tanevpa**2
+        self.stokes_q = sign_q * self.pol / np.sqrt(1 + tanevpasq)
+        self.stokes_u = self.pol / np.sqrt(1 / tanevpasq + 1)
+        self.stokes_u = np.copysign(self.stokes_u, sign_u)
+
+    #--------------------------------------------------------------------------
+    def _pol_to_stokes_err(self):
+        &#34;&#34;&#34;Propagates linear polarization uncertainties into Stokes
+        uncertainties.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        qsqusq = self.stokes_q**2 + self.stokes_u**2
+        qqduqd = self.stokes_q**4 - self.stokes_u**4
+        self.stokes_q_err = np.sqrt(
+                qsqusq / qqduqd \
+                * (self.stokes_q**2 * self.pol_err**2 \
+                   - 4 * self.stokes_u**2 * qsqusq * self.evpa_err**2))
+        self.stokes_u_err = np.sqrt(
+                qsqusq /qqduqd \
+                * (4 * self.stokes_q**2 * qsqusq * self.evpa_err**2 \
+                   - self.stokes_u**2 * self.pol_err**2))
+
+    #--------------------------------------------------------------------------
+    def convert_stokes_to_pol(
+            self, stokes_q, stokes_u, stokes_q_err=None, stokes_u_err=None,
+            angle_unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+        Parameters
+        ----------
+        stokes_q : array-like
+            Stokes q=Q/I.
+        stokes_u : array-like
+            Stokes u=U/I.
+        stokes_q_err : array-like, optional
+            Uncertainty of Stokes q. If not provided, uncertainties are not
+            propagated. The default is None.
+        stokes_u_err : array-like, optional
+            Uncertainty of Stokes u. If not provided, uncertainties are not
+            propagated. The default is None.
+        angle_unit : str, optional
+            If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+            are returned in degrees; otherwise in radians. The default is
+            &#39;rad&#39;.
+
+        Returns
+        -------
+        pol : np.ndarray
+            Fractional linear polarization in the range [0, 1].
+        pol_err : np.ndarray
+            Uncertainties of the fractional linear polarization. Only returned,
+            if Stokes uncertainties are provided.
+        evpa : np.ndarray
+            Linear polarization angle in radian or degrees.
+        pol_err : np.ndarray
+            Uncertainties of the linear polarization angle in radians or
+            degrees. Only returned, if Stokes uncertainties are provided.
+
+        Notes
+        -----
+        This method does simple Gaussian error propagation. For a formally
+        correct calculation of the uncertainties it is recommended to use
+        the StokesConversion class instead.
+        &#34;&#34;&#34;
+
+        self._set_stokes(stokes_q, stokes_u, stokes_q_err, stokes_u_err)
+
+        # convert Stokes to polarization parameters:
+        self._stokes_to_pol()
+
+        # error propagation:
+        if self.propagate_err:
+            self._stokes_to_pol_err()
+
+        # convert angle if needed:
+        self.evpa = self._convert_angle(self.evpa, &#39;rad&#39;, angle_unit)
+
+        # return results:
+        if self.propagate_err:
+            return self.pol, self.pol_err, self.evpa, self.evpa_err
+        else:
+            return self.pol, self.evpa
+
+    #--------------------------------------------------------------------------
+    def convert_pol_to_stokes(
+            self, pol, evpa, pol_err=None, evpa_err=None, angle_unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+        Parameters
+        ----------
+        pol : np.ndarray
+            Fractional linear polarization in the range [0, 1].
+        pol_err : np.ndarray
+            Uncertainties of the fractional linear polarization. If not
+            provided, uncertainties are not propagated. The default is None.
+        evpa : np.ndarray
+            Linear polarization angle in radian or degrees.
+        evpa_err : np.ndarray
+            Uncertainties of the linear polarization angle in radians or
+            degrees. If not provided, uncertainties are not propagated. The
+            default is None.
+        angle_unit : str, optional
+            Specify if the polarization angle and corresponding uncertainties
+            are given in &#39;rad&#39; or &#39;deg&#39;. The default is &#39;rad&#39;.
+
+        Returns
+        -------
+        stokes_q : array-like
+            Stokes q=Q/I.
+        stokes_u : array-like
+            Stokes u=U/I.
+        stokes_q_err : array-like, optional
+            Uncertainty of Stokes q. Only returned, if Stokes uncertainties are
+            provided.
+        stokes_u_err : array-like, optional
+            Uncertainty of Stokes u. Only returned, if Stokes uncertainties are
+            provided.
+
+        Notes
+        -----
+        This method does simple Gaussian error propagation. The results may not
+        reflect the true uncertainties.
+        &#34;&#34;&#34;
+
+        self._set_pol(pol, evpa, pol_err, evpa_err, angle_unit)
+
+        # convert Stokes to polarization parameters:
+        self._pol_to_stokes()
+
+        # error propagation:
+        if self.propagate_err:
+            self._pol_to_stokes_err()
+
+        # return results:
+        if self.propagate_err:
+            return (self.stokes_q, self.stokes_q_err, self.stokes_u,
+                    self.stokes_u_err)
+        else:
+            return self.stokes_q, self.stokes_u
+
+#==============================================================================
+# MAIN
+#==============================================================================
+
+if __name__ == &#39;__main__&#39;:
+    converter = StokesConversion()
+    print(converter.convert(0.5, 0.1))
+    print(converter.convert(5, 1, 7))
+    #print(converter.convert(5, 1, 5))
+    print(converter.convert(
+            0.5, 0.1, stokes_q_err=0.2, stokes_u_err=0.1))
+    print(converter.convert(
+            [0.5], [0.1], stokes_i=[2], stokes_q_err=[0.5], stokes_u_err=[0.5],
+            stokes_i_err=[0.5]))
+    # TODO: the latter two cases crash with single values
+
+    converter = StokesConversionSimple()
+    print(converter.convert_stokes_to_pol(-1, 0, angle_unit=&#39;deg&#39;))
+    print(converter.convert_stokes_to_pol(-1, 0, 0.1, 0.5, angle_unit=&#39;deg&#39;))
+    print(converter.convert_pol_to_stokes(1, 90, angle_unit=&#39;deg&#39;))
+    print(converter.convert_pol_to_stokes(1, 90, 0.1, 0.25, angle_unit=&#39;deg&#39;))</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="stokesconversion.StokesConversion"><code class="flex name class">
+<span>class <span class="ident">StokesConversion</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A tool to converte Stokes parameters to linear polarization.</p>
+<p>Create instance of StokesConversion.</p>
+<h2 id="returns">Returns</h2>
+<p>None.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StokesConversion():
+    &#34;&#34;&#34;A tool to converte Stokes parameters to linear polarization.
+    &#34;&#34;&#34;
+
+    #--------------------------------------------------------------------------
+    def __init__(self):
+        &#34;&#34;&#34;Create instance of StokesConversion.
+
+        Returns
+        -------
+        None.
+        &#34;&#34;&#34;
+
+        self.stokes_i = None
+        self.stokes_q = None
+        self.stokes_u = None
+        self.stokes_i_err = None
+        self.stokes_q_err = None
+        self.stokes_u_err = None
+        self.pol = None
+        self.pol_sq = None
+        self.pol_mas = None
+        self.pol_err = None
+        self.unc = False
+
+    #--------------------------------------------------------------------------
+    def _set_stokes(self, stokes_q, stokes_u, stokes_i=None):
+        &#34;&#34;&#34;Set the Stokes data for conversion.
+
+        Parameters
+        ----------
+        stokes_q : numpy.ndarray
+            Stokes Q or q=Q/I.
+        stokes_u : numpy.ndarray
+            Stokes U or u=U/I.
+        stokes_i : numpy.ndarray, optional
+            Stokes I. If not provided, stokes_q and stokes_u inputs are
+            interpreted as q=Q/I and u=U/I. The default is None.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.single_val = False
+        self.stokes_i = np.asarray(stokes_i)
+
+        if stokes_i is None:
+            self.stokes_q = np.asarray(stokes_q)
+            self.stokes_u = np.asarray(stokes_u)
+        else:
+            self.stokes_q = np.asarray(stokes_q) / self.stokes_i
+            self.stokes_u = np.asarray(stokes_u) / self.stokes_i
+
+        # make single values arrays of dimension 1:
+        if not self.stokes_q.shape:
+            self.single_val = True
+            self.stokes_q = np.expand_dims(self.stokes_q, 0)
+            self.stokes_u = np.expand_dims(self.stokes_u, 0)
+            if self.stokes_i is not None:
+                self.stokes_i = np.expand_dims(self.stokes_i, 0)
+
+    #--------------------------------------------------------------------------
+    def _ratio_err(self, x, x_err, y, y_err):
+        &#34;&#34;&#34;Calculate the uncertainty of the ratio of two Gaussian distributed
+        quantities.
+
+        Parameters
+        ----------
+        x : numpy.ndarray
+            Numerator quantity of the ratio.
+        x_err : numpy.ndarray
+            Uncertainty of the numerator.
+        y : numpy.ndarray
+            Denominator quantity of the ratio.
+        y_err : numpy.ndarray
+            Uncertainty of the denominator.
+
+        Returns
+        -------
+        numpy.ndarray
+            Uncertainty of the ratio.
+
+        Notes
+        -----
+        The calculation is valid for an uncorrelated noncentral normal ratio.
+        This approach currently does not allow zero values.
+
+        References
+        ----------
+        [1] https://en.wikipedia.org/wiki/Ratio_distribution#Normal_ratio_distributions
+        &#34;&#34;&#34;
+
+        return (x / y)**2 * ((x_err / x)**2 + (y_err / y)**2)
+
+    #--------------------------------------------------------------------------
+    def _set_stokes_err(self, stokes_q_err, stokes_u_err, stokes_i_err=None):
+        &#34;&#34;&#34;Set the Stokes uncertainties.
+
+        Parameters
+        ----------
+        stokes_q_err : numpy.ndarray
+            Uncertainty of Stokes Q or q=Q/I.
+        stokes_u_err : numpy.ndarray
+            Uncertainty of Stokes U or u=U/I.
+        stokes_i_err : numpy.ndarray, optional
+            Uncertainty of Stokes I. If not provided, stokes_q_err and
+            stokes_u_err inputs are interpreted as uncertainties of q=Q/I and
+            u=U/I. The default is None.
+
+        Returns
+        -------
+        None.
+        &#34;&#34;&#34;
+
+        self.unc = True
+        self.stokes_i_err = stokes_i_err
+
+        if stokes_i_err is None:
+            self.stokes_q_err = stokes_q_err
+            self.stokes_u_err = stokes_u_err
+        else:
+            self.stokes_q_err = self._ratio_err(
+                    self.stokes_q, stokes_q_err, self.stokes_i, stokes_i_err)
+            self.stokes_u_err = self._ratio_err(
+                    self.stokes_u, stokes_u_err, self.stokes_i, stokes_i_err)
+
+    #--------------------------------------------------------------------------
+    def _calc_pol_from_stokes(self):
+        &#34;&#34;&#34;Convertes Stokes q and u into linear fractional polarization and
+        angle.
+
+        Returns
+        -----
+        None.
+        &#34;&#34;&#34;
+
+        self.pol_sq = self.stokes_q**2 + self.stokes_u**2
+        self.pol = np.sqrt(self.pol_sq)
+        self.evpa = 0.5 * np.arctan2(self.stokes_u, self.stokes_q)
+
+    #--------------------------------------------------------------------------
+    def _check_pol(self):
+        &#34;&#34;&#34;Check if fractional polarization values exceed 1.
+
+        Raises
+        ------
+        Warning
+            Raise if any values exceed 1.
+
+        Returns
+        -------
+        None.
+        &#34;&#34;&#34;
+
+        # check if any linear polarization values exceed 1 (by more than bit
+        # precision):
+        if np.any(np.logical_and(self.pol &gt; 1., ~np.isclose(self.pol, 1.))):
+            raise Warning(
+                &#34;Some fractional polarization values exceed 1.&#34;)
+
+    #--------------------------------------------------------------------------
+    def _calc_pol_err(self):
+        &#34;&#34;&#34;Calculate the  uncertainty of the fractional polarization.
+
+        Returns
+        -------
+        None.
+
+        Notes
+        -----
+        The estimate is defined in [1] eq. 31. Eq. 31 is valid for uncorrelated
+        uncertainties in Stokes q and u. The correlated case is currently not
+        implemented.
+
+        References
+        ----------
+        [1] Plaszczynski et al, 2014
+            https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+
+        &#34;&#34;&#34;
+
+        norm = self.stokes_q**2 + self.stokes_u**2
+        pol_var = (self.stokes_q**2 * self.stokes_q_err**2 +
+                   self.stokes_u**2 * self.stokes_u_err**2) / norm
+        self.pol_err = np.sqrt(pol_var)
+
+    #--------------------------------------------------------------------------
+    def _calc_pol_mas(self):
+        &#34;&#34;&#34;Calculate the  modified asymptotic (MAS) estimator of the fractional
+        polarization.
+
+        Returns
+        -------
+        None.
+
+        Notes
+        -----
+        The estimate is defined in [1] eq. 37 and 30. Eq. 30 is valid for
+        uncorrelated uncertainties in Stokes q and u. The correlated case is
+        currently not implemented.
+
+        References
+        ----------
+        [1] Plaszczynski et al, 2014
+            https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+
+        &#34;&#34;&#34;
+
+        norm = self.stokes_q**2 + self.stokes_u**2
+        noise_bias_sq = (self.stokes_q**2 * self.stokes_u_err**2 +
+                         self.stokes_u**2 * self.stokes_q_err**2) / norm
+
+        self.pol_mas = self.pol - noise_bias_sq \
+                * (1. - np.exp(-self.pol_sq / noise_bias_sq)) \
+                / (2. * self.pol)
+
+    #--------------------------------------------------------------------------
+    def _evpa_pdf(self, theta, pol_snr):
+        &#34;&#34;&#34;Probability density function of EVPA measurements as defined by [1].
+
+        Parameters
+        ----------
+        theta : float
+            Angle in radians.
+        pol_snr : float
+            Fractional polarization signal-to-noise-ratio.
+
+        Returns
+        -------
+        prob : float
+            Probability density at angle theta.
+
+        References
+        -----
+        [1] Naghizadeh-Khouei &amp; Clarke, 1993
+            https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+        &#34;&#34;&#34;
+
+        const = 1. / sqrt(pi)
+        eta = pol_snr * cos(2. * theta) / sqrt(2.)
+        prob = const * (const + eta * exp(eta**2.) * (1. + erf(eta)))
+        prob = prob * exp(-pol_snr**2. / 2.)
+
+        return prob
+
+    #--------------------------------------------------------------------------
+    def _integrate_pdf(self, evpa, pol_snr):
+        &#34;&#34;&#34;Integration of EVPA PDF from -evpa to evpa.
+
+        Parameters
+        ----------
+        evpa : float
+            Angle in radians.
+        pol_snr : float
+            Fractional polarization signal-to-noise-ratio.
+
+        Returns
+        -------
+        prob : float
+            Integrated probability.
+        &#34;&#34;&#34;
+
+        integ = quad(self._evpa_pdf, -evpa, evpa, args=(pol_snr))
+
+        return integ[0]
+
+    #--------------------------------------------------------------------------
+    def _prob_diff(self, evpa, pol_snr, prob):
+        &#34;&#34;&#34;Calculate probability difference for minimization.
+
+        Parameters
+        ----------
+        evpa : float
+            Angle in radians.
+        pol_snr : float
+            Fractional polarization signal-to-noise-ratio.
+        prob : float
+            Target probability.
+
+        Returns
+        -------
+        float
+            Difference between estimated and target probability.
+        &#34;&#34;&#34;
+
+        return abs(self._integrate_pdf(evpa, pol_snr) - prob)
+
+    #--------------------------------------------------------------------------
+    def _calc_evpa_err(self, sigma=1., approx_snr=20.):
+        &#34;&#34;&#34;Calculate the EVPA uncertainties.
+
+        Parameters
+        ----------
+        sigma : float, optional
+            Define the uncertainty in terms of sigma. The default is 1..
+        approx_snr : float, optional
+            For fractional polarization signal-to-noise-ratios larger than this
+            value the EVPA uncertainty is approximated. The default is 20..
+
+        Returns
+        -------
+        None.
+
+        Notes
+        -----
+        This implements the method of [1].
+
+        References
+        -----
+        [1] Naghizadeh-Khouei &amp; Clarke, 1993
+            https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+        &#34;&#34;&#34;
+
+        prob = dist_norm.cdf(sigma) - dist_norm.cdf(-sigma)
+        pol_snr = self.pol_mas / self.pol_err
+
+        # for high SNR get approximation of EVPA uncertainty:
+        hisnr = pol_snr &gt;= approx_snr
+        self.evpa_err = np.zeros(pol_snr.size, dtype=float)
+        self.evpa_err[hisnr] = 0.5 / pol_snr[hisnr]
+
+        # for low SNR calculate proper uncertainty:
+        low_snr = np.nonzero(~hisnr)[0]
+        for i in low_snr:
+            # minimization:
+            # start value pi/50. = 3.6 deg is just a reasonable guess
+            res = minimize(
+                    self._prob_diff, [pi/50.], args=(pol_snr[i], prob),
+                    method=&#39;Nelder-Mead&#39;, tol=1e-5)
+
+            # catch minimization issues:
+            if not res.success:
+                print(&#39;WARNING: Problem with data point {0:d}&#39;.format(i))
+
+            self.evpa_err[i] = res.x[0]
+
+    #--------------------------------------------------------------------------
+    def _return(self, sigma, unit):
+        &#34;&#34;&#34;Prepare the return tuple.
+
+        Parameters
+        ----------
+        sigma : float
+            Define the uncertainty in terms of sigma.
+        unit : str
+            If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+            are returned in degrees; otherwise in radians.
+
+        Returns
+        -------
+        results : tuple
+            Tuple with the linear polarization properties and (optionally) the
+            corresponding uncertainties.
+        &#34;&#34;&#34;
+
+        # include uncertainty estimates in return tuple:
+        if self.unc:
+            if unit==&#39;deg&#39;:
+                results = (
+                        self.pol, self.pol_mas, self.pol_err*sigma,
+                        np.degrees(self.evpa), np.degrees(self.evpa_err))
+            else:
+                results = (
+                        self.pol, self.pol_mas, self.pol_err*sigma, self.evpa,
+                        self.evpa_err)
+
+        # no uncertainty estimates:
+        else:
+            if unit==&#39;deg&#39;:
+                results = (self.pol, np.degrees(self.evpa))
+            else:
+                results = (self.pol, self.evpa)
+
+        # reduce to single values, if input was single values:
+        if self.single_val:
+            results = tuple([np.squeeze(res) for res in results])
+
+        return results
+
+    #--------------------------------------------------------------------------
+    def convert(
+            self, stokes_q, stokes_u, stokes_i=None, stokes_q_err=None,
+            stokes_u_err=None, stokes_i_err=None, sigma=1., approx_snr=20.,
+            unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+        Parameters
+        ----------
+        stokes_q : numpy.ndarray
+            Stokes Q or q=Q/I.
+        stokes_u : numpy.ndarray
+            Stokes U or u=U/I.
+        stokes_i : numpy.ndarray, optional
+            Stokes I. If not provided, stokes_q and stokes_u inputs are
+            interpreted as q=Q/I and u=U/I. The default is None.
+        stokes_q_err : numpy.ndarray, optional
+            Uncertainty of Stokes Q or q=Q/I. If not provided, uncertainties
+            are not calculated. The default is None.
+        stokes_u_err : numpy.ndarray, optional
+            Uncertainty of Stokes U or u=U/I. If not provided, uncertainties
+            are not calculated. The default is None.
+        stokes_i_err : numpy.ndarray, optional
+            Uncertainty of Stokes I. Only required, if stokes_i, stokes_q_err,
+            and stokes_u_err are given. If not provided, uncertainties
+            are not calculated. The default is None.
+        sigma : float, optional
+            Define the uncertainty in terms of sigma. The default is 1..
+        approx_snr : float, optional
+            For fractional polarization signal-to-noise-ratios larger than this
+            value the EVPA uncertainty is approximated. The default is 20..
+        unit : str, optional
+            If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+            are returned in degrees; otherwise in radians. The default is
+            &#39;rad&#39;.
+
+        Raises
+        ------
+        ValueError
+            If &#39;sigma&#39;, &#39;approx_snr&#39;, or &#39;unit&#39; have invalid inputs.
+
+        Returns
+        -------
+        results : tuple
+            If no uncertainties are given the tuple contains:
+            fractional polarization and EVPA.
+            If uncertainties are given, the tuple contains:
+            fractional polarization, fractional polarization modified
+            asymptotic estimator [1], fractional polarization uncertainty [1],
+            EVPA, EVPA uncertainty [2]. EVPA and EVPA uncertainty are given in
+            degrees or radians, as defined by the &#39;unit&#39; input.
+
+        References
+        -----
+        [1] Plaszczynski et al, 2014
+            https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+        [2] Naghizadeh-Khouei &amp; Clarke, 1993
+            https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+        &#34;&#34;&#34;
+
+        # check and convert inputs:
+        stokes_q = np.asarray(stokes_q, dtype=float)
+        stokes_u = np.asarray(stokes_u, dtype=float)
+        if stokes_i is not None:
+            stokes_i = np.asarray(stokes_i, dtype=float)
+        if stokes_q_err is not None:
+            stokes_q_err = np.asarray(stokes_q_err, dtype=float)
+        if stokes_u_err is not None:
+            stokes_u_err = np.asarray(stokes_u_err, dtype=float)
+        if stokes_i_err is not None:
+            stokes_i_err = np.asarray(stokes_i_err, dtype=float)
+        if type(sigma) not in (float, int) or sigma &lt;= 0:
+            raise ValueError(
+                    &#34;&#39;sigma&#39; needs to be int or float with value larger than &#34;\
+                    &#34; zero.&#34;)
+        if type(approx_snr) not in (float, int) or approx_snr &lt;= 0:
+            raise ValueError(
+                    &#34;&#39;approx_snr&#39; needs to be int or float with value larger &#34;\
+                    &#34;than zero.&#34;)
+        if not unit in (&#39;rad&#39;, &#39;deg&#39;):
+            raise ValueError(&#34;&#39;unit&#39; needs to be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+        # store inputs:
+        self._set_stokes(stokes_q, stokes_u, stokes_i=stokes_i)
+        unc = False
+        if stokes_q_err is not None and stokes_u_err is not None:
+            unc = True
+            self._set_stokes_err(
+                    stokes_q_err, stokes_u_err, stokes_i_err=stokes_i_err)
+
+        # calculate linear polarization properties:
+        self._calc_pol_from_stokes()
+        self._check_pol()
+
+        # calculate uncertainties:
+        if unc:
+            self._calc_pol_err()
+            self._calc_pol_mas()
+            self._calc_evpa_err(sigma=sigma, approx_snr=approx_snr)
+
+        # prepare return tuple:
+        results = self._return(sigma, unit)
+
+        return results</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="stokesconversion.StokesConversion.convert"><code class="name flex">
+<span>def <span class="ident">convert</span></span>(<span>self, stokes_q, stokes_u, stokes_i=None, stokes_q_err=None, stokes_u_err=None, stokes_i_err=None, sigma=1.0, approx_snr=20.0, unit='rad')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Convert Stokes parameters to linear polarization properties.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>stokes_q</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>Stokes Q or q=Q/I.</dd>
+<dt><strong><code>stokes_u</code></strong> :&ensp;<code>numpy.ndarray</code></dt>
+<dd>Stokes U or u=U/I.</dd>
+<dt><strong><code>stokes_i</code></strong> :&ensp;<code>numpy.ndarray</code>, optional</dt>
+<dd>Stokes I. If not provided, stokes_q and stokes_u inputs are
+interpreted as q=Q/I and u=U/I. The default is None.</dd>
+<dt><strong><code>stokes_q_err</code></strong> :&ensp;<code>numpy.ndarray</code>, optional</dt>
+<dd>Uncertainty of Stokes Q or q=Q/I. If not provided, uncertainties
+are not calculated. The default is None.</dd>
+<dt><strong><code>stokes_u_err</code></strong> :&ensp;<code>numpy.ndarray</code>, optional</dt>
+<dd>Uncertainty of Stokes U or u=U/I. If not provided, uncertainties
+are not calculated. The default is None.</dd>
+<dt><strong><code>stokes_i_err</code></strong> :&ensp;<code>numpy.ndarray</code>, optional</dt>
+<dd>Uncertainty of Stokes I. Only required, if stokes_i, stokes_q_err,
+and stokes_u_err are given. If not provided, uncertainties
+are not calculated. The default is None.</dd>
+<dt><strong><code>sigma</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Define the uncertainty in terms of sigma. The default is 1..</dd>
+<dt><strong><code>approx_snr</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>For fractional polarization signal-to-noise-ratios larger than this
+value the EVPA uncertainty is approximated. The default is 20..</dd>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>If 'deg', the polarization angles and corresponding uncertainties
+are returned in degrees; otherwise in radians. The default is
+'rad'.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>If 'sigma', 'approx_snr', or 'unit' have invalid inputs.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>results</code></strong> :&ensp;<code>tuple</code></dt>
+<dd>If no uncertainties are given the tuple contains:
+fractional polarization and EVPA.
+If uncertainties are given, the tuple contains:
+fractional polarization, fractional polarization modified
+asymptotic estimator [1], fractional polarization uncertainty [1],
+EVPA, EVPA uncertainty [2]. EVPA and EVPA uncertainty are given in
+degrees or radians, as defined by the 'unit' input.</dd>
+</dl>
+<h2 id="references">References</h2>
+<p>[1] Plaszczynski et al, 2014
+<a href="https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract">https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract</a>
+[2] Naghizadeh-Khouei &amp; Clarke, 1993
+<a href="https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract">https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert(
+        self, stokes_q, stokes_u, stokes_i=None, stokes_q_err=None,
+        stokes_u_err=None, stokes_i_err=None, sigma=1., approx_snr=20.,
+        unit=&#39;rad&#39;):
+    &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+    Parameters
+    ----------
+    stokes_q : numpy.ndarray
+        Stokes Q or q=Q/I.
+    stokes_u : numpy.ndarray
+        Stokes U or u=U/I.
+    stokes_i : numpy.ndarray, optional
+        Stokes I. If not provided, stokes_q and stokes_u inputs are
+        interpreted as q=Q/I and u=U/I. The default is None.
+    stokes_q_err : numpy.ndarray, optional
+        Uncertainty of Stokes Q or q=Q/I. If not provided, uncertainties
+        are not calculated. The default is None.
+    stokes_u_err : numpy.ndarray, optional
+        Uncertainty of Stokes U or u=U/I. If not provided, uncertainties
+        are not calculated. The default is None.
+    stokes_i_err : numpy.ndarray, optional
+        Uncertainty of Stokes I. Only required, if stokes_i, stokes_q_err,
+        and stokes_u_err are given. If not provided, uncertainties
+        are not calculated. The default is None.
+    sigma : float, optional
+        Define the uncertainty in terms of sigma. The default is 1..
+    approx_snr : float, optional
+        For fractional polarization signal-to-noise-ratios larger than this
+        value the EVPA uncertainty is approximated. The default is 20..
+    unit : str, optional
+        If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+        are returned in degrees; otherwise in radians. The default is
+        &#39;rad&#39;.
+
+    Raises
+    ------
+    ValueError
+        If &#39;sigma&#39;, &#39;approx_snr&#39;, or &#39;unit&#39; have invalid inputs.
+
+    Returns
+    -------
+    results : tuple
+        If no uncertainties are given the tuple contains:
+        fractional polarization and EVPA.
+        If uncertainties are given, the tuple contains:
+        fractional polarization, fractional polarization modified
+        asymptotic estimator [1], fractional polarization uncertainty [1],
+        EVPA, EVPA uncertainty [2]. EVPA and EVPA uncertainty are given in
+        degrees or radians, as defined by the &#39;unit&#39; input.
+
+    References
+    -----
+    [1] Plaszczynski et al, 2014
+        https://ui.adsabs.harvard.edu/abs/2014MNRAS.439.4048P/abstract
+    [2] Naghizadeh-Khouei &amp; Clarke, 1993
+        https://ui.adsabs.harvard.edu/abs/1993A%26A...274..968N/abstract
+    &#34;&#34;&#34;
+
+    # check and convert inputs:
+    stokes_q = np.asarray(stokes_q, dtype=float)
+    stokes_u = np.asarray(stokes_u, dtype=float)
+    if stokes_i is not None:
+        stokes_i = np.asarray(stokes_i, dtype=float)
+    if stokes_q_err is not None:
+        stokes_q_err = np.asarray(stokes_q_err, dtype=float)
+    if stokes_u_err is not None:
+        stokes_u_err = np.asarray(stokes_u_err, dtype=float)
+    if stokes_i_err is not None:
+        stokes_i_err = np.asarray(stokes_i_err, dtype=float)
+    if type(sigma) not in (float, int) or sigma &lt;= 0:
+        raise ValueError(
+                &#34;&#39;sigma&#39; needs to be int or float with value larger than &#34;\
+                &#34; zero.&#34;)
+    if type(approx_snr) not in (float, int) or approx_snr &lt;= 0:
+        raise ValueError(
+                &#34;&#39;approx_snr&#39; needs to be int or float with value larger &#34;\
+                &#34;than zero.&#34;)
+    if not unit in (&#39;rad&#39;, &#39;deg&#39;):
+        raise ValueError(&#34;&#39;unit&#39; needs to be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+    # store inputs:
+    self._set_stokes(stokes_q, stokes_u, stokes_i=stokes_i)
+    unc = False
+    if stokes_q_err is not None and stokes_u_err is not None:
+        unc = True
+        self._set_stokes_err(
+                stokes_q_err, stokes_u_err, stokes_i_err=stokes_i_err)
+
+    # calculate linear polarization properties:
+    self._calc_pol_from_stokes()
+    self._check_pol()
+
+    # calculate uncertainties:
+    if unc:
+        self._calc_pol_err()
+        self._calc_pol_mas()
+        self._calc_evpa_err(sigma=sigma, approx_snr=approx_snr)
+
+    # prepare return tuple:
+    results = self._return(sigma, unit)
+
+    return results</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="stokesconversion.StokesConversionSimple"><code class="flex name class">
+<span>class <span class="ident">StokesConversionSimple</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A tool to converte Stokes parameters to linear polarization and vice
+versa with simple Gaussian error propagation.</p>
+<p>Create instance of StokesConversionSimple.</p>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class StokesConversionSimple():
+    &#34;&#34;&#34;A tool to converte Stokes parameters to linear polarization and vice
+    versa with simple Gaussian error propagation.
+    &#34;&#34;&#34;
+
+    #--------------------------------------------------------------------------
+    def __init__(self):
+        &#34;&#34;&#34;Create instance of StokesConversionSimple.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        pass
+
+    #--------------------------------------------------------------------------
+    def _convert_angle(self, evpa, angle_unit_in, angle_unit_out):
+        &#34;&#34;&#34;Convert angle from radians to degree or vice versa, if needed.
+
+        Parameters
+        ----------
+        evpa : numpy.ndarray
+            Linear polarization angle in radians.
+        angle_unit_in : str
+            Unit of the input angle. Must be &#39;rad&#39; or &#39;deg&#39;.
+        angle_unit_out : str
+            Unit of the output angle. Must be &#39;rad&#39; or &#39;deg&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if angle_unit is not &#39;rad&#39; or &#39;deg&#39;.
+
+        Returns
+        -------
+        evpa : numpy.ndarray
+            The converted EVPA.
+        &#34;&#34;&#34;
+
+        # check input:
+        if angle_unit_in.lower() not in [&#39;rad&#39;, &#39;deg&#39;]:
+            raise ValueError(
+                &#34;`angle_unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+        if angle_unit_out.lower() not in [&#39;rad&#39;, &#39;deg&#39;]:
+            raise ValueError(
+                &#34;`angle_unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+        # convert from radians to degrees:
+        if angle_unit_in == &#39;rad&#39; and angle_unit_out == &#39;deg&#39;:
+            evpa = np.degrees(evpa)
+
+        # convert from radians to degrees:
+        elif angle_unit_in == &#39;deg&#39; and angle_unit_out == &#39;rad&#39;:
+                evpa = np.radians(evpa)
+
+        return evpa
+
+    #--------------------------------------------------------------------------
+    def _set_stokes(self, stokes_q, stokes_u, stokes_q_err, stokes_u_err):
+        &#34;&#34;&#34;Set the Stokes parameters for conversion.
+
+        Parameters
+        ----------
+        stokes_q : array-like
+            Stokes q=Q/I.
+        stokes_u : array-like
+            Stokes u=U/I.
+        stokes_q_err : array-like
+            Stokes q uncertainties.
+        stokes_u_err : array-like
+            Stokes u uncertainties.
+
+        Raises
+        ------
+        ValueError
+            Raised, if uncertainties are given for only one of the two Stokes
+            parameters.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.stokes_q = np.asarray(stokes_q)
+        self.stokes_u = np.asarray(stokes_u)
+
+        if stokes_q_err is None and stokes_q_err is None:
+            self.propagate_err = False
+
+        elif stokes_q_err is not None and stokes_q_err is not None:
+            self.stokes_q_err = np.asarray(stokes_q_err)
+            self.stokes_u_err = np.asarray(stokes_u_err)
+            self.propagate_err = True
+
+        else:
+            raise ValueError(
+                    &#34;Either set uncertainties for both q and u or neither.&#34;)
+
+    #--------------------------------------------------------------------------
+    def _set_pol(self, pol, evpa, pol_err, evpa_err, angle_unit):
+        &#34;&#34;&#34;Set the Stokes parameters for conversion.
+
+        Parameters
+        ----------
+        pol : array-like
+            Linear fractional polarization.
+        evpa : array-like
+            Linear polarization angle in radians or degrees.
+        pol_err : array-like
+            UNcertainties of the linear fractional polarization.
+        evpa_err : array-like
+            Uncertainties of the linear polarization angle in radians or
+            degrees.
+        angle_unit : str
+            Unit of the polarization angle. Must be &#39;rad&#39; of &#39;deg&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if uncertainties are given for only one of the two
+            polarization parameters.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.pol = np.asarray(pol)
+        self.evpa = np.asarray(evpa)
+        self.evpa = self._convert_angle(self.evpa, angle_unit, &#39;rad&#39;)
+        self.evpa = np.mod(self.evpa, np.pi)
+
+        # check polarzation input:
+        if np.any(pol) &gt; 1:
+            raise ValueError(
+                &#34;Fractional linear polarization cannot be larger than 1.&#34;)
+
+        if pol_err is None and evpa_err is None:
+            self.propagate_err = False
+
+        elif pol_err is not None and evpa_err is not None:
+            self.pol_err = np.asarray(pol_err)
+            self.evpa_err = np.asarray(evpa_err)
+            self.propagate_err = True
+
+        else:
+            raise ValueError(
+                    &#34;Either set uncertainties for both pol and evpa or &#34;
+                    &#34;neither.&#34;)
+
+    #--------------------------------------------------------------------------
+    def _stokes_to_pol(self):
+        &#34;&#34;&#34;Convertes Stokes q and u parameters into linear polarization
+        fraction and angle.
+
+        Raises
+        ------
+        ValueError
+            Raised, when the input data results in fractional polarization
+            larger than 1.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.pol = np.sqrt(self.stokes_q**2 + self.stokes_u**2)
+
+        # check that the fractional polarization does not exceed 1:
+        if np.any(self.pol &gt; 1):
+            raise ValueError(
+                    &#34;Some Stokes q and u values result in a fractional &#34;
+                    &#34;polarization larger than 1.&#34;)
+
+        self.evpa = 0.5 * np.arctan2(self.stokes_u, self.stokes_q)
+
+    #--------------------------------------------------------------------------
+    def _stokes_to_pol_err(self):
+        &#34;&#34;&#34;Propagates Stokes uncertainties into linear polarization
+        uncertainties.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        self.pol_err = np.sqrt(
+                (self.stokes_q**2 * self.stokes_q_err**2 \
+                 + self.stokes_u**2 * self.stokes_u_err**2)) \
+                / self.pol
+        self.evpa_err = np.sqrt(
+                self.stokes_q**2 * self.stokes_u_err**2 \
+                + self.stokes_u**2 * self.stokes_q_err**2) / self.pol**2 / 2
+
+    #--------------------------------------------------------------------------
+    def _pol_to_stokes(self):
+        &#34;&#34;&#34;Convertes the linear polarization fraction and angle into Stokes q
+        and u parameters.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        sel = np.logical_and(
+                self.evpa &gt;= np.pi / 4, self.evpa &lt; np.pi * 3 / 4)
+        sign_q = np.where(sel, -1., 1.)
+        sel = self.evpa &gt;= np.pi / 2
+        sign_u = np.where(sel, -1., 1.)
+
+        tanevpa = np.tan(2 * self.evpa)
+        tanevpasq = tanevpa**2
+        self.stokes_q = sign_q * self.pol / np.sqrt(1 + tanevpasq)
+        self.stokes_u = self.pol / np.sqrt(1 / tanevpasq + 1)
+        self.stokes_u = np.copysign(self.stokes_u, sign_u)
+
+    #--------------------------------------------------------------------------
+    def _pol_to_stokes_err(self):
+        &#34;&#34;&#34;Propagates linear polarization uncertainties into Stokes
+        uncertainties.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        qsqusq = self.stokes_q**2 + self.stokes_u**2
+        qqduqd = self.stokes_q**4 - self.stokes_u**4
+        self.stokes_q_err = np.sqrt(
+                qsqusq / qqduqd \
+                * (self.stokes_q**2 * self.pol_err**2 \
+                   - 4 * self.stokes_u**2 * qsqusq * self.evpa_err**2))
+        self.stokes_u_err = np.sqrt(
+                qsqusq /qqduqd \
+                * (4 * self.stokes_q**2 * qsqusq * self.evpa_err**2 \
+                   - self.stokes_u**2 * self.pol_err**2))
+
+    #--------------------------------------------------------------------------
+    def convert_stokes_to_pol(
+            self, stokes_q, stokes_u, stokes_q_err=None, stokes_u_err=None,
+            angle_unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+        Parameters
+        ----------
+        stokes_q : array-like
+            Stokes q=Q/I.
+        stokes_u : array-like
+            Stokes u=U/I.
+        stokes_q_err : array-like, optional
+            Uncertainty of Stokes q. If not provided, uncertainties are not
+            propagated. The default is None.
+        stokes_u_err : array-like, optional
+            Uncertainty of Stokes u. If not provided, uncertainties are not
+            propagated. The default is None.
+        angle_unit : str, optional
+            If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+            are returned in degrees; otherwise in radians. The default is
+            &#39;rad&#39;.
+
+        Returns
+        -------
+        pol : np.ndarray
+            Fractional linear polarization in the range [0, 1].
+        pol_err : np.ndarray
+            Uncertainties of the fractional linear polarization. Only returned,
+            if Stokes uncertainties are provided.
+        evpa : np.ndarray
+            Linear polarization angle in radian or degrees.
+        pol_err : np.ndarray
+            Uncertainties of the linear polarization angle in radians or
+            degrees. Only returned, if Stokes uncertainties are provided.
+
+        Notes
+        -----
+        This method does simple Gaussian error propagation. For a formally
+        correct calculation of the uncertainties it is recommended to use
+        the StokesConversion class instead.
+        &#34;&#34;&#34;
+
+        self._set_stokes(stokes_q, stokes_u, stokes_q_err, stokes_u_err)
+
+        # convert Stokes to polarization parameters:
+        self._stokes_to_pol()
+
+        # error propagation:
+        if self.propagate_err:
+            self._stokes_to_pol_err()
+
+        # convert angle if needed:
+        self.evpa = self._convert_angle(self.evpa, &#39;rad&#39;, angle_unit)
+
+        # return results:
+        if self.propagate_err:
+            return self.pol, self.pol_err, self.evpa, self.evpa_err
+        else:
+            return self.pol, self.evpa
+
+    #--------------------------------------------------------------------------
+    def convert_pol_to_stokes(
+            self, pol, evpa, pol_err=None, evpa_err=None, angle_unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+        Parameters
+        ----------
+        pol : np.ndarray
+            Fractional linear polarization in the range [0, 1].
+        pol_err : np.ndarray
+            Uncertainties of the fractional linear polarization. If not
+            provided, uncertainties are not propagated. The default is None.
+        evpa : np.ndarray
+            Linear polarization angle in radian or degrees.
+        evpa_err : np.ndarray
+            Uncertainties of the linear polarization angle in radians or
+            degrees. If not provided, uncertainties are not propagated. The
+            default is None.
+        angle_unit : str, optional
+            Specify if the polarization angle and corresponding uncertainties
+            are given in &#39;rad&#39; or &#39;deg&#39;. The default is &#39;rad&#39;.
+
+        Returns
+        -------
+        stokes_q : array-like
+            Stokes q=Q/I.
+        stokes_u : array-like
+            Stokes u=U/I.
+        stokes_q_err : array-like, optional
+            Uncertainty of Stokes q. Only returned, if Stokes uncertainties are
+            provided.
+        stokes_u_err : array-like, optional
+            Uncertainty of Stokes u. Only returned, if Stokes uncertainties are
+            provided.
+
+        Notes
+        -----
+        This method does simple Gaussian error propagation. The results may not
+        reflect the true uncertainties.
+        &#34;&#34;&#34;
+
+        self._set_pol(pol, evpa, pol_err, evpa_err, angle_unit)
+
+        # convert Stokes to polarization parameters:
+        self._pol_to_stokes()
+
+        # error propagation:
+        if self.propagate_err:
+            self._pol_to_stokes_err()
+
+        # return results:
+        if self.propagate_err:
+            return (self.stokes_q, self.stokes_q_err, self.stokes_u,
+                    self.stokes_u_err)
+        else:
+            return self.stokes_q, self.stokes_u</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="stokesconversion.StokesConversionSimple.convert_pol_to_stokes"><code class="name flex">
+<span>def <span class="ident">convert_pol_to_stokes</span></span>(<span>self, pol, evpa, pol_err=None, evpa_err=None, angle_unit='rad')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Convert Stokes parameters to linear polarization properties.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>pol</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Fractional linear polarization in the range [0, 1].</dd>
+<dt><strong><code>pol_err</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Uncertainties of the fractional linear polarization. If not
+provided, uncertainties are not propagated. The default is None.</dd>
+<dt><strong><code>evpa</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Linear polarization angle in radian or degrees.</dd>
+<dt><strong><code>evpa_err</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Uncertainties of the linear polarization angle in radians or
+degrees. If not provided, uncertainties are not propagated. The
+default is None.</dd>
+<dt><strong><code>angle_unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Specify if the polarization angle and corresponding uncertainties
+are given in 'rad' or 'deg'. The default is 'rad'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>stokes_q</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>Stokes q=Q/I.</dd>
+<dt><strong><code>stokes_u</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>Stokes u=U/I.</dd>
+<dt><strong><code>stokes_q_err</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Uncertainty of Stokes q. Only returned, if Stokes uncertainties are
+provided.</dd>
+<dt><strong><code>stokes_u_err</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Uncertainty of Stokes u. Only returned, if Stokes uncertainties are
+provided.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>This method does simple Gaussian error propagation. The results may not
+reflect the true uncertainties.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_pol_to_stokes(
+        self, pol, evpa, pol_err=None, evpa_err=None, angle_unit=&#39;rad&#39;):
+    &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+    Parameters
+    ----------
+    pol : np.ndarray
+        Fractional linear polarization in the range [0, 1].
+    pol_err : np.ndarray
+        Uncertainties of the fractional linear polarization. If not
+        provided, uncertainties are not propagated. The default is None.
+    evpa : np.ndarray
+        Linear polarization angle in radian or degrees.
+    evpa_err : np.ndarray
+        Uncertainties of the linear polarization angle in radians or
+        degrees. If not provided, uncertainties are not propagated. The
+        default is None.
+    angle_unit : str, optional
+        Specify if the polarization angle and corresponding uncertainties
+        are given in &#39;rad&#39; or &#39;deg&#39;. The default is &#39;rad&#39;.
+
+    Returns
+    -------
+    stokes_q : array-like
+        Stokes q=Q/I.
+    stokes_u : array-like
+        Stokes u=U/I.
+    stokes_q_err : array-like, optional
+        Uncertainty of Stokes q. Only returned, if Stokes uncertainties are
+        provided.
+    stokes_u_err : array-like, optional
+        Uncertainty of Stokes u. Only returned, if Stokes uncertainties are
+        provided.
+
+    Notes
+    -----
+    This method does simple Gaussian error propagation. The results may not
+    reflect the true uncertainties.
+    &#34;&#34;&#34;
+
+    self._set_pol(pol, evpa, pol_err, evpa_err, angle_unit)
+
+    # convert Stokes to polarization parameters:
+    self._pol_to_stokes()
+
+    # error propagation:
+    if self.propagate_err:
+        self._pol_to_stokes_err()
+
+    # return results:
+    if self.propagate_err:
+        return (self.stokes_q, self.stokes_q_err, self.stokes_u,
+                self.stokes_u_err)
+    else:
+        return self.stokes_q, self.stokes_u</code></pre>
+</details>
+</dd>
+<dt id="stokesconversion.StokesConversionSimple.convert_stokes_to_pol"><code class="name flex">
+<span>def <span class="ident">convert_stokes_to_pol</span></span>(<span>self, stokes_q, stokes_u, stokes_q_err=None, stokes_u_err=None, angle_unit='rad')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Convert Stokes parameters to linear polarization properties.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>stokes_q</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>Stokes q=Q/I.</dd>
+<dt><strong><code>stokes_u</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>Stokes u=U/I.</dd>
+<dt><strong><code>stokes_q_err</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Uncertainty of Stokes q. If not provided, uncertainties are not
+propagated. The default is None.</dd>
+<dt><strong><code>stokes_u_err</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Uncertainty of Stokes u. If not provided, uncertainties are not
+propagated. The default is None.</dd>
+<dt><strong><code>angle_unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>If 'deg', the polarization angles and corresponding uncertainties
+are returned in degrees; otherwise in radians. The default is
+'rad'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>pol</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Fractional linear polarization in the range [0, 1].</dd>
+<dt><strong><code>pol_err</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Uncertainties of the fractional linear polarization. Only returned,
+if Stokes uncertainties are provided.</dd>
+<dt><strong><code>evpa</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Linear polarization angle in radian or degrees.</dd>
+<dt><strong><code>pol_err</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Uncertainties of the linear polarization angle in radians or
+degrees. Only returned, if Stokes uncertainties are provided.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>This method does simple Gaussian error propagation. For a formally
+correct calculation of the uncertainties it is recommended to use
+the StokesConversion class instead.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def convert_stokes_to_pol(
+        self, stokes_q, stokes_u, stokes_q_err=None, stokes_u_err=None,
+        angle_unit=&#39;rad&#39;):
+    &#34;&#34;&#34;Convert Stokes parameters to linear polarization properties.
+
+    Parameters
+    ----------
+    stokes_q : array-like
+        Stokes q=Q/I.
+    stokes_u : array-like
+        Stokes u=U/I.
+    stokes_q_err : array-like, optional
+        Uncertainty of Stokes q. If not provided, uncertainties are not
+        propagated. The default is None.
+    stokes_u_err : array-like, optional
+        Uncertainty of Stokes u. If not provided, uncertainties are not
+        propagated. The default is None.
+    angle_unit : str, optional
+        If &#39;deg&#39;, the polarization angles and corresponding uncertainties
+        are returned in degrees; otherwise in radians. The default is
+        &#39;rad&#39;.
+
+    Returns
+    -------
+    pol : np.ndarray
+        Fractional linear polarization in the range [0, 1].
+    pol_err : np.ndarray
+        Uncertainties of the fractional linear polarization. Only returned,
+        if Stokes uncertainties are provided.
+    evpa : np.ndarray
+        Linear polarization angle in radian or degrees.
+    pol_err : np.ndarray
+        Uncertainties of the linear polarization angle in radians or
+        degrees. Only returned, if Stokes uncertainties are provided.
+
+    Notes
+    -----
+    This method does simple Gaussian error propagation. For a formally
+    correct calculation of the uncertainties it is recommended to use
+    the StokesConversion class instead.
+    &#34;&#34;&#34;
+
+    self._set_stokes(stokes_q, stokes_u, stokes_q_err, stokes_u_err)
+
+    # convert Stokes to polarization parameters:
+    self._stokes_to_pol()
+
+    # error propagation:
+    if self.propagate_err:
+        self._stokes_to_pol_err()
+
+    # convert angle if needed:
+    self.evpa = self._convert_angle(self.evpa, &#39;rad&#39;, angle_unit)
+
+    # return results:
+    if self.propagate_err:
+        return self.pol, self.pol_err, self.evpa, self.evpa_err
+    else:
+        return self.pol, self.evpa</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="stokesconversion.StokesConversion" href="#stokesconversion.StokesConversion">StokesConversion</a></code></h4>
+<ul class="">
+<li><code><a title="stokesconversion.StokesConversion.convert" href="#stokesconversion.StokesConversion.convert">convert</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="stokesconversion.StokesConversionSimple" href="#stokesconversion.StokesConversionSimple">StokesConversionSimple</a></code></h4>
+<ul class="">
+<li><code><a title="stokesconversion.StokesConversionSimple.convert_pol_to_stokes" href="#stokesconversion.StokesConversionSimple.convert_pol_to_stokes">convert_pol_to_stokes</a></code></li>
+<li><code><a title="stokesconversion.StokesConversionSimple.convert_stokes_to_pol" href="#stokesconversion.StokesConversionSimple.convert_stokes_to_pol">convert_stokes_to_pol</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

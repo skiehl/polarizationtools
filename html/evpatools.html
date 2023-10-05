@@ -1,0 +1,3727 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>evpatools API documentation</title>
+<meta name="description" content="Analysis tools for electric vector position angle (EVPA) time-series data." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>evpatools</code></h1>
+</header>
+<section id="section-intro">
+<p>Analysis tools for electric vector position angle (EVPA) time-series data.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Analysis tools for electric vector position angle (EVPA) time-series data.
+&#34;&#34;&#34;
+
+from itertools import groupby
+from operator import itemgetter
+import numpy as np
+
+__author__ = &#34;Sebastian Kiehlmann&#34;
+__credits__ = [&#34;Sebastian Kiehlmann&#34;, &#34;Dmitry Blinov&#34;]
+__license__ = &#34;BSD&#34;
+__maintainer__ = &#34;Sebastian Kiehlmann&#34;
+__email__ = &#34;skiehlmann@mail.de&#34;
+__status__ = &#34;Production&#34;
+
+#==============================================================================
+# CLASSES
+#==============================================================================
+
+class EVPAanalyzer():
+    &#34;&#34;&#34;Analyze EVPA time-series data.&#34;&#34;&#34;
+
+    # -------------------------------------------------------------------------
+    def __init__(self, time=None, evpa=None, evpa_err=None, unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Create instance of EVPAanalyzer.
+
+        Parameters
+        ----------
+        time : array-like
+            Time.
+        evpa : array-like
+            EVPA in radians or degrees.
+        evpa_err : array-like, optional
+            Uncertainties of the EVPA in radians or degrees. The default is
+            None.
+        unit : str, optional
+            Unit of the EVPA and uncertainties. Must be &#39;rad&#39; or &#39;deg&#39;. The
+            default is &#39;rad&#39;.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        if time is None:
+            self.time = None
+            self.evpa = None
+            self.evpa_err = None
+        else:
+            self.set_data(evpa, evpa_err=evpa_err, unit=unit)
+
+        self.evpa_adj = None
+        self.rotation_indices = None
+
+    # -------------------------------------------------------------------------
+    def _data_exists(self, raise_err=False):
+        &#34;&#34;&#34;Check if data is stored.
+
+        Parameters
+        ----------
+        raise_err : bool
+            If True, an error is raised if not data is stored. Otherwise,
+            no error is raised. The default is False.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `raise_err` is True and no data is stored.
+
+        Returns
+        -------
+        exists : bool
+            True, if data is stored. False, otherwise.
+        &#34;&#34;&#34;
+
+        exists = False
+
+        if self.time is None:
+            if raise_err:
+                raise ValueError(
+                    &#34;No data. First use `set_data()` to provide time and EVPA.&#34;
+                    )
+        else:
+            exists = True
+
+        return exists
+
+    # -------------------------------------------------------------------------
+    def _adjusted_data_exists(self, raise_err=False):
+        &#34;&#34;&#34;Check if adjusted EVPA data is stored.
+
+        Parameters
+        ----------
+        raise_err : bool
+            If True, an error is raised if not adjusted data is stored.
+            Otherwise, no error is raised. The default is False.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `raise_err` is True and no adjusted data is stored.
+
+        Returns
+        -------
+        exists : bool
+            True, if adjusted data is stored. False, otherwise.
+        &#34;&#34;&#34;
+
+        exists = False
+
+        if self.evpa_adj is None:
+            if raise_err:
+                raise ValueError(
+                    &#34;Adjusted EVPA data required. First use `adjust()`.&#34;)
+        else:
+            exists = True
+
+        return exists
+
+    # -------------------------------------------------------------------------
+    def _adjust_mcoa(self):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change
+        of the amplitude between adjacent data points as defined e.g. in [1].
+
+        Returns
+        -------
+        evpa_adj : np.ndarray
+            The adjusted EVPA data.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2021
+            https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+        &#34;&#34;&#34;
+
+        # calculate difference:
+        evpa_diff = np.r_[0, np.diff(self.evpa)]
+
+        # determine offsets:
+        sel = np.absolute(evpa_diff) &gt; np.pi / 2
+        offset = np.where(sel, evpa_diff / np.pi, 0)
+        offset = np.round(offset, 0) * np.pi
+        offset = np.cumsum(offset)
+
+        # apply offset:
+        evpa_adj = self.evpa - offset
+
+        return evpa_adj
+
+    # -------------------------------------------------------------------------
+    def _adjust_mcor(self):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change
+        of the rate between adjacent data points as defined in [1].
+
+        Returns
+        -------
+        evpa_adj : np.ndarray
+            The adjusted EVPA data.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2021
+            https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+        &#34;&#34;&#34;
+
+        # TODO: Get this from my RoboPol 2021 paper code.
+        raise NotImplementedError()
+
+    # -------------------------------------------------------------------------
+    def _adjust_mcoa_multi(self, n):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change of
+        the amplitude between each data point, concidering a given number of
+        preceeding data points, as defined in [1] and [2].
+
+        Parameters
+        ----------
+        n : int
+            Number of reference points considered in the data shifting
+            decision. If only one reference point is chosen this method
+            calls _adjust_mcoa().
+
+        Returns
+        -------
+        evpa_adj : np.ndarray
+            The adjusted EVPA data.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        # check input:
+        if not isinstance(n, int) or n &lt; 1:
+            raise ValueError(&#34;`n` must be integer equal to or larger than 1.&#34;)
+
+        if n == 1:
+            return self._adjust_mcoa()
+
+        evpa_adj = np.array(self.evpa)
+
+        # iterate through data points:
+        for j in range(1, self.evpa.size):
+            # get reference points:
+            i = j - n
+            i = i if i &gt; 0 else 0
+            evpa_ref = evpa_adj[i:j]
+
+            # calculate difference and apply offset:
+            evpa_diff = evpa_adj[j] - np.median(evpa_ref)
+            offset = np.round(evpa_diff / np.pi, 0) * np.pi
+            evpa_adj[j] -= offset
+
+        return evpa_adj
+
+    # -------------------------------------------------------------------------
+    def _identify_rot_smooth(
+            self, sel=None, threshold_abs=None, threshold_factor=None,
+            error_propagation=False):
+        &#34;&#34;&#34;Finds continuous parts of smooth variation in the EVPA time series,
+        based on [1].
+
+        Parameters
+        ----------
+        sel : np.ndarray, optional
+            Indices to a subsection of data. If given, the identification runs
+            only over this subsection of the data. The default is None.
+        threshold_abs : float, optional
+            Threshold of the absolute change in the rotation rate given in the
+            unit of the EVPA input over the unit of the time input. For details
+            see notes below. This argument overwrites `threshold_factor`. The
+            default is None.
+        threshold_factor : string, optional
+            Threshold of the relative change in the rotation rate given as a
+            unitless factor. For details see notes below. This argument is
+            overwritten by `threshold_factor`. The default is None.
+        error_propagation: bool, optional
+            If True, the difference of the derivatives is reduced by the
+            propagated errors. Note: EVPA errors are only considered, when
+            `threshold_abs` is set. For `threshold_factor` this functionality
+            is not implemented yet. The default is False.
+
+        Raises
+        ------
+        ValueError
+            Raised if `threshold_abs` is not larger than 1.
+        ValueError
+            Raised if `threshold_factor` is not larger than 0.
+        ValueError
+            Raised if neither `threshold_abs` nor `threshold_factor` is given.
+
+        Returns
+        -------
+        indices : list of np.ndarrays
+            Each element provides the indices to the data points that are part
+            of an identified rotation.
+
+        Notes
+        -----
+        Let the threshold be f and the previous derivative of &#39;evpa&#39; is X1 and
+        the current derivative is X2. The transition from X1 to X2 is
+        considered smooth if X2 is in the following range:
+        If `threshold_abs` is given: X2 in [X1-f, X2+f].
+        If `threshold_factor` is given: X2 in [1/f*X1, f*X1].
+
+        If `threshold_factor` is used this method implements the definition of
+        an EVPA rotation as introduced by [1].
+
+        References
+        ----------
+        [1] Blinov et al, 2015
+            https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract
+        &#34;&#34;&#34;
+
+        # check inputs:
+        if threshold_abs is not None:
+            if threshold_abs &lt;= 0:
+                raise ValueError(
+                        &#34;`threshold_abs` must be float larger than 0.&#34;)
+
+            if self.unit == &#39;deg&#39;:
+                threshold_abs = np.radians(threshold_abs)
+
+        elif threshold_factor is not None:
+            if threshold_factor &lt;= 0:
+                raise ValueError(
+                        &#34;`threshold_factor` must be float larger than 0.&#34;)
+
+        else:
+            raise ValueError(
+                    &#34;Either `threshold_abs` or `threshold_factor` must be set.&#34;
+                    )
+
+        if error_propagation:
+            if self.evpa_err is None:
+                print(&#34;WARNING: No EVPA uncertainties stored. Errors are not &#34;\
+                      &#34;propagated.&#34;)
+                error_propagation = False
+
+            elif threshold_abs is None and threshold_factor is not None:
+                raise NotImplementedError(
+                        &#34;Error propagation in combination with &#34;\
+                        &#34;`threshold_factor` is not implemented yet.&#34;)
+                # TODO: implement
+
+        # get data:
+        sel = np.arange(self.time.size) if sel is None else sel
+        time = self.time[sel]
+        evpa = self.evpa_adj[sel]
+
+        if self.evpa_err is not None:
+            evpa_err = self.evpa_err[sel]
+
+        # identify rotations:
+        dtime = np.diff(time)
+        rate = np.diff(evpa) / dtime
+
+        if threshold_abs:
+            print(&#39;WARNING: `threshold_abs` seems to be flawed.&#39;)
+            # TODO: bug fix
+            drate = np.diff(rate)
+
+            if error_propagation:
+                rate_err = np.sqrt(
+                        evpa_err[:-1]**2 + evpa_err[1:]**2) / dtime
+                drate_err = np.sqrt(rate_err[:-1]**2 + rate_err[1:]**2)
+                drate_red = np.abs(drate) - drate_err
+                smooth = drate_red &lt;= threshold_abs
+
+            else:
+                smooth = np.abs(drate) &lt;= threshold_abs
+
+        elif threshold_factor:
+            smooth1 = np.logical_and(rate[1:] &gt;= rate[:-1] / threshold_factor,
+                                     rate[1:] &lt;= rate[:-1] * threshold_factor)
+            smooth2 = np.logical_and(rate[1:] &lt;= rate[:-1] / threshold_factor,
+                                     rate[1:] &gt;= rate[:-1] * threshold_factor)
+            smooth = np.where(rate[1:] &gt; 0, smooth1, smooth2)
+
+        # find ranges of continuous rotations:
+        indices = []
+
+        for k, g in groupby(
+                    enumerate(np.nonzero(smooth)[0]), lambda x:x[0]-x[1]):
+            group = list(map(itemgetter(1), g))
+            indices.append(np.arange(group[0], group[-1]+3))
+
+        return indices
+
+    # -------------------------------------------------------------------------
+    def _identify_rot_cont(self, sel=None, significance_level=1, verbose=0):
+        &#34;&#34;&#34;Identifies periods of unidirectional variability in the EVPA time
+        series, as defined in [1] and [2].
+
+        Parameters
+        ----------
+        sel : np.ndarray, optional
+            Indices to a subsection of data. If given, the identification runs
+            only over this subsection of the data. The default is None.
+        significance_level : float, optional
+            Factor by which the uncertainties are increased when calculating
+            if a value change is significant. The default is 1.
+        verbose : int, optional
+            If 2 step-wise information is printed.
+
+        Raises
+        ------
+        ValueError
+            Raised if `significance_level` is smaller than 1.
+
+        Returns
+        -------
+        indices : list of np.ndarrays
+            Each element provides the indices to the data points that are part
+            of an identified rotation.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        # check input:
+        if significance_level &lt; 1:
+            raise ValueError(
+                    &#34;`significance_level` must be equal to or larger than 1.&#34;)
+
+        # get data:
+        sel = np.arange(self.time.size) if sel is None else sel
+        evpa = self.evpa_adj[sel]
+
+        if self.evpa_err is None:
+            evpa_err = np.zeros(evpa.size)
+        else:
+            evpa_err = self.evpa_err[sel]
+
+        # create storage for rotation indices (start, stop) and amplitudes:
+        indices = [[0,2]]
+        amplitudes = []
+
+        # first rotation amplitude:
+        current_amplitude = evpa[1] - evpa[0]
+
+        # first rotation significance, True if rotation amplitude larger than
+        # root summed squared errors time significance level:
+        current_sign = abs(current_amplitude) &gt; significance_level \
+                * np.sqrt(evpa_err[0]**2 + evpa_err[1]**2)
+
+        if verbose &gt; 1:
+            print(&#39;\nPoint-wise results of the rotation identification.\n&#39;\
+                  &#39;Note: Data point numbering starts with 0.\n&#39;)
+            if current_sign:
+                print(&#39;Data point     1        : First rotation significant.&#39;)
+            else:
+                print(&#39;Data point     1        : First rotation insignificant.&#39;
+                      )
+
+        # iterate through data:
+        for i in range(2, evpa.size):
+
+            # get amplitude and significance of next rotation:
+            new_amplitude = evpa[i] - evpa[i-1]
+            new_sign = abs(new_amplitude) &gt; significance_level \
+                    * np.sqrt(evpa_err[i-1]**2 + evpa_err[i]**2)
+
+            # State 1: YY+
+            # current: significant, new: significant, rotation: continued
+            if current_sign and new_sign \
+                    and current_amplitude * new_amplitude &gt;= 0:
+                indices[-1][1] = i + 1
+                current_amplitude = evpa[i] - evpa[indices[-1][0]]
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YY+    : &#39;\
+                          &#39;Continued significant rotation.&#39;)
+
+            # State 2: YY-
+            # current: significant, new: significant, rotation: changed
+            elif current_sign and new_sign:
+                indices.append([i-1, i+1])
+                amplitudes.append(current_amplitude)
+                current_amplitude = new_amplitude
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YY-    : &#39;\
+                          &#39;Changed significant rotation.&#39;)
+
+            # State 3: YN+
+            # current: significant, new: insignificant, rotation: continued
+            elif current_sign and not new_sign and \
+                    current_amplitude * new_amplitude &gt;= 0:
+                indices[-1][1] = i + 1
+                current_amplitude = evpa[i] - evpa[indices[-1][0]]
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YN+    : &#39;\
+                          &#39;Significant rotation continued insignificantly.&#39;)
+
+            # State 4: YN-
+            # current: significant, new: insignificant, rotation: changed
+            elif current_sign and not new_sign:
+                indices.append([i-1, i+1])
+                amplitudes.append(current_amplitude)
+                current_amplitude = new_amplitude
+                current_sign = False
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YN-    : &#39;\
+                          &#39;Significant rotation followed by insignificant &#39;\
+                          &#39;rotation.&#39;)
+
+            # State 5,6,7,8 NN
+            # current: insignificant, new: insignificant
+            elif not current_sign and not new_sign:
+
+                indices[-1][1] = i+1
+                temp = evpa[indices[-1][0]:indices[-1][1]]
+                temp_err = evpa_err[indices[-1][0]:indices[-1][1]]
+
+                # check all combinations of temporary data points with current
+                # one for significant rotations - the largest difference might
+                # not be significant if one data point has a large error:
+                for j in range(temp.size-1):
+                    current_amplitude = evpa[i] - temp[j]
+                    if abs(current_amplitude) &gt; significance_level \
+                            * np.sqrt(evpa_err[i]**2 + temp_err[j]**2):
+                        current_sign = True
+                        break
+
+                # Note: if a significant rotation is found current_sign is
+                # True, current_amplitude reflects the sign of the rotation
+
+                # State 5: NNN
+                # insignificant rotation staying insignificant
+                if not current_sign:
+                    # there is nothing more happening here and that is correct.
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNN    : &#39;\
+                              &#39;Insignificant rotations stays insignificant.&#39;)
+
+                # State 6: NNYn/a first significant rotation
+                # insignificant rotation becoming significant for the first
+                # time
+                elif len(amplitudes) == 0:
+
+                    if current_amplitude &gt;= 0:
+                        j = np.argmin(temp)
+                    else:
+                        j = np.argmax(temp)
+
+                    indices[-1][0] = j
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNYn/a : &#39;\
+                              &#39;Insignificant rotations becoming significant &#39;\
+                              &#39;for the first time.&#39;)
+
+                # State 7: NNY+
+                # insignificant rotation becoming significant, continuing
+                elif current_amplitude *amplitudes[-1] &gt;= 0:
+                    del amplitudes[-1], indices[-1]
+                    indices[-1][1] = i + 1
+                    current_amplitude = evpa[i] - evpa[indices[-1][0]]
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNY+   : &#39;\
+                              &#39;Insignificant rotations becoming significant, &#39;\
+                              &#39;continuing former rotation.&#39;)
+
+                # State 8: NNY-
+                # insignificant rotation becoming significant, changing
+                else:
+                    if current_amplitude &gt; 0:
+                        indices[-1][0] += np.argmin(temp)
+                        indices[-2][1] = indices[-1][0] + 1
+                    else:
+                        indices[-1][0] += np.argmax(temp)
+                        indices[-2][1] = indices[-1][0] + 1
+                    indices[-1][1] = i+1
+                    amplitudes[-1] = \
+                        evpa[indices[-2][0]] - evpa[indices[-2][1]-1]
+                    current_sign = True
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNY-   : &#39;\
+                              &#39;Insignificant rotations becoming significant, &#39;\
+                              &#39;opposite to former rotation.&#39;)
+
+            # State 9,10,11 NY
+            # current: insignificant, new: significant
+            else:
+                # State 9 NYn/a first time
+                # first time significant
+                if len(amplitudes) == 0:
+                    if new_amplitude &gt; 0:
+                        indices[-1] = [np.argmin(evpa[:i]), i+1]
+                    else:
+                        indices[-1] = [np.argmax(evpa[:i]), i+1]
+
+                    current_sign = True
+                    current_amplitude = \
+                            evpa[indices[-1][-1]-1] - evpa[indices[-1][0]]
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NYn/a  : &#39;\
+                              &#39;First significant rotation.&#39;)
+
+                # State 10 NY++/--
+                # current: insignificant, new: significant, continues former
+                elif (new_amplitude * amplitudes[-1] &gt; 0):
+                    del indices[-1], amplitudes[-1]
+                    indices[-1][1] = i+1
+                    current_amplitude = evpa[i] - evpa[indices[-1][0]]
+                    current_sign = True
+
+                    if verbose &gt; 1:
+                        print(&#39;Data point {i:5d} NY++/--: &#39;\
+                              &#39;Insignificant rotation followed by &#39;\
+                              &#39;significant rotation, continuing former one.&#39;)
+
+                # State 11 NY+-/-+
+                # current: insignificant, new: significant, opposite to former
+                else:
+                    temp = evpa[indices[-1][0]:i+1]
+                    if new_amplitude &gt; 0:
+                        indices[-2][1] += np.argmin(temp)
+                    else:
+                        indices[-2][1] += np.argmax(temp)
+                    indices[-1] = [indices[-2][1]-1, i+1]
+                    amplitudes[-1] = \
+                            evpa[indices[-2][1]-1] - evpa[indices[-2][0]]
+                    current_amplitude = evpa[i] - evpa[indices[-1][0]]
+                    current_sign = True
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NY+-/-+: &#39;\
+                              &#39;Insignificant rotation followed by &#39;\
+                              &#39;significant rotation, opposite to former one.&#39;)
+
+        # assess last data point/interval
+        else:
+            if current_sign:
+                amplitudes.append(current_amplitude)
+            elif len(amplitudes):
+                del indices[-1]
+                temp = evpa[indices[-1][1]-1:]
+                if amplitudes[-1] &gt; 0:
+                    indices[-1][1] += np.argmax(temp)
+                    amplitudes[-1] = \
+                            evpa[indices[-1][1]-1] - evpa[indices[-1][0]]
+                else:
+                    indices[-1][1] += np.argmin(temp)
+                    amplitudes[-1] = \
+                            evpa[indices[-1][1]-1] - evpa[indices[-1][0]]
+            else:
+                del indices[-1]
+
+        for i, (start, stop) in enumerate(indices):
+            indices[i] = np.arange(start, stop)
+
+        return indices
+
+    #--------------------------------------------------------------------------
+    def _split_data(self, gap):
+        &#34;&#34;&#34;Split the data at large time gaps.
+
+        Parameters
+        ----------
+        gap : float
+            Gap length threshold in the same unit as the input time data. The
+            data is split when the time interval between data points exceeds
+            this value.
+
+        Returns
+        -----
+        out : list of np.ndarray
+            Each element provides the indices to a split data set.
+        &#34;&#34;&#34;
+
+        if len(self.time) &lt; 2:
+            return []
+
+        # identify large gaps:
+        split = np.r_[
+                0, np.nonzero(np.diff(self.time)&gt;gap)[0] + 1, self.time.size]
+        indices = []
+
+        # prepare list of indices to the split data sets:
+        for start, stop in zip(split[:-1], split[1:]):
+            indices.append(np.arange(start, stop))
+
+        return indices
+
+    # -------------------------------------------------------------------------
+    def set_data(self, time, evpa, evpa_err=None, unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Create instance of EVPAanalyzer.
+
+        Parameters
+        ----------
+        time : array-like
+            Time.
+        evpa : array-like
+            EVPA in radians or degrees.
+        evpa_err : array-like, optional
+            Uncertainties of the EVPA in radians or degrees. The default is
+            None.
+        unit : str, optional
+            Unit of the EVPA and uncertainties. Must be &#39;rad&#39; or &#39;deg&#39;. The
+            default is &#39;rad&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `unit` is not &#39;rad&#39; or &#39;deg&#39;.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        # convert inputs to arrays, if needed:
+        time = np.asarray(time)
+        evpa = np.asarray(evpa)
+
+        if evpa_err is not None:
+            evpa_err = np.asarray(evpa_err)
+
+        # convert to radians if necessary:
+        if unit == &#39;rad&#39;:
+            self.unit = &#39;rad&#39;
+
+        elif unit == &#39;deg&#39;:
+            self.unit = &#39;deg&#39;
+            evpa = np.radians(evpa)
+
+            if evpa_err is not None:
+                evpa_err = np.radians(evpa_err)
+
+        else:
+            raise ValueError(&#34;`unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+        # save as attributes:
+        self.time = time
+        self.evpa = evpa
+        self.evpa_err = evpa_err
+
+        # normalize EVPA:
+        self.normalize()
+
+        # sort by time:
+        i = np.argsort(time)
+        self.time = self.time[i]
+        self.evpa = self.evpa[i]
+
+        if self.evpa_err is not None:
+            self.evpa_err = self.evpa_err[i]
+
+    # -------------------------------------------------------------------------
+    def normalize(self, lower_limit=0.):
+        &#34;&#34;&#34;Shifts all EVPA data points into a 180 degrees interval.
+
+        Parameters
+        ----------
+        lower_limit : float, default=0
+            Sets the lower limit of the EVPA interval.
+
+        Returns
+        -----
+        None
+        &#34;&#34;&#34;
+
+        self._data_exists(raise_err=True)
+
+        self.evpa -= np.floor(self.evpa / np.pi) * np.pi
+
+        if lower_limit:
+            sel = self.evpa &gt;= lower_limit % np.pi
+            self.evpa = np.where(sel, self.evpa - np.pi, self.evpa)
+            self.evpa += (np.floor(lower_limit / np.pi) + 1) * np.pi
+
+    # -------------------------------------------------------------------------
+    def adjust(self, n=1, method=&#39;mcoa&#39;):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change of
+        the amplitude or rate between each data point, concidering a given
+        number of preceeding data points, as defined e.g. in [1-3].
+
+        Parameters
+        ----------
+        n : int, optional
+            The number of reference points for the adjustment. The default is
+            1.
+        method : str, optional
+            Selects the method of adjustment. Must me &#39;mcoa&#39; or &#39;mcor&#39;. The
+            default is &#39;mcoa&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raise, if `method` is not &#39;mcoa&#39; or &#39;mcor&#39;.
+
+        Returns
+        -------
+        None
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        [3] Kiehlmann et al, 2021
+            https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+        &#34;&#34;&#34;
+
+        self._data_exists(raise_err=True)
+
+        if method.lower() ==  &#39;mcoa&#39;:
+            self.adjustment = f&#39;MCoA-{n}&#39;
+            self.evpa_adj = self._adjust_mcoa_multi(n)
+
+        elif method.lower() == &#39;mcor&#39;:
+            if n &gt; 1:
+                print(&#39;WARNING: Multiple reference points are not implemented&#39;\
+                      &#39; for the MCoR method. Proceeding with one reference &#39;\
+                      &#39;point.&#39;)
+
+            self.adjustment = &#39;MCoR&#39;
+            self.evpa_adj = self._adjust_mcor()
+
+        else:
+            raise ValueError(&#34;`method` must be &#39;mcoa&#39; or &#39;mcor&#39;.&#34;)
+
+    # -------------------------------------------------------------------------
+    def consistency(self, n_max=10, method=&#39;mcoa&#39;):
+        &#34;&#34;&#34;Checks the consistency between adjusted EVPA curves using an
+        increasing number of reference points, as defined in [1] and [2].
+
+        Parameters
+        ----------
+        n_max : int, optional
+            Maximum number of reference points up to which the consistency is
+            checked. The default is 10.
+        method : str, optional
+            Selects the method of adjustment. Must me &#39;mcoa&#39; or &#39;mcor&#39;. The
+            default is &#39;mcoa&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raise, if `method` is not &#39;mcoa&#39; or &#39;mcor&#39;.
+
+        Returns
+        -------
+        n_consistent : int
+            Highest number of reference points which gives adjustment results
+            consistent with fewer reference points.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        self._data_exists(raise_err=True)
+
+        # check for infinite consistency: if all data points are within a pi/2
+        # interval, no data points will be shifted, thus the shifting
+        # consistency is infinate:
+        if np.max(self.evpa) - np.min(self.evpa) &lt;= np.pi / 2:
+            return np.inf
+
+        # set largest number of reference points:
+        n_max = self.evpa.size - 1 if self.evpa.size &lt;= n_max else n_max
+
+        # adjust EVPA and check consistency:
+        n_consistent = 1
+        evpa_ref = self._adjust_mcoa()
+
+        for n in range(2, n_max+1):
+            if method.lower() == &#39;mcoa&#39;:
+                evpa_adj = self._adjust_mcoa_multi(n=n)
+            elif method.lower() == &#39;mcor&#39;:
+                raise NotImplementedError()
+            else:
+                raise ValueError(&#34;`method` must be &#39;mcoa&#39; or &#39;mcor&#39;.&#34;)
+
+            if np.allclose(evpa_ref, evpa_adj):
+                n_consistent = n
+            else:
+                break
+
+        return n_consistent
+
+    #--------------------------------------------------------------------------
+    def variation_estimator(self, sel=None, return_rates=False):
+        &#34;&#34;&#34;Calculates the variation estimator of an EVPA curve.
+        The variation estimator is the average absolute offset of the
+        point-wise derivative from the average derivative of the curve, as
+        defined in [1] and [2].
+
+        Parameters
+        ----------
+        sel : np.ndarray, optional
+            Indices to a subsection of data. If given, the estimation runs
+            only over this subsection of the data. The default is None.
+        return_rates : bool, optional
+            If True, the pairwise rotation rates are returned. Otherwise, not.
+            The default is False.
+
+        Returns
+        -----
+        variation : float, float
+            Variation estimator.
+        tendency : float
+            Estimate of the secular trend of the EVPA curve.
+        rates : np.ndarray, optional
+            The pairwise derivatives of the EVPA curve. Only returned, if
+            `return_rates=True`.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        # get data:
+        sel = np.arange(self.time.size) if sel is None else sel
+        evpa = self.evpa_adj[sel]
+        time = self.time[sel]
+
+        # differences:
+        devpa = np.diff(evpa)
+        dtime = np.diff(time)
+
+        # relative point-to-point variation:
+        rates = devpa / dtime
+
+        # tendency and variation estimator:
+        tendency = np.mean(rates)
+        variation = np.mean(np.absolute(rates - tendency))
+
+        if return_rates:
+            rates = np.r_[0, rates]
+            return variation, tendency, rates
+        else:
+            return variation, tendency
+
+    # -------------------------------------------------------------------------
+    def identify_rotations(self, method, time_gap=None, verbose=0, **kwargs):
+        &#34;&#34;&#34;Identify rotations in the stored data.
+        One may chose from two different definitions of a rotation: &#39;smooth&#39; as
+        introduced by [1] or &#39;continuous&#39; by [2] and [3].
+
+        Parameters
+        ----------
+        method : str
+            Select either &#39;smooth&#39; or &#39;continuous&#39;.
+        time_gap : float or None, optional
+            If set, the data is split at time gaps larger than this threshold.
+            Rotations will not include these large gaps. The default is None.
+        verbose : int, optional
+            If 1, returns some basic information about the identification. If
+            2, provides details in case that `method=&#39;continuous&#39;`. Set to 0 to
+            turn off any notifications. The default is 0.
+        **kwargs :
+            Arguments forwarded to the smooth or continuous rotation
+            identification methods. See details below.
+
+        Keyword arguments for the smooth rotation identification
+        --------------------------------------------------------
+        threshold_abs : float, optional
+            Threshold of the absolute change in the rotation rate given in the
+            unit of the EVPA input over the unit of the time input. For details
+            see notes below. This argument overwrites `threshold_factor`. The
+            default is None.
+        threshold_factor : string, optional
+            Threshold of the relative change in the rotation rate given as a
+            unitless factor. For details see notes below. This argument is
+            overwritten by `threshold_factor`. The default is None.
+        error_propagation: bool, optional
+            If True, the difference of the derivatives is reduced by the
+            propagated errors. Note: EVPA errors are only considered, when
+            `threshold_abs` is set. For `threshold_factor` this functionality
+            is not implemented yet. The default is False.
+
+        Keyword arguments for the continuous rotation identification
+        ------------------------------------------------------------
+        significance_level : float, optional
+            Factor by which the uncertainties are increased when calculating
+            if a value change is significant. The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `time_gap` is neither float nor int or is equal to or
+            smaller than 0.
+        ValueError
+            Raised, if `method` is neither &#39;smooth&#39; nor &#39;continuous&#39;.
+
+        Returns
+        -------
+        None
+
+        Notes
+        -----
+        If `method=&#39;smooth&#39;`:
+            Either `threshold_abs` or `threshold_factor` must be set.
+            Let the threshold be f and the previous derivative of &#39;evpa&#39; is X1
+            and the current derivative is X2. The transition from X1 to X2 is
+            considered smooth if X2 is in the following range:
+            If `threshold_abs` is given: X2 in [X1-f, X2+f].
+            If `threshold_factor` is given: X2 in [1/f*X1, f*X1].
+
+            If `threshold_factor` is used this method implements the definition
+            of an EVPA rotation as introduced by [1].
+        If `method=&#39;continuous&#39;`:
+            This method implements the algorithm introduced by [2] and [3].
+
+        References
+        ----------
+        [1] Blinov et al, 2015
+            https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract
+        [2] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [3] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        if verbose &gt; 0:
+            print(f&#39;Identify {method} rotations..&#39;)
+
+        # check that data exists:
+        self._adjusted_data_exists(raise_err=True)
+
+        # split data, if needed:
+        if time_gap is None:
+            split_indices = [np.arange(0, self.evpa.size)]
+
+        else:
+            if type(time_gap) not in [float, int] or time_gap &lt;= 0:
+                raise ValueError(&#34;`time_gap` must be larger than 0.&#34;)
+
+            split_indices = self._split_data(time_gap)
+            n_split = len(split_indices)
+
+            if verbose &gt; 0 and n_split &gt; 1:
+                print(f&#39;Iterating through {n_split} split data sub-sets..&#39;)
+
+        rotation_indices = []
+
+        # identify smooth rotations:
+        if method.lower() == &#39;smooth&#39;:
+            self.rot_method = &#39;smooth&#39;
+
+            # iterate through split data sets:
+            for sel in split_indices:
+                if sel.size &lt; 2:
+                    continue
+
+                temp_indices = self._identify_rot_smooth(sel=sel, **kwargs)
+
+                for ind in temp_indices:
+                    rotation_indices.append(ind + sel[0])
+
+        # or identify continuous rotations:
+        elif method.lower() == &#39;continuous&#39;:
+            self.rot_method = &#39;continuous&#39;
+
+            # iterate through split data sets:
+            for sel in split_indices:
+                if sel.size &lt; 2:
+                    continue
+
+                temp_indices = self._identify_rot_cont(
+                        sel=sel, verbose=verbose, **kwargs)
+
+                for ind in temp_indices:
+                    rotation_indices.append(ind + sel[0])
+
+        # otherwise, raise error:
+        else:
+            raise ValueError(&#34;`method` must be &#39;smooth&#39; or &#39;continuous&#39;.&#34;)
+
+        self.rotation_indices = rotation_indices
+        n_rot = len(rotation_indices)
+
+        if verbose &gt; 0:
+            print(f&#39;{n_rot} rotations identified.&#39;)
+
+    # -------------------------------------------------------------------------
+    def get_data(self, unit=&#39;default&#39;):
+        &#34;&#34;&#34;Returns the saved data.
+
+        Parameters
+        ----------
+        unit : str, optional
+            The unit of the EVPA. If &#39;default&#39;, the EVPAs are returned in the
+            same unit as they were put in. Otherwise, the unit must be &#39;rad&#39; or
+            &#39;deg&#39;. The default is &#39;default&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `unit` is not &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.
+
+        Returns
+        -------
+        data : dict
+            Contains the time and the normalized EVPA. The adjusted EVPA and
+            uncertainties are included if they exist.
+        &#34;&#34;&#34;
+
+        unit = self.unit if unit == &#39;default&#39; else unit
+        data = {&#39;time&#39;: self.time}
+
+        if unit == &#39;rad&#39;:
+            data[&#39;evpa&#39;] = self.evpa
+
+            if self._adjusted_data_exists():
+                data[&#39;evpa_adj&#39;] = self.evpa_adj
+
+            if self.evpa_err is not None:
+                data[&#39;evpa_err&#39;] = self.evpa_err
+
+        elif unit == &#39;deg&#39;:
+            data[&#39;evpa&#39;] = np.degrees(self.evpa)
+
+            if self._adjusted_data_exists():
+                data[&#39;evpa_adj&#39;] = np.degrees(self.evpa_adj)
+
+            if self.evpa_err is not None:
+                data[&#39;evpa_err&#39;] = np.degrees(self.evpa_err)
+
+        else:
+            raise ValueError(&#34;`unit` must be &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.&#34;)
+
+        return data
+
+    # -------------------------------------------------------------------------
+    def get_rotations(
+            self, stats=True, indices=False, data=False, amplitude_cut=0,
+            number_cut=2, significance=None, significance_level=1,
+            unit=&#39;default&#39;, verbose=1):
+        &#34;&#34;&#34;Get the identified rotations: statistics, indices, and/or data.
+
+        Parameters
+        ----------
+        stats : bool, optional
+            If True, return rotation statistics: the amplitudes, durations,
+            rates, and the variation estimator are returned. The default is
+            True.
+        indices : bool optional
+            If True, return the indices to the rotations in the data. The
+            default is False.
+        data : bool, optional
+            If True, return the data for all rotations. The default is False.
+        amplitude_cut : float, optional
+            Only rotations with amplitudes larger than this threshold are
+            returned. The cut must be given in the same unit as the input data,
+            if `unit=&#39;default&#39;` or the unit must be specified via setting
+            `unit` to &#39;rad&#39; or &#39;deg&#39;. The default is 0.
+        number_cut : int, optional
+            Only rotations consisting of at least this amount of data points
+            are returned. The default is 2.
+        significance : str, optional
+            Only rotations that meet the significance criterion are returned.
+            If &#39;total&#39;, the total rotation amplitude must be larger than the
+            corresponding uncertainty times `significance_level`.
+            It &#39;pairwise&#39;, the EVPA change between each adjacent data pair
+            must be larger than the corresponding uncertainty times
+            `significance_level`. These criteria require that uncertainties
+            have been provided. The default is None.
+        significance_level : float, optional
+            Factor considered for the significance criteria (see above for
+            details). The default is 1.
+        unit : str, optional
+            If &#39;default&#39;, the EVPA-based rotation parameters are returned in
+            the same unit as the original input data. Otherwise, specify the
+            output unit by setting &#39;rad&#39; or &#39;deg&#39;. This input also specifies
+            the unit of the `amplitude_cut`. The default is &#39;default&#39;.
+        verbose : int, optional
+            If 1, prints some information about the count of simulations
+            identified, rejected by the selection criteria, and returned.
+            Set to 0 to turn off any information. The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised if no ratations have been identified yet.
+        ValueError
+            Raised if `unit` is neither &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.
+        ValueError
+            Raised if `amplitude_cut` is not float or int or smaller than 0.
+        ValueError
+            Raised if `number_cut` is not int or smaller than 2.
+        ValueError
+            Raised if `significance` is neither None, &#39;total&#39;, not &#39;pairwise&#39;.
+        ValueError
+            Raised if `significance_level` is neither float nor int or smaller
+            than or equal to 0.
+
+        Returns
+        -------
+        results : dict
+            Dictionary containing the various items requested. If `stats=True`
+            the rotation properties are saved under keys &#39;ampl&#39;, &#39;dur&#39;,
+            &#39;rates&#39;, and &#39;var&#39;. If `indices =True` a list is saved under the
+            key &#39;indices&#39;, where each item is a numpy.ndarray of indices
+            corresponding to the data that make up each rotation. If
+            `data=True` each rotation&#39;s data is returned as a dict in a list
+            under the key &#39;data&#39;.`
+        &#34;&#34;&#34;
+
+        # check if rotations exist:
+        if self.rotation_indices is None:
+            raise ValueError(
+                    &#34;No rotations stored. Run `identify_rotations` first.&#34;)
+
+        # check input:
+        if unit.lower() not in [&#39;default&#39;, &#39;rad&#39;, &#39;deg&#39;]:
+            raise ValueError(&#34;`unit` must be &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.&#34;)
+
+        if type(amplitude_cut) not in [int, float] or amplitude_cut &lt; 0:
+            raise ValueError(
+                &#34;`amplitude_cut` must be float equal to or larger than 0.&#34;)
+
+        if not isinstance(number_cut, int) or number_cut &lt; 2:
+            raise ValueError(
+                &#34;`number_cut` must be integer equal to or larger than 2.&#34;)
+
+        if significance not in [None, &#39;total&#39;, &#39;pairwise&#39;]:
+            raise ValueError(
+                    &#34;`significance` must be &#39;total&#39;, &#39;pairwise&#39;, or None.&#34;)
+
+        if significance and self.evpa_err is None:
+            raise ValueError(
+                    &#39;No uncertainties stored. Cannot apply significance &#39;\
+                    &#39;criterion.&#39;)
+
+        if type(significance_level) not in [int, float] \
+                or significance_level &lt;= 0:
+            raise ValueError(
+                    &#34;`significance_level` must be float larger than 0.&#34;)
+
+        # convert amplitude cut:
+        if (unit == &#39;default&#39; and self.unit == &#39;deg&#39;) or unit == &#39;deg&#39;:
+            amplitude_cut = np.radians(amplitude_cut)
+
+        # storage for results:
+        results = {}
+        rotation_indices = []
+        rotations_data = []
+        amplitudes = []
+        durations = []
+        varest = []
+        n_rot_total = len(self.rotation_indices)
+        n_rot_skipped = 0
+
+        # iterate through rotations:
+        for i, sel in enumerate(self.rotation_indices):
+            dur = self.time[sel[-1]] - self.time[sel[0]]
+            ampl = self.evpa_adj[sel[-1]] - self.evpa_adj[sel[0]]
+            var, __ = self.variation_estimator(sel=sel)
+
+            # apply number cut:
+            if sel.size &lt; number_cut:
+                n_rot_skipped += 1
+                continue
+
+            # apply amplitude cut:
+            if np.abs(ampl) &lt; amplitude_cut:
+                n_rot_skipped += 1
+                continue
+
+            # apply total significance criterion:
+            if significance == &#39;total&#39;:
+                ampl_err = np.sqrt(
+                        self.evpa_err[sel[-1]]**2 + self.evpa_err[sel[0]]**2)
+
+                if np.absolute(ampl) &lt;= ampl_err * significance_level:
+                    n_rot_skipped += 1
+                    continue
+
+            # apply pairwise significance criterion:
+            if significance == &#39;pairwise&#39;:
+                ampls = np.absolute(
+                        self.evpa_adj[sel[:-1]] - self.evpa_adj[sel[1:]])
+                ampls_err = np.sqrt(
+                        self.evpa_err[sel[:-1]]**2 + self.evpa_err[sel[1:]]**2)
+
+                if np.any(ampls &lt;= ampls_err * significance_level):
+                    n_rot_skipped += 1
+                    continue
+
+            # store indices and statistics:
+            rotation_indices.append(sel)
+            durations.append(dur)
+            amplitudes.append(ampl)
+            varest.append(var)
+
+            if data:
+                rot = {&#39;time&#39;: self.time[sel], &#39;evpa&#39;: self.evpa[sel],
+                       &#39;evpa_adj&#39;: self.evpa_adj[sel]}
+
+                if self.evpa_err is not None:
+                    rot[&#39;evpa_err&#39;] = self.evpa_err[sel]
+
+                rotations_data.append(rot)
+
+        # print info:
+        if verbose &gt;= 1:
+            print(f&#39;{n_rot_total} rotations were identified.&#39;)
+
+            if n_rot_skipped:
+                print(f&#39;{n_rot_skipped} rotations do not meet the selection &#39;\
+                      &#39;criteria.&#39;)
+
+            print(f&#39;{n_rot_total-n_rot_skipped} rotations are returned.&#39;)
+
+
+        # add statistics to results:
+        if stats:
+            amplitudes = np.array(amplitudes)
+            durations = np.array(durations)
+            rates = amplitudes / durations
+
+            # change EVPA stats to degree, if needed:
+            unit = self.unit if unit == &#39;default&#39; else unit
+
+            if unit.lower() == &#39;deg&#39;:
+                amplitudes = np.degrees(amplitudes)
+                rates = np.degrees(rates)
+                varest = np.degrees(varest)
+
+            results[&#39;ampl&#39;] = amplitudes
+            results[&#39;dur&#39;] = durations
+            results[&#39;rate&#39;] = rates
+            results[&#39;var&#39;] = varest
+
+        # add indices to results:
+        if indices:
+            results[&#39;indices&#39;] = rotation_indices
+
+        # add rotation data to results:
+        if data:
+            results[&#39;data&#39;] = rotations_data
+
+        return results
+
+#==============================================================================</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="evpatools.EVPAanalyzer"><code class="flex name class">
+<span>class <span class="ident">EVPAanalyzer</span></span>
+<span>(</span><span>time=None, evpa=None, evpa_err=None, unit='rad')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Analyze EVPA time-series data.</p>
+<p>Create instance of EVPAanalyzer.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>time</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>Time.</dd>
+<dt><strong><code>evpa</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>EVPA in radians or degrees.</dd>
+<dt><strong><code>evpa_err</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Uncertainties of the EVPA in radians or degrees. The default is
+None.</dd>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Unit of the EVPA and uncertainties. Must be 'rad' or 'deg'. The
+default is 'rad'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class EVPAanalyzer():
+    &#34;&#34;&#34;Analyze EVPA time-series data.&#34;&#34;&#34;
+
+    # -------------------------------------------------------------------------
+    def __init__(self, time=None, evpa=None, evpa_err=None, unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Create instance of EVPAanalyzer.
+
+        Parameters
+        ----------
+        time : array-like
+            Time.
+        evpa : array-like
+            EVPA in radians or degrees.
+        evpa_err : array-like, optional
+            Uncertainties of the EVPA in radians or degrees. The default is
+            None.
+        unit : str, optional
+            Unit of the EVPA and uncertainties. Must be &#39;rad&#39; or &#39;deg&#39;. The
+            default is &#39;rad&#39;.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        if time is None:
+            self.time = None
+            self.evpa = None
+            self.evpa_err = None
+        else:
+            self.set_data(evpa, evpa_err=evpa_err, unit=unit)
+
+        self.evpa_adj = None
+        self.rotation_indices = None
+
+    # -------------------------------------------------------------------------
+    def _data_exists(self, raise_err=False):
+        &#34;&#34;&#34;Check if data is stored.
+
+        Parameters
+        ----------
+        raise_err : bool
+            If True, an error is raised if not data is stored. Otherwise,
+            no error is raised. The default is False.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `raise_err` is True and no data is stored.
+
+        Returns
+        -------
+        exists : bool
+            True, if data is stored. False, otherwise.
+        &#34;&#34;&#34;
+
+        exists = False
+
+        if self.time is None:
+            if raise_err:
+                raise ValueError(
+                    &#34;No data. First use `set_data()` to provide time and EVPA.&#34;
+                    )
+        else:
+            exists = True
+
+        return exists
+
+    # -------------------------------------------------------------------------
+    def _adjusted_data_exists(self, raise_err=False):
+        &#34;&#34;&#34;Check if adjusted EVPA data is stored.
+
+        Parameters
+        ----------
+        raise_err : bool
+            If True, an error is raised if not adjusted data is stored.
+            Otherwise, no error is raised. The default is False.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `raise_err` is True and no adjusted data is stored.
+
+        Returns
+        -------
+        exists : bool
+            True, if adjusted data is stored. False, otherwise.
+        &#34;&#34;&#34;
+
+        exists = False
+
+        if self.evpa_adj is None:
+            if raise_err:
+                raise ValueError(
+                    &#34;Adjusted EVPA data required. First use `adjust()`.&#34;)
+        else:
+            exists = True
+
+        return exists
+
+    # -------------------------------------------------------------------------
+    def _adjust_mcoa(self):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change
+        of the amplitude between adjacent data points as defined e.g. in [1].
+
+        Returns
+        -------
+        evpa_adj : np.ndarray
+            The adjusted EVPA data.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2021
+            https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+        &#34;&#34;&#34;
+
+        # calculate difference:
+        evpa_diff = np.r_[0, np.diff(self.evpa)]
+
+        # determine offsets:
+        sel = np.absolute(evpa_diff) &gt; np.pi / 2
+        offset = np.where(sel, evpa_diff / np.pi, 0)
+        offset = np.round(offset, 0) * np.pi
+        offset = np.cumsum(offset)
+
+        # apply offset:
+        evpa_adj = self.evpa - offset
+
+        return evpa_adj
+
+    # -------------------------------------------------------------------------
+    def _adjust_mcor(self):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change
+        of the rate between adjacent data points as defined in [1].
+
+        Returns
+        -------
+        evpa_adj : np.ndarray
+            The adjusted EVPA data.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2021
+            https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+        &#34;&#34;&#34;
+
+        # TODO: Get this from my RoboPol 2021 paper code.
+        raise NotImplementedError()
+
+    # -------------------------------------------------------------------------
+    def _adjust_mcoa_multi(self, n):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change of
+        the amplitude between each data point, concidering a given number of
+        preceeding data points, as defined in [1] and [2].
+
+        Parameters
+        ----------
+        n : int
+            Number of reference points considered in the data shifting
+            decision. If only one reference point is chosen this method
+            calls _adjust_mcoa().
+
+        Returns
+        -------
+        evpa_adj : np.ndarray
+            The adjusted EVPA data.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        # check input:
+        if not isinstance(n, int) or n &lt; 1:
+            raise ValueError(&#34;`n` must be integer equal to or larger than 1.&#34;)
+
+        if n == 1:
+            return self._adjust_mcoa()
+
+        evpa_adj = np.array(self.evpa)
+
+        # iterate through data points:
+        for j in range(1, self.evpa.size):
+            # get reference points:
+            i = j - n
+            i = i if i &gt; 0 else 0
+            evpa_ref = evpa_adj[i:j]
+
+            # calculate difference and apply offset:
+            evpa_diff = evpa_adj[j] - np.median(evpa_ref)
+            offset = np.round(evpa_diff / np.pi, 0) * np.pi
+            evpa_adj[j] -= offset
+
+        return evpa_adj
+
+    # -------------------------------------------------------------------------
+    def _identify_rot_smooth(
+            self, sel=None, threshold_abs=None, threshold_factor=None,
+            error_propagation=False):
+        &#34;&#34;&#34;Finds continuous parts of smooth variation in the EVPA time series,
+        based on [1].
+
+        Parameters
+        ----------
+        sel : np.ndarray, optional
+            Indices to a subsection of data. If given, the identification runs
+            only over this subsection of the data. The default is None.
+        threshold_abs : float, optional
+            Threshold of the absolute change in the rotation rate given in the
+            unit of the EVPA input over the unit of the time input. For details
+            see notes below. This argument overwrites `threshold_factor`. The
+            default is None.
+        threshold_factor : string, optional
+            Threshold of the relative change in the rotation rate given as a
+            unitless factor. For details see notes below. This argument is
+            overwritten by `threshold_factor`. The default is None.
+        error_propagation: bool, optional
+            If True, the difference of the derivatives is reduced by the
+            propagated errors. Note: EVPA errors are only considered, when
+            `threshold_abs` is set. For `threshold_factor` this functionality
+            is not implemented yet. The default is False.
+
+        Raises
+        ------
+        ValueError
+            Raised if `threshold_abs` is not larger than 1.
+        ValueError
+            Raised if `threshold_factor` is not larger than 0.
+        ValueError
+            Raised if neither `threshold_abs` nor `threshold_factor` is given.
+
+        Returns
+        -------
+        indices : list of np.ndarrays
+            Each element provides the indices to the data points that are part
+            of an identified rotation.
+
+        Notes
+        -----
+        Let the threshold be f and the previous derivative of &#39;evpa&#39; is X1 and
+        the current derivative is X2. The transition from X1 to X2 is
+        considered smooth if X2 is in the following range:
+        If `threshold_abs` is given: X2 in [X1-f, X2+f].
+        If `threshold_factor` is given: X2 in [1/f*X1, f*X1].
+
+        If `threshold_factor` is used this method implements the definition of
+        an EVPA rotation as introduced by [1].
+
+        References
+        ----------
+        [1] Blinov et al, 2015
+            https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract
+        &#34;&#34;&#34;
+
+        # check inputs:
+        if threshold_abs is not None:
+            if threshold_abs &lt;= 0:
+                raise ValueError(
+                        &#34;`threshold_abs` must be float larger than 0.&#34;)
+
+            if self.unit == &#39;deg&#39;:
+                threshold_abs = np.radians(threshold_abs)
+
+        elif threshold_factor is not None:
+            if threshold_factor &lt;= 0:
+                raise ValueError(
+                        &#34;`threshold_factor` must be float larger than 0.&#34;)
+
+        else:
+            raise ValueError(
+                    &#34;Either `threshold_abs` or `threshold_factor` must be set.&#34;
+                    )
+
+        if error_propagation:
+            if self.evpa_err is None:
+                print(&#34;WARNING: No EVPA uncertainties stored. Errors are not &#34;\
+                      &#34;propagated.&#34;)
+                error_propagation = False
+
+            elif threshold_abs is None and threshold_factor is not None:
+                raise NotImplementedError(
+                        &#34;Error propagation in combination with &#34;\
+                        &#34;`threshold_factor` is not implemented yet.&#34;)
+                # TODO: implement
+
+        # get data:
+        sel = np.arange(self.time.size) if sel is None else sel
+        time = self.time[sel]
+        evpa = self.evpa_adj[sel]
+
+        if self.evpa_err is not None:
+            evpa_err = self.evpa_err[sel]
+
+        # identify rotations:
+        dtime = np.diff(time)
+        rate = np.diff(evpa) / dtime
+
+        if threshold_abs:
+            print(&#39;WARNING: `threshold_abs` seems to be flawed.&#39;)
+            # TODO: bug fix
+            drate = np.diff(rate)
+
+            if error_propagation:
+                rate_err = np.sqrt(
+                        evpa_err[:-1]**2 + evpa_err[1:]**2) / dtime
+                drate_err = np.sqrt(rate_err[:-1]**2 + rate_err[1:]**2)
+                drate_red = np.abs(drate) - drate_err
+                smooth = drate_red &lt;= threshold_abs
+
+            else:
+                smooth = np.abs(drate) &lt;= threshold_abs
+
+        elif threshold_factor:
+            smooth1 = np.logical_and(rate[1:] &gt;= rate[:-1] / threshold_factor,
+                                     rate[1:] &lt;= rate[:-1] * threshold_factor)
+            smooth2 = np.logical_and(rate[1:] &lt;= rate[:-1] / threshold_factor,
+                                     rate[1:] &gt;= rate[:-1] * threshold_factor)
+            smooth = np.where(rate[1:] &gt; 0, smooth1, smooth2)
+
+        # find ranges of continuous rotations:
+        indices = []
+
+        for k, g in groupby(
+                    enumerate(np.nonzero(smooth)[0]), lambda x:x[0]-x[1]):
+            group = list(map(itemgetter(1), g))
+            indices.append(np.arange(group[0], group[-1]+3))
+
+        return indices
+
+    # -------------------------------------------------------------------------
+    def _identify_rot_cont(self, sel=None, significance_level=1, verbose=0):
+        &#34;&#34;&#34;Identifies periods of unidirectional variability in the EVPA time
+        series, as defined in [1] and [2].
+
+        Parameters
+        ----------
+        sel : np.ndarray, optional
+            Indices to a subsection of data. If given, the identification runs
+            only over this subsection of the data. The default is None.
+        significance_level : float, optional
+            Factor by which the uncertainties are increased when calculating
+            if a value change is significant. The default is 1.
+        verbose : int, optional
+            If 2 step-wise information is printed.
+
+        Raises
+        ------
+        ValueError
+            Raised if `significance_level` is smaller than 1.
+
+        Returns
+        -------
+        indices : list of np.ndarrays
+            Each element provides the indices to the data points that are part
+            of an identified rotation.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        # check input:
+        if significance_level &lt; 1:
+            raise ValueError(
+                    &#34;`significance_level` must be equal to or larger than 1.&#34;)
+
+        # get data:
+        sel = np.arange(self.time.size) if sel is None else sel
+        evpa = self.evpa_adj[sel]
+
+        if self.evpa_err is None:
+            evpa_err = np.zeros(evpa.size)
+        else:
+            evpa_err = self.evpa_err[sel]
+
+        # create storage for rotation indices (start, stop) and amplitudes:
+        indices = [[0,2]]
+        amplitudes = []
+
+        # first rotation amplitude:
+        current_amplitude = evpa[1] - evpa[0]
+
+        # first rotation significance, True if rotation amplitude larger than
+        # root summed squared errors time significance level:
+        current_sign = abs(current_amplitude) &gt; significance_level \
+                * np.sqrt(evpa_err[0]**2 + evpa_err[1]**2)
+
+        if verbose &gt; 1:
+            print(&#39;\nPoint-wise results of the rotation identification.\n&#39;\
+                  &#39;Note: Data point numbering starts with 0.\n&#39;)
+            if current_sign:
+                print(&#39;Data point     1        : First rotation significant.&#39;)
+            else:
+                print(&#39;Data point     1        : First rotation insignificant.&#39;
+                      )
+
+        # iterate through data:
+        for i in range(2, evpa.size):
+
+            # get amplitude and significance of next rotation:
+            new_amplitude = evpa[i] - evpa[i-1]
+            new_sign = abs(new_amplitude) &gt; significance_level \
+                    * np.sqrt(evpa_err[i-1]**2 + evpa_err[i]**2)
+
+            # State 1: YY+
+            # current: significant, new: significant, rotation: continued
+            if current_sign and new_sign \
+                    and current_amplitude * new_amplitude &gt;= 0:
+                indices[-1][1] = i + 1
+                current_amplitude = evpa[i] - evpa[indices[-1][0]]
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YY+    : &#39;\
+                          &#39;Continued significant rotation.&#39;)
+
+            # State 2: YY-
+            # current: significant, new: significant, rotation: changed
+            elif current_sign and new_sign:
+                indices.append([i-1, i+1])
+                amplitudes.append(current_amplitude)
+                current_amplitude = new_amplitude
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YY-    : &#39;\
+                          &#39;Changed significant rotation.&#39;)
+
+            # State 3: YN+
+            # current: significant, new: insignificant, rotation: continued
+            elif current_sign and not new_sign and \
+                    current_amplitude * new_amplitude &gt;= 0:
+                indices[-1][1] = i + 1
+                current_amplitude = evpa[i] - evpa[indices[-1][0]]
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YN+    : &#39;\
+                          &#39;Significant rotation continued insignificantly.&#39;)
+
+            # State 4: YN-
+            # current: significant, new: insignificant, rotation: changed
+            elif current_sign and not new_sign:
+                indices.append([i-1, i+1])
+                amplitudes.append(current_amplitude)
+                current_amplitude = new_amplitude
+                current_sign = False
+
+                if verbose &gt; 1:
+                    print(f&#39;Data point {i:5d} YN-    : &#39;\
+                          &#39;Significant rotation followed by insignificant &#39;\
+                          &#39;rotation.&#39;)
+
+            # State 5,6,7,8 NN
+            # current: insignificant, new: insignificant
+            elif not current_sign and not new_sign:
+
+                indices[-1][1] = i+1
+                temp = evpa[indices[-1][0]:indices[-1][1]]
+                temp_err = evpa_err[indices[-1][0]:indices[-1][1]]
+
+                # check all combinations of temporary data points with current
+                # one for significant rotations - the largest difference might
+                # not be significant if one data point has a large error:
+                for j in range(temp.size-1):
+                    current_amplitude = evpa[i] - temp[j]
+                    if abs(current_amplitude) &gt; significance_level \
+                            * np.sqrt(evpa_err[i]**2 + temp_err[j]**2):
+                        current_sign = True
+                        break
+
+                # Note: if a significant rotation is found current_sign is
+                # True, current_amplitude reflects the sign of the rotation
+
+                # State 5: NNN
+                # insignificant rotation staying insignificant
+                if not current_sign:
+                    # there is nothing more happening here and that is correct.
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNN    : &#39;\
+                              &#39;Insignificant rotations stays insignificant.&#39;)
+
+                # State 6: NNYn/a first significant rotation
+                # insignificant rotation becoming significant for the first
+                # time
+                elif len(amplitudes) == 0:
+
+                    if current_amplitude &gt;= 0:
+                        j = np.argmin(temp)
+                    else:
+                        j = np.argmax(temp)
+
+                    indices[-1][0] = j
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNYn/a : &#39;\
+                              &#39;Insignificant rotations becoming significant &#39;\
+                              &#39;for the first time.&#39;)
+
+                # State 7: NNY+
+                # insignificant rotation becoming significant, continuing
+                elif current_amplitude *amplitudes[-1] &gt;= 0:
+                    del amplitudes[-1], indices[-1]
+                    indices[-1][1] = i + 1
+                    current_amplitude = evpa[i] - evpa[indices[-1][0]]
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNY+   : &#39;\
+                              &#39;Insignificant rotations becoming significant, &#39;\
+                              &#39;continuing former rotation.&#39;)
+
+                # State 8: NNY-
+                # insignificant rotation becoming significant, changing
+                else:
+                    if current_amplitude &gt; 0:
+                        indices[-1][0] += np.argmin(temp)
+                        indices[-2][1] = indices[-1][0] + 1
+                    else:
+                        indices[-1][0] += np.argmax(temp)
+                        indices[-2][1] = indices[-1][0] + 1
+                    indices[-1][1] = i+1
+                    amplitudes[-1] = \
+                        evpa[indices[-2][0]] - evpa[indices[-2][1]-1]
+                    current_sign = True
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NNY-   : &#39;\
+                              &#39;Insignificant rotations becoming significant, &#39;\
+                              &#39;opposite to former rotation.&#39;)
+
+            # State 9,10,11 NY
+            # current: insignificant, new: significant
+            else:
+                # State 9 NYn/a first time
+                # first time significant
+                if len(amplitudes) == 0:
+                    if new_amplitude &gt; 0:
+                        indices[-1] = [np.argmin(evpa[:i]), i+1]
+                    else:
+                        indices[-1] = [np.argmax(evpa[:i]), i+1]
+
+                    current_sign = True
+                    current_amplitude = \
+                            evpa[indices[-1][-1]-1] - evpa[indices[-1][0]]
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NYn/a  : &#39;\
+                              &#39;First significant rotation.&#39;)
+
+                # State 10 NY++/--
+                # current: insignificant, new: significant, continues former
+                elif (new_amplitude * amplitudes[-1] &gt; 0):
+                    del indices[-1], amplitudes[-1]
+                    indices[-1][1] = i+1
+                    current_amplitude = evpa[i] - evpa[indices[-1][0]]
+                    current_sign = True
+
+                    if verbose &gt; 1:
+                        print(&#39;Data point {i:5d} NY++/--: &#39;\
+                              &#39;Insignificant rotation followed by &#39;\
+                              &#39;significant rotation, continuing former one.&#39;)
+
+                # State 11 NY+-/-+
+                # current: insignificant, new: significant, opposite to former
+                else:
+                    temp = evpa[indices[-1][0]:i+1]
+                    if new_amplitude &gt; 0:
+                        indices[-2][1] += np.argmin(temp)
+                    else:
+                        indices[-2][1] += np.argmax(temp)
+                    indices[-1] = [indices[-2][1]-1, i+1]
+                    amplitudes[-1] = \
+                            evpa[indices[-2][1]-1] - evpa[indices[-2][0]]
+                    current_amplitude = evpa[i] - evpa[indices[-1][0]]
+                    current_sign = True
+
+                    if verbose &gt; 1:
+                        print(f&#39;Data point {i:5d} NY+-/-+: &#39;\
+                              &#39;Insignificant rotation followed by &#39;\
+                              &#39;significant rotation, opposite to former one.&#39;)
+
+        # assess last data point/interval
+        else:
+            if current_sign:
+                amplitudes.append(current_amplitude)
+            elif len(amplitudes):
+                del indices[-1]
+                temp = evpa[indices[-1][1]-1:]
+                if amplitudes[-1] &gt; 0:
+                    indices[-1][1] += np.argmax(temp)
+                    amplitudes[-1] = \
+                            evpa[indices[-1][1]-1] - evpa[indices[-1][0]]
+                else:
+                    indices[-1][1] += np.argmin(temp)
+                    amplitudes[-1] = \
+                            evpa[indices[-1][1]-1] - evpa[indices[-1][0]]
+            else:
+                del indices[-1]
+
+        for i, (start, stop) in enumerate(indices):
+            indices[i] = np.arange(start, stop)
+
+        return indices
+
+    #--------------------------------------------------------------------------
+    def _split_data(self, gap):
+        &#34;&#34;&#34;Split the data at large time gaps.
+
+        Parameters
+        ----------
+        gap : float
+            Gap length threshold in the same unit as the input time data. The
+            data is split when the time interval between data points exceeds
+            this value.
+
+        Returns
+        -----
+        out : list of np.ndarray
+            Each element provides the indices to a split data set.
+        &#34;&#34;&#34;
+
+        if len(self.time) &lt; 2:
+            return []
+
+        # identify large gaps:
+        split = np.r_[
+                0, np.nonzero(np.diff(self.time)&gt;gap)[0] + 1, self.time.size]
+        indices = []
+
+        # prepare list of indices to the split data sets:
+        for start, stop in zip(split[:-1], split[1:]):
+            indices.append(np.arange(start, stop))
+
+        return indices
+
+    # -------------------------------------------------------------------------
+    def set_data(self, time, evpa, evpa_err=None, unit=&#39;rad&#39;):
+        &#34;&#34;&#34;Create instance of EVPAanalyzer.
+
+        Parameters
+        ----------
+        time : array-like
+            Time.
+        evpa : array-like
+            EVPA in radians or degrees.
+        evpa_err : array-like, optional
+            Uncertainties of the EVPA in radians or degrees. The default is
+            None.
+        unit : str, optional
+            Unit of the EVPA and uncertainties. Must be &#39;rad&#39; or &#39;deg&#39;. The
+            default is &#39;rad&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `unit` is not &#39;rad&#39; or &#39;deg&#39;.
+
+        Returns
+        -------
+        None
+        &#34;&#34;&#34;
+
+        # convert inputs to arrays, if needed:
+        time = np.asarray(time)
+        evpa = np.asarray(evpa)
+
+        if evpa_err is not None:
+            evpa_err = np.asarray(evpa_err)
+
+        # convert to radians if necessary:
+        if unit == &#39;rad&#39;:
+            self.unit = &#39;rad&#39;
+
+        elif unit == &#39;deg&#39;:
+            self.unit = &#39;deg&#39;
+            evpa = np.radians(evpa)
+
+            if evpa_err is not None:
+                evpa_err = np.radians(evpa_err)
+
+        else:
+            raise ValueError(&#34;`unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+        # save as attributes:
+        self.time = time
+        self.evpa = evpa
+        self.evpa_err = evpa_err
+
+        # normalize EVPA:
+        self.normalize()
+
+        # sort by time:
+        i = np.argsort(time)
+        self.time = self.time[i]
+        self.evpa = self.evpa[i]
+
+        if self.evpa_err is not None:
+            self.evpa_err = self.evpa_err[i]
+
+    # -------------------------------------------------------------------------
+    def normalize(self, lower_limit=0.):
+        &#34;&#34;&#34;Shifts all EVPA data points into a 180 degrees interval.
+
+        Parameters
+        ----------
+        lower_limit : float, default=0
+            Sets the lower limit of the EVPA interval.
+
+        Returns
+        -----
+        None
+        &#34;&#34;&#34;
+
+        self._data_exists(raise_err=True)
+
+        self.evpa -= np.floor(self.evpa / np.pi) * np.pi
+
+        if lower_limit:
+            sel = self.evpa &gt;= lower_limit % np.pi
+            self.evpa = np.where(sel, self.evpa - np.pi, self.evpa)
+            self.evpa += (np.floor(lower_limit / np.pi) + 1) * np.pi
+
+    # -------------------------------------------------------------------------
+    def adjust(self, n=1, method=&#39;mcoa&#39;):
+        &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change of
+        the amplitude or rate between each data point, concidering a given
+        number of preceeding data points, as defined e.g. in [1-3].
+
+        Parameters
+        ----------
+        n : int, optional
+            The number of reference points for the adjustment. The default is
+            1.
+        method : str, optional
+            Selects the method of adjustment. Must me &#39;mcoa&#39; or &#39;mcor&#39;. The
+            default is &#39;mcoa&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raise, if `method` is not &#39;mcoa&#39; or &#39;mcor&#39;.
+
+        Returns
+        -------
+        None
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        [3] Kiehlmann et al, 2021
+            https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+        &#34;&#34;&#34;
+
+        self._data_exists(raise_err=True)
+
+        if method.lower() ==  &#39;mcoa&#39;:
+            self.adjustment = f&#39;MCoA-{n}&#39;
+            self.evpa_adj = self._adjust_mcoa_multi(n)
+
+        elif method.lower() == &#39;mcor&#39;:
+            if n &gt; 1:
+                print(&#39;WARNING: Multiple reference points are not implemented&#39;\
+                      &#39; for the MCoR method. Proceeding with one reference &#39;\
+                      &#39;point.&#39;)
+
+            self.adjustment = &#39;MCoR&#39;
+            self.evpa_adj = self._adjust_mcor()
+
+        else:
+            raise ValueError(&#34;`method` must be &#39;mcoa&#39; or &#39;mcor&#39;.&#34;)
+
+    # -------------------------------------------------------------------------
+    def consistency(self, n_max=10, method=&#39;mcoa&#39;):
+        &#34;&#34;&#34;Checks the consistency between adjusted EVPA curves using an
+        increasing number of reference points, as defined in [1] and [2].
+
+        Parameters
+        ----------
+        n_max : int, optional
+            Maximum number of reference points up to which the consistency is
+            checked. The default is 10.
+        method : str, optional
+            Selects the method of adjustment. Must me &#39;mcoa&#39; or &#39;mcor&#39;. The
+            default is &#39;mcoa&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raise, if `method` is not &#39;mcoa&#39; or &#39;mcor&#39;.
+
+        Returns
+        -------
+        n_consistent : int
+            Highest number of reference points which gives adjustment results
+            consistent with fewer reference points.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        self._data_exists(raise_err=True)
+
+        # check for infinite consistency: if all data points are within a pi/2
+        # interval, no data points will be shifted, thus the shifting
+        # consistency is infinate:
+        if np.max(self.evpa) - np.min(self.evpa) &lt;= np.pi / 2:
+            return np.inf
+
+        # set largest number of reference points:
+        n_max = self.evpa.size - 1 if self.evpa.size &lt;= n_max else n_max
+
+        # adjust EVPA and check consistency:
+        n_consistent = 1
+        evpa_ref = self._adjust_mcoa()
+
+        for n in range(2, n_max+1):
+            if method.lower() == &#39;mcoa&#39;:
+                evpa_adj = self._adjust_mcoa_multi(n=n)
+            elif method.lower() == &#39;mcor&#39;:
+                raise NotImplementedError()
+            else:
+                raise ValueError(&#34;`method` must be &#39;mcoa&#39; or &#39;mcor&#39;.&#34;)
+
+            if np.allclose(evpa_ref, evpa_adj):
+                n_consistent = n
+            else:
+                break
+
+        return n_consistent
+
+    #--------------------------------------------------------------------------
+    def variation_estimator(self, sel=None, return_rates=False):
+        &#34;&#34;&#34;Calculates the variation estimator of an EVPA curve.
+        The variation estimator is the average absolute offset of the
+        point-wise derivative from the average derivative of the curve, as
+        defined in [1] and [2].
+
+        Parameters
+        ----------
+        sel : np.ndarray, optional
+            Indices to a subsection of data. If given, the estimation runs
+            only over this subsection of the data. The default is None.
+        return_rates : bool, optional
+            If True, the pairwise rotation rates are returned. Otherwise, not.
+            The default is False.
+
+        Returns
+        -----
+        variation : float, float
+            Variation estimator.
+        tendency : float
+            Estimate of the secular trend of the EVPA curve.
+        rates : np.ndarray, optional
+            The pairwise derivatives of the EVPA curve. Only returned, if
+            `return_rates=True`.
+
+        References
+        ----------
+        [1] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [2] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        # get data:
+        sel = np.arange(self.time.size) if sel is None else sel
+        evpa = self.evpa_adj[sel]
+        time = self.time[sel]
+
+        # differences:
+        devpa = np.diff(evpa)
+        dtime = np.diff(time)
+
+        # relative point-to-point variation:
+        rates = devpa / dtime
+
+        # tendency and variation estimator:
+        tendency = np.mean(rates)
+        variation = np.mean(np.absolute(rates - tendency))
+
+        if return_rates:
+            rates = np.r_[0, rates]
+            return variation, tendency, rates
+        else:
+            return variation, tendency
+
+    # -------------------------------------------------------------------------
+    def identify_rotations(self, method, time_gap=None, verbose=0, **kwargs):
+        &#34;&#34;&#34;Identify rotations in the stored data.
+        One may chose from two different definitions of a rotation: &#39;smooth&#39; as
+        introduced by [1] or &#39;continuous&#39; by [2] and [3].
+
+        Parameters
+        ----------
+        method : str
+            Select either &#39;smooth&#39; or &#39;continuous&#39;.
+        time_gap : float or None, optional
+            If set, the data is split at time gaps larger than this threshold.
+            Rotations will not include these large gaps. The default is None.
+        verbose : int, optional
+            If 1, returns some basic information about the identification. If
+            2, provides details in case that `method=&#39;continuous&#39;`. Set to 0 to
+            turn off any notifications. The default is 0.
+        **kwargs :
+            Arguments forwarded to the smooth or continuous rotation
+            identification methods. See details below.
+
+        Keyword arguments for the smooth rotation identification
+        --------------------------------------------------------
+        threshold_abs : float, optional
+            Threshold of the absolute change in the rotation rate given in the
+            unit of the EVPA input over the unit of the time input. For details
+            see notes below. This argument overwrites `threshold_factor`. The
+            default is None.
+        threshold_factor : string, optional
+            Threshold of the relative change in the rotation rate given as a
+            unitless factor. For details see notes below. This argument is
+            overwritten by `threshold_factor`. The default is None.
+        error_propagation: bool, optional
+            If True, the difference of the derivatives is reduced by the
+            propagated errors. Note: EVPA errors are only considered, when
+            `threshold_abs` is set. For `threshold_factor` this functionality
+            is not implemented yet. The default is False.
+
+        Keyword arguments for the continuous rotation identification
+        ------------------------------------------------------------
+        significance_level : float, optional
+            Factor by which the uncertainties are increased when calculating
+            if a value change is significant. The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `time_gap` is neither float nor int or is equal to or
+            smaller than 0.
+        ValueError
+            Raised, if `method` is neither &#39;smooth&#39; nor &#39;continuous&#39;.
+
+        Returns
+        -------
+        None
+
+        Notes
+        -----
+        If `method=&#39;smooth&#39;`:
+            Either `threshold_abs` or `threshold_factor` must be set.
+            Let the threshold be f and the previous derivative of &#39;evpa&#39; is X1
+            and the current derivative is X2. The transition from X1 to X2 is
+            considered smooth if X2 is in the following range:
+            If `threshold_abs` is given: X2 in [X1-f, X2+f].
+            If `threshold_factor` is given: X2 in [1/f*X1, f*X1].
+
+            If `threshold_factor` is used this method implements the definition
+            of an EVPA rotation as introduced by [1].
+        If `method=&#39;continuous&#39;`:
+            This method implements the algorithm introduced by [2] and [3].
+
+        References
+        ----------
+        [1] Blinov et al, 2015
+            https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract
+        [2] Kiehlmann, 2015
+            https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+        [3] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+        &#34;&#34;&#34;
+
+        if verbose &gt; 0:
+            print(f&#39;Identify {method} rotations..&#39;)
+
+        # check that data exists:
+        self._adjusted_data_exists(raise_err=True)
+
+        # split data, if needed:
+        if time_gap is None:
+            split_indices = [np.arange(0, self.evpa.size)]
+
+        else:
+            if type(time_gap) not in [float, int] or time_gap &lt;= 0:
+                raise ValueError(&#34;`time_gap` must be larger than 0.&#34;)
+
+            split_indices = self._split_data(time_gap)
+            n_split = len(split_indices)
+
+            if verbose &gt; 0 and n_split &gt; 1:
+                print(f&#39;Iterating through {n_split} split data sub-sets..&#39;)
+
+        rotation_indices = []
+
+        # identify smooth rotations:
+        if method.lower() == &#39;smooth&#39;:
+            self.rot_method = &#39;smooth&#39;
+
+            # iterate through split data sets:
+            for sel in split_indices:
+                if sel.size &lt; 2:
+                    continue
+
+                temp_indices = self._identify_rot_smooth(sel=sel, **kwargs)
+
+                for ind in temp_indices:
+                    rotation_indices.append(ind + sel[0])
+
+        # or identify continuous rotations:
+        elif method.lower() == &#39;continuous&#39;:
+            self.rot_method = &#39;continuous&#39;
+
+            # iterate through split data sets:
+            for sel in split_indices:
+                if sel.size &lt; 2:
+                    continue
+
+                temp_indices = self._identify_rot_cont(
+                        sel=sel, verbose=verbose, **kwargs)
+
+                for ind in temp_indices:
+                    rotation_indices.append(ind + sel[0])
+
+        # otherwise, raise error:
+        else:
+            raise ValueError(&#34;`method` must be &#39;smooth&#39; or &#39;continuous&#39;.&#34;)
+
+        self.rotation_indices = rotation_indices
+        n_rot = len(rotation_indices)
+
+        if verbose &gt; 0:
+            print(f&#39;{n_rot} rotations identified.&#39;)
+
+    # -------------------------------------------------------------------------
+    def get_data(self, unit=&#39;default&#39;):
+        &#34;&#34;&#34;Returns the saved data.
+
+        Parameters
+        ----------
+        unit : str, optional
+            The unit of the EVPA. If &#39;default&#39;, the EVPAs are returned in the
+            same unit as they were put in. Otherwise, the unit must be &#39;rad&#39; or
+            &#39;deg&#39;. The default is &#39;default&#39;.
+
+        Raises
+        ------
+        ValueError
+            Raised, if `unit` is not &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.
+
+        Returns
+        -------
+        data : dict
+            Contains the time and the normalized EVPA. The adjusted EVPA and
+            uncertainties are included if they exist.
+        &#34;&#34;&#34;
+
+        unit = self.unit if unit == &#39;default&#39; else unit
+        data = {&#39;time&#39;: self.time}
+
+        if unit == &#39;rad&#39;:
+            data[&#39;evpa&#39;] = self.evpa
+
+            if self._adjusted_data_exists():
+                data[&#39;evpa_adj&#39;] = self.evpa_adj
+
+            if self.evpa_err is not None:
+                data[&#39;evpa_err&#39;] = self.evpa_err
+
+        elif unit == &#39;deg&#39;:
+            data[&#39;evpa&#39;] = np.degrees(self.evpa)
+
+            if self._adjusted_data_exists():
+                data[&#39;evpa_adj&#39;] = np.degrees(self.evpa_adj)
+
+            if self.evpa_err is not None:
+                data[&#39;evpa_err&#39;] = np.degrees(self.evpa_err)
+
+        else:
+            raise ValueError(&#34;`unit` must be &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.&#34;)
+
+        return data
+
+    # -------------------------------------------------------------------------
+    def get_rotations(
+            self, stats=True, indices=False, data=False, amplitude_cut=0,
+            number_cut=2, significance=None, significance_level=1,
+            unit=&#39;default&#39;, verbose=1):
+        &#34;&#34;&#34;Get the identified rotations: statistics, indices, and/or data.
+
+        Parameters
+        ----------
+        stats : bool, optional
+            If True, return rotation statistics: the amplitudes, durations,
+            rates, and the variation estimator are returned. The default is
+            True.
+        indices : bool optional
+            If True, return the indices to the rotations in the data. The
+            default is False.
+        data : bool, optional
+            If True, return the data for all rotations. The default is False.
+        amplitude_cut : float, optional
+            Only rotations with amplitudes larger than this threshold are
+            returned. The cut must be given in the same unit as the input data,
+            if `unit=&#39;default&#39;` or the unit must be specified via setting
+            `unit` to &#39;rad&#39; or &#39;deg&#39;. The default is 0.
+        number_cut : int, optional
+            Only rotations consisting of at least this amount of data points
+            are returned. The default is 2.
+        significance : str, optional
+            Only rotations that meet the significance criterion are returned.
+            If &#39;total&#39;, the total rotation amplitude must be larger than the
+            corresponding uncertainty times `significance_level`.
+            It &#39;pairwise&#39;, the EVPA change between each adjacent data pair
+            must be larger than the corresponding uncertainty times
+            `significance_level`. These criteria require that uncertainties
+            have been provided. The default is None.
+        significance_level : float, optional
+            Factor considered for the significance criteria (see above for
+            details). The default is 1.
+        unit : str, optional
+            If &#39;default&#39;, the EVPA-based rotation parameters are returned in
+            the same unit as the original input data. Otherwise, specify the
+            output unit by setting &#39;rad&#39; or &#39;deg&#39;. This input also specifies
+            the unit of the `amplitude_cut`. The default is &#39;default&#39;.
+        verbose : int, optional
+            If 1, prints some information about the count of simulations
+            identified, rejected by the selection criteria, and returned.
+            Set to 0 to turn off any information. The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised if no ratations have been identified yet.
+        ValueError
+            Raised if `unit` is neither &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.
+        ValueError
+            Raised if `amplitude_cut` is not float or int or smaller than 0.
+        ValueError
+            Raised if `number_cut` is not int or smaller than 2.
+        ValueError
+            Raised if `significance` is neither None, &#39;total&#39;, not &#39;pairwise&#39;.
+        ValueError
+            Raised if `significance_level` is neither float nor int or smaller
+            than or equal to 0.
+
+        Returns
+        -------
+        results : dict
+            Dictionary containing the various items requested. If `stats=True`
+            the rotation properties are saved under keys &#39;ampl&#39;, &#39;dur&#39;,
+            &#39;rates&#39;, and &#39;var&#39;. If `indices =True` a list is saved under the
+            key &#39;indices&#39;, where each item is a numpy.ndarray of indices
+            corresponding to the data that make up each rotation. If
+            `data=True` each rotation&#39;s data is returned as a dict in a list
+            under the key &#39;data&#39;.`
+        &#34;&#34;&#34;
+
+        # check if rotations exist:
+        if self.rotation_indices is None:
+            raise ValueError(
+                    &#34;No rotations stored. Run `identify_rotations` first.&#34;)
+
+        # check input:
+        if unit.lower() not in [&#39;default&#39;, &#39;rad&#39;, &#39;deg&#39;]:
+            raise ValueError(&#34;`unit` must be &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.&#34;)
+
+        if type(amplitude_cut) not in [int, float] or amplitude_cut &lt; 0:
+            raise ValueError(
+                &#34;`amplitude_cut` must be float equal to or larger than 0.&#34;)
+
+        if not isinstance(number_cut, int) or number_cut &lt; 2:
+            raise ValueError(
+                &#34;`number_cut` must be integer equal to or larger than 2.&#34;)
+
+        if significance not in [None, &#39;total&#39;, &#39;pairwise&#39;]:
+            raise ValueError(
+                    &#34;`significance` must be &#39;total&#39;, &#39;pairwise&#39;, or None.&#34;)
+
+        if significance and self.evpa_err is None:
+            raise ValueError(
+                    &#39;No uncertainties stored. Cannot apply significance &#39;\
+                    &#39;criterion.&#39;)
+
+        if type(significance_level) not in [int, float] \
+                or significance_level &lt;= 0:
+            raise ValueError(
+                    &#34;`significance_level` must be float larger than 0.&#34;)
+
+        # convert amplitude cut:
+        if (unit == &#39;default&#39; and self.unit == &#39;deg&#39;) or unit == &#39;deg&#39;:
+            amplitude_cut = np.radians(amplitude_cut)
+
+        # storage for results:
+        results = {}
+        rotation_indices = []
+        rotations_data = []
+        amplitudes = []
+        durations = []
+        varest = []
+        n_rot_total = len(self.rotation_indices)
+        n_rot_skipped = 0
+
+        # iterate through rotations:
+        for i, sel in enumerate(self.rotation_indices):
+            dur = self.time[sel[-1]] - self.time[sel[0]]
+            ampl = self.evpa_adj[sel[-1]] - self.evpa_adj[sel[0]]
+            var, __ = self.variation_estimator(sel=sel)
+
+            # apply number cut:
+            if sel.size &lt; number_cut:
+                n_rot_skipped += 1
+                continue
+
+            # apply amplitude cut:
+            if np.abs(ampl) &lt; amplitude_cut:
+                n_rot_skipped += 1
+                continue
+
+            # apply total significance criterion:
+            if significance == &#39;total&#39;:
+                ampl_err = np.sqrt(
+                        self.evpa_err[sel[-1]]**2 + self.evpa_err[sel[0]]**2)
+
+                if np.absolute(ampl) &lt;= ampl_err * significance_level:
+                    n_rot_skipped += 1
+                    continue
+
+            # apply pairwise significance criterion:
+            if significance == &#39;pairwise&#39;:
+                ampls = np.absolute(
+                        self.evpa_adj[sel[:-1]] - self.evpa_adj[sel[1:]])
+                ampls_err = np.sqrt(
+                        self.evpa_err[sel[:-1]]**2 + self.evpa_err[sel[1:]]**2)
+
+                if np.any(ampls &lt;= ampls_err * significance_level):
+                    n_rot_skipped += 1
+                    continue
+
+            # store indices and statistics:
+            rotation_indices.append(sel)
+            durations.append(dur)
+            amplitudes.append(ampl)
+            varest.append(var)
+
+            if data:
+                rot = {&#39;time&#39;: self.time[sel], &#39;evpa&#39;: self.evpa[sel],
+                       &#39;evpa_adj&#39;: self.evpa_adj[sel]}
+
+                if self.evpa_err is not None:
+                    rot[&#39;evpa_err&#39;] = self.evpa_err[sel]
+
+                rotations_data.append(rot)
+
+        # print info:
+        if verbose &gt;= 1:
+            print(f&#39;{n_rot_total} rotations were identified.&#39;)
+
+            if n_rot_skipped:
+                print(f&#39;{n_rot_skipped} rotations do not meet the selection &#39;\
+                      &#39;criteria.&#39;)
+
+            print(f&#39;{n_rot_total-n_rot_skipped} rotations are returned.&#39;)
+
+
+        # add statistics to results:
+        if stats:
+            amplitudes = np.array(amplitudes)
+            durations = np.array(durations)
+            rates = amplitudes / durations
+
+            # change EVPA stats to degree, if needed:
+            unit = self.unit if unit == &#39;default&#39; else unit
+
+            if unit.lower() == &#39;deg&#39;:
+                amplitudes = np.degrees(amplitudes)
+                rates = np.degrees(rates)
+                varest = np.degrees(varest)
+
+            results[&#39;ampl&#39;] = amplitudes
+            results[&#39;dur&#39;] = durations
+            results[&#39;rate&#39;] = rates
+            results[&#39;var&#39;] = varest
+
+        # add indices to results:
+        if indices:
+            results[&#39;indices&#39;] = rotation_indices
+
+        # add rotation data to results:
+        if data:
+            results[&#39;data&#39;] = rotations_data
+
+        return results</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="evpatools.EVPAanalyzer.adjust"><code class="name flex">
+<span>def <span class="ident">adjust</span></span>(<span>self, n=1, method='mcoa')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Adjusts an EVPA curve based on the assumption of minimal change of
+the amplitude or rate between each data point, concidering a given
+number of preceeding data points, as defined e.g. in [1-3].</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>n</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>The number of reference points for the adjustment. The default is
+1.</dd>
+<dt><strong><code>method</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Selects the method of adjustment. Must me 'mcoa' or 'mcor'. The
+default is 'mcoa'.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raise, if <code>method</code> is not 'mcoa' or 'mcor'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="references">References</h2>
+<p>[1] Kiehlmann, 2015
+<a href="https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract">https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract</a>
+[2] Kiehlmann et al, 2016
+<a href="https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract">https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract</a>
+[3] Kiehlmann et al, 2021
+<a href="https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract">https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def adjust(self, n=1, method=&#39;mcoa&#39;):
+    &#34;&#34;&#34;Adjusts an EVPA curve based on the assumption of minimal change of
+    the amplitude or rate between each data point, concidering a given
+    number of preceeding data points, as defined e.g. in [1-3].
+
+    Parameters
+    ----------
+    n : int, optional
+        The number of reference points for the adjustment. The default is
+        1.
+    method : str, optional
+        Selects the method of adjustment. Must me &#39;mcoa&#39; or &#39;mcor&#39;. The
+        default is &#39;mcoa&#39;.
+
+    Raises
+    ------
+    ValueError
+        Raise, if `method` is not &#39;mcoa&#39; or &#39;mcor&#39;.
+
+    Returns
+    -------
+    None
+
+    References
+    ----------
+    [1] Kiehlmann, 2015
+        https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+    [2] Kiehlmann et al, 2016
+        https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+    [3] Kiehlmann et al, 2021
+        https://ui.adsabs.harvard.edu/abs/2021MNRAS.507..225K/abstract
+    &#34;&#34;&#34;
+
+    self._data_exists(raise_err=True)
+
+    if method.lower() ==  &#39;mcoa&#39;:
+        self.adjustment = f&#39;MCoA-{n}&#39;
+        self.evpa_adj = self._adjust_mcoa_multi(n)
+
+    elif method.lower() == &#39;mcor&#39;:
+        if n &gt; 1:
+            print(&#39;WARNING: Multiple reference points are not implemented&#39;\
+                  &#39; for the MCoR method. Proceeding with one reference &#39;\
+                  &#39;point.&#39;)
+
+        self.adjustment = &#39;MCoR&#39;
+        self.evpa_adj = self._adjust_mcor()
+
+    else:
+        raise ValueError(&#34;`method` must be &#39;mcoa&#39; or &#39;mcor&#39;.&#34;)</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.consistency"><code class="name flex">
+<span>def <span class="ident">consistency</span></span>(<span>self, n_max=10, method='mcoa')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Checks the consistency between adjusted EVPA curves using an
+increasing number of reference points, as defined in [1] and [2].</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>n_max</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Maximum number of reference points up to which the consistency is
+checked. The default is 10.</dd>
+<dt><strong><code>method</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Selects the method of adjustment. Must me 'mcoa' or 'mcor'. The
+default is 'mcoa'.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raise, if <code>method</code> is not 'mcoa' or 'mcor'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>n_consistent</code></strong> :&ensp;<code>int</code></dt>
+<dd>Highest number of reference points which gives adjustment results
+consistent with fewer reference points.</dd>
+</dl>
+<h2 id="references">References</h2>
+<p>[1] Kiehlmann, 2015
+<a href="https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract">https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract</a>
+[2] Kiehlmann et al, 2016
+<a href="https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract">https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def consistency(self, n_max=10, method=&#39;mcoa&#39;):
+    &#34;&#34;&#34;Checks the consistency between adjusted EVPA curves using an
+    increasing number of reference points, as defined in [1] and [2].
+
+    Parameters
+    ----------
+    n_max : int, optional
+        Maximum number of reference points up to which the consistency is
+        checked. The default is 10.
+    method : str, optional
+        Selects the method of adjustment. Must me &#39;mcoa&#39; or &#39;mcor&#39;. The
+        default is &#39;mcoa&#39;.
+
+    Raises
+    ------
+    ValueError
+        Raise, if `method` is not &#39;mcoa&#39; or &#39;mcor&#39;.
+
+    Returns
+    -------
+    n_consistent : int
+        Highest number of reference points which gives adjustment results
+        consistent with fewer reference points.
+
+    References
+    ----------
+    [1] Kiehlmann, 2015
+        https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+    [2] Kiehlmann et al, 2016
+        https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+    &#34;&#34;&#34;
+
+    self._data_exists(raise_err=True)
+
+    # check for infinite consistency: if all data points are within a pi/2
+    # interval, no data points will be shifted, thus the shifting
+    # consistency is infinate:
+    if np.max(self.evpa) - np.min(self.evpa) &lt;= np.pi / 2:
+        return np.inf
+
+    # set largest number of reference points:
+    n_max = self.evpa.size - 1 if self.evpa.size &lt;= n_max else n_max
+
+    # adjust EVPA and check consistency:
+    n_consistent = 1
+    evpa_ref = self._adjust_mcoa()
+
+    for n in range(2, n_max+1):
+        if method.lower() == &#39;mcoa&#39;:
+            evpa_adj = self._adjust_mcoa_multi(n=n)
+        elif method.lower() == &#39;mcor&#39;:
+            raise NotImplementedError()
+        else:
+            raise ValueError(&#34;`method` must be &#39;mcoa&#39; or &#39;mcor&#39;.&#34;)
+
+        if np.allclose(evpa_ref, evpa_adj):
+            n_consistent = n
+        else:
+            break
+
+    return n_consistent</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.get_data"><code class="name flex">
+<span>def <span class="ident">get_data</span></span>(<span>self, unit='default')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the saved data.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>The unit of the EVPA. If 'default', the EVPAs are returned in the
+same unit as they were put in. Otherwise, the unit must be 'rad' or
+'deg'. The default is 'default'.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raised, if <code>unit</code> is not 'default', 'rad', or 'deg'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Contains the time and the normalized EVPA. The adjusted EVPA and
+uncertainties are included if they exist.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_data(self, unit=&#39;default&#39;):
+    &#34;&#34;&#34;Returns the saved data.
+
+    Parameters
+    ----------
+    unit : str, optional
+        The unit of the EVPA. If &#39;default&#39;, the EVPAs are returned in the
+        same unit as they were put in. Otherwise, the unit must be &#39;rad&#39; or
+        &#39;deg&#39;. The default is &#39;default&#39;.
+
+    Raises
+    ------
+    ValueError
+        Raised, if `unit` is not &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.
+
+    Returns
+    -------
+    data : dict
+        Contains the time and the normalized EVPA. The adjusted EVPA and
+        uncertainties are included if they exist.
+    &#34;&#34;&#34;
+
+    unit = self.unit if unit == &#39;default&#39; else unit
+    data = {&#39;time&#39;: self.time}
+
+    if unit == &#39;rad&#39;:
+        data[&#39;evpa&#39;] = self.evpa
+
+        if self._adjusted_data_exists():
+            data[&#39;evpa_adj&#39;] = self.evpa_adj
+
+        if self.evpa_err is not None:
+            data[&#39;evpa_err&#39;] = self.evpa_err
+
+    elif unit == &#39;deg&#39;:
+        data[&#39;evpa&#39;] = np.degrees(self.evpa)
+
+        if self._adjusted_data_exists():
+            data[&#39;evpa_adj&#39;] = np.degrees(self.evpa_adj)
+
+        if self.evpa_err is not None:
+            data[&#39;evpa_err&#39;] = np.degrees(self.evpa_err)
+
+    else:
+        raise ValueError(&#34;`unit` must be &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.&#34;)
+
+    return data</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.get_rotations"><code class="name flex">
+<span>def <span class="ident">get_rotations</span></span>(<span>self, stats=True, indices=False, data=False, amplitude_cut=0, number_cut=2, significance=None, significance_level=1, unit='default', verbose=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Get the identified rotations: statistics, indices, and/or data.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>stats</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, return rotation statistics: the amplitudes, durations,
+rates, and the variation estimator are returned. The default is
+True.</dd>
+<dt><strong><code>indices</code></strong> :&ensp;<code>bool optional</code></dt>
+<dd>If True, return the indices to the rotations in the data. The
+default is False.</dd>
+<dt><strong><code>data</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, return the data for all rotations. The default is False.</dd>
+<dt><strong><code>amplitude_cut</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Only rotations with amplitudes larger than this threshold are
+returned. The cut must be given in the same unit as the input data,
+if <code>unit='default'</code> or the unit must be specified via setting
+<code>unit</code> to 'rad' or 'deg'. The default is 0.</dd>
+<dt><strong><code>number_cut</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Only rotations consisting of at least this amount of data points
+are returned. The default is 2.</dd>
+<dt><strong><code>significance</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Only rotations that meet the significance criterion are returned.
+If 'total', the total rotation amplitude must be larger than the
+corresponding uncertainty times <code>significance_level</code>.
+It 'pairwise', the EVPA change between each adjacent data pair
+must be larger than the corresponding uncertainty times
+<code>significance_level</code>. These criteria require that uncertainties
+have been provided. The default is None.</dd>
+<dt><strong><code>significance_level</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>Factor considered for the significance criteria (see above for
+details). The default is 1.</dd>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>If 'default', the EVPA-based rotation parameters are returned in
+the same unit as the original input data. Otherwise, specify the
+output unit by setting 'rad' or 'deg'. This input also specifies
+the unit of the <code>amplitude_cut</code>. The default is 'default'.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>If 1, prints some information about the count of simulations
+identified, rejected by the selection criteria, and returned.
+Set to 0 to turn off any information. The default is 1.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raised if no ratations have been identified yet.</dd>
+<dt><code>ValueError</code></dt>
+<dd>Raised if <code>unit</code> is neither 'default', 'rad', or 'deg'.</dd>
+<dt><code>ValueError</code></dt>
+<dd>Raised if <code>amplitude_cut</code> is not float or int or smaller than 0.</dd>
+<dt><code>ValueError</code></dt>
+<dd>Raised if <code>number_cut</code> is not int or smaller than 2.</dd>
+<dt><code>ValueError</code></dt>
+<dd>Raised if <code>significance</code> is neither None, 'total', not 'pairwise'.</dd>
+<dt><code>ValueError</code></dt>
+<dd>Raised if <code>significance_level</code> is neither float nor int or smaller
+than or equal to 0.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>results</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary containing the various items requested. If <code>stats=True</code>
+the rotation properties are saved under keys 'ampl', 'dur',
+'rates', and 'var'. If <code>indices =True</code> a list is saved under the
+key 'indices', where each item is a numpy.ndarray of indices
+corresponding to the data that make up each rotation. If
+<code>data=True</code> each rotation's data is returned as a dict in a list
+under the key 'data'.`</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_rotations(
+        self, stats=True, indices=False, data=False, amplitude_cut=0,
+        number_cut=2, significance=None, significance_level=1,
+        unit=&#39;default&#39;, verbose=1):
+    &#34;&#34;&#34;Get the identified rotations: statistics, indices, and/or data.
+
+    Parameters
+    ----------
+    stats : bool, optional
+        If True, return rotation statistics: the amplitudes, durations,
+        rates, and the variation estimator are returned. The default is
+        True.
+    indices : bool optional
+        If True, return the indices to the rotations in the data. The
+        default is False.
+    data : bool, optional
+        If True, return the data for all rotations. The default is False.
+    amplitude_cut : float, optional
+        Only rotations with amplitudes larger than this threshold are
+        returned. The cut must be given in the same unit as the input data,
+        if `unit=&#39;default&#39;` or the unit must be specified via setting
+        `unit` to &#39;rad&#39; or &#39;deg&#39;. The default is 0.
+    number_cut : int, optional
+        Only rotations consisting of at least this amount of data points
+        are returned. The default is 2.
+    significance : str, optional
+        Only rotations that meet the significance criterion are returned.
+        If &#39;total&#39;, the total rotation amplitude must be larger than the
+        corresponding uncertainty times `significance_level`.
+        It &#39;pairwise&#39;, the EVPA change between each adjacent data pair
+        must be larger than the corresponding uncertainty times
+        `significance_level`. These criteria require that uncertainties
+        have been provided. The default is None.
+    significance_level : float, optional
+        Factor considered for the significance criteria (see above for
+        details). The default is 1.
+    unit : str, optional
+        If &#39;default&#39;, the EVPA-based rotation parameters are returned in
+        the same unit as the original input data. Otherwise, specify the
+        output unit by setting &#39;rad&#39; or &#39;deg&#39;. This input also specifies
+        the unit of the `amplitude_cut`. The default is &#39;default&#39;.
+    verbose : int, optional
+        If 1, prints some information about the count of simulations
+        identified, rejected by the selection criteria, and returned.
+        Set to 0 to turn off any information. The default is 1.
+
+    Raises
+    ------
+    ValueError
+        Raised if no ratations have been identified yet.
+    ValueError
+        Raised if `unit` is neither &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.
+    ValueError
+        Raised if `amplitude_cut` is not float or int or smaller than 0.
+    ValueError
+        Raised if `number_cut` is not int or smaller than 2.
+    ValueError
+        Raised if `significance` is neither None, &#39;total&#39;, not &#39;pairwise&#39;.
+    ValueError
+        Raised if `significance_level` is neither float nor int or smaller
+        than or equal to 0.
+
+    Returns
+    -------
+    results : dict
+        Dictionary containing the various items requested. If `stats=True`
+        the rotation properties are saved under keys &#39;ampl&#39;, &#39;dur&#39;,
+        &#39;rates&#39;, and &#39;var&#39;. If `indices =True` a list is saved under the
+        key &#39;indices&#39;, where each item is a numpy.ndarray of indices
+        corresponding to the data that make up each rotation. If
+        `data=True` each rotation&#39;s data is returned as a dict in a list
+        under the key &#39;data&#39;.`
+    &#34;&#34;&#34;
+
+    # check if rotations exist:
+    if self.rotation_indices is None:
+        raise ValueError(
+                &#34;No rotations stored. Run `identify_rotations` first.&#34;)
+
+    # check input:
+    if unit.lower() not in [&#39;default&#39;, &#39;rad&#39;, &#39;deg&#39;]:
+        raise ValueError(&#34;`unit` must be &#39;default&#39;, &#39;rad&#39;, or &#39;deg&#39;.&#34;)
+
+    if type(amplitude_cut) not in [int, float] or amplitude_cut &lt; 0:
+        raise ValueError(
+            &#34;`amplitude_cut` must be float equal to or larger than 0.&#34;)
+
+    if not isinstance(number_cut, int) or number_cut &lt; 2:
+        raise ValueError(
+            &#34;`number_cut` must be integer equal to or larger than 2.&#34;)
+
+    if significance not in [None, &#39;total&#39;, &#39;pairwise&#39;]:
+        raise ValueError(
+                &#34;`significance` must be &#39;total&#39;, &#39;pairwise&#39;, or None.&#34;)
+
+    if significance and self.evpa_err is None:
+        raise ValueError(
+                &#39;No uncertainties stored. Cannot apply significance &#39;\
+                &#39;criterion.&#39;)
+
+    if type(significance_level) not in [int, float] \
+            or significance_level &lt;= 0:
+        raise ValueError(
+                &#34;`significance_level` must be float larger than 0.&#34;)
+
+    # convert amplitude cut:
+    if (unit == &#39;default&#39; and self.unit == &#39;deg&#39;) or unit == &#39;deg&#39;:
+        amplitude_cut = np.radians(amplitude_cut)
+
+    # storage for results:
+    results = {}
+    rotation_indices = []
+    rotations_data = []
+    amplitudes = []
+    durations = []
+    varest = []
+    n_rot_total = len(self.rotation_indices)
+    n_rot_skipped = 0
+
+    # iterate through rotations:
+    for i, sel in enumerate(self.rotation_indices):
+        dur = self.time[sel[-1]] - self.time[sel[0]]
+        ampl = self.evpa_adj[sel[-1]] - self.evpa_adj[sel[0]]
+        var, __ = self.variation_estimator(sel=sel)
+
+        # apply number cut:
+        if sel.size &lt; number_cut:
+            n_rot_skipped += 1
+            continue
+
+        # apply amplitude cut:
+        if np.abs(ampl) &lt; amplitude_cut:
+            n_rot_skipped += 1
+            continue
+
+        # apply total significance criterion:
+        if significance == &#39;total&#39;:
+            ampl_err = np.sqrt(
+                    self.evpa_err[sel[-1]]**2 + self.evpa_err[sel[0]]**2)
+
+            if np.absolute(ampl) &lt;= ampl_err * significance_level:
+                n_rot_skipped += 1
+                continue
+
+        # apply pairwise significance criterion:
+        if significance == &#39;pairwise&#39;:
+            ampls = np.absolute(
+                    self.evpa_adj[sel[:-1]] - self.evpa_adj[sel[1:]])
+            ampls_err = np.sqrt(
+                    self.evpa_err[sel[:-1]]**2 + self.evpa_err[sel[1:]]**2)
+
+            if np.any(ampls &lt;= ampls_err * significance_level):
+                n_rot_skipped += 1
+                continue
+
+        # store indices and statistics:
+        rotation_indices.append(sel)
+        durations.append(dur)
+        amplitudes.append(ampl)
+        varest.append(var)
+
+        if data:
+            rot = {&#39;time&#39;: self.time[sel], &#39;evpa&#39;: self.evpa[sel],
+                   &#39;evpa_adj&#39;: self.evpa_adj[sel]}
+
+            if self.evpa_err is not None:
+                rot[&#39;evpa_err&#39;] = self.evpa_err[sel]
+
+            rotations_data.append(rot)
+
+    # print info:
+    if verbose &gt;= 1:
+        print(f&#39;{n_rot_total} rotations were identified.&#39;)
+
+        if n_rot_skipped:
+            print(f&#39;{n_rot_skipped} rotations do not meet the selection &#39;\
+                  &#39;criteria.&#39;)
+
+        print(f&#39;{n_rot_total-n_rot_skipped} rotations are returned.&#39;)
+
+
+    # add statistics to results:
+    if stats:
+        amplitudes = np.array(amplitudes)
+        durations = np.array(durations)
+        rates = amplitudes / durations
+
+        # change EVPA stats to degree, if needed:
+        unit = self.unit if unit == &#39;default&#39; else unit
+
+        if unit.lower() == &#39;deg&#39;:
+            amplitudes = np.degrees(amplitudes)
+            rates = np.degrees(rates)
+            varest = np.degrees(varest)
+
+        results[&#39;ampl&#39;] = amplitudes
+        results[&#39;dur&#39;] = durations
+        results[&#39;rate&#39;] = rates
+        results[&#39;var&#39;] = varest
+
+    # add indices to results:
+    if indices:
+        results[&#39;indices&#39;] = rotation_indices
+
+    # add rotation data to results:
+    if data:
+        results[&#39;data&#39;] = rotations_data
+
+    return results</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.identify_rotations"><code class="name flex">
+<span>def <span class="ident">identify_rotations</span></span>(<span>self, method, time_gap=None, verbose=0, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Identify rotations in the stored data.
+One may chose from two different definitions of a rotation: 'smooth' as
+introduced by [1] or 'continuous' by [2] and [3].</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>method</code></strong> :&ensp;<code>str</code></dt>
+<dd>Select either 'smooth' or 'continuous'.</dd>
+<dt><strong><code>time_gap</code></strong> :&ensp;<code>float</code> or <code>None</code>, optional</dt>
+<dd>If set, the data is split at time gaps larger than this threshold.
+Rotations will not include these large gaps. The default is None.</dd>
+<dt><strong><code>verbose</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>If 1, returns some basic information about the identification. If
+2, provides details in case that <code>method='continuous'</code>. Set to 0 to
+turn off any notifications. The default is 0.</dd>
+</dl>
+<p>**kwargs :
+Arguments forwarded to the smooth or continuous rotation
+identification methods. See details below.</p>
+<h2 id="keyword-arguments-for-the-smooth-rotation-identification">Keyword Arguments For The Smooth Rotation Identification</h2>
+<p>threshold_abs : float, optional
+Threshold of the absolute change in the rotation rate given in the
+unit of the EVPA input over the unit of the time input. For details
+see notes below. This argument overwrites <code>threshold_factor</code>. The
+default is None.
+threshold_factor : string, optional
+Threshold of the relative change in the rotation rate given as a
+unitless factor. For details see notes below. This argument is
+overwritten by <code>threshold_factor</code>. The default is None.
+error_propagation: bool, optional
+If True, the difference of the derivatives is reduced by the
+propagated errors. Note: EVPA errors are only considered, when
+<code>threshold_abs</code> is set. For <code>threshold_factor</code> this functionality
+is not implemented yet. The default is False.</p>
+<h2 id="keyword-arguments-for-the-continuous-rotation-identification">Keyword Arguments For The Continuous Rotation Identification</h2>
+<p>significance_level : float, optional
+Factor by which the uncertainties are increased when calculating
+if a value change is significant. The default is 1.</p>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raised, if <code>time_gap</code> is neither float nor int or is equal to or
+smaller than 0.</dd>
+<dt><code>ValueError</code></dt>
+<dd>Raised, if <code>method</code> is neither 'smooth' nor 'continuous'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>If <code>method='smooth'</code>:
+Either <code>threshold_abs</code> or <code>threshold_factor</code> must be set.
+Let the threshold be f and the previous derivative of 'evpa' is X1
+and the current derivative is X2. The transition from X1 to X2 is
+considered smooth if X2 is in the following range:
+If <code>threshold_abs</code> is given: X2 in [X1-f, X2+f].
+If <code>threshold_factor</code> is given: X2 in [1/f<em>X1, f</em>X1].</p>
+<pre><code>If &lt;code&gt;threshold\_factor&lt;/code&gt; is used this method implements the definition
+of an EVPA rotation as introduced by [1].
+</code></pre>
+<p>If <code>method='continuous'</code>:
+This method implements the algorithm introduced by [2] and [3].</p>
+<h2 id="references">References</h2>
+<p>[1] Blinov et al, 2015
+<a href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract">https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract</a>
+[2] Kiehlmann, 2015
+<a href="https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract">https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract</a>
+[3] Kiehlmann et al, 2016
+<a href="https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract">https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def identify_rotations(self, method, time_gap=None, verbose=0, **kwargs):
+    &#34;&#34;&#34;Identify rotations in the stored data.
+    One may chose from two different definitions of a rotation: &#39;smooth&#39; as
+    introduced by [1] or &#39;continuous&#39; by [2] and [3].
+
+    Parameters
+    ----------
+    method : str
+        Select either &#39;smooth&#39; or &#39;continuous&#39;.
+    time_gap : float or None, optional
+        If set, the data is split at time gaps larger than this threshold.
+        Rotations will not include these large gaps. The default is None.
+    verbose : int, optional
+        If 1, returns some basic information about the identification. If
+        2, provides details in case that `method=&#39;continuous&#39;`. Set to 0 to
+        turn off any notifications. The default is 0.
+    **kwargs :
+        Arguments forwarded to the smooth or continuous rotation
+        identification methods. See details below.
+
+    Keyword arguments for the smooth rotation identification
+    --------------------------------------------------------
+    threshold_abs : float, optional
+        Threshold of the absolute change in the rotation rate given in the
+        unit of the EVPA input over the unit of the time input. For details
+        see notes below. This argument overwrites `threshold_factor`. The
+        default is None.
+    threshold_factor : string, optional
+        Threshold of the relative change in the rotation rate given as a
+        unitless factor. For details see notes below. This argument is
+        overwritten by `threshold_factor`. The default is None.
+    error_propagation: bool, optional
+        If True, the difference of the derivatives is reduced by the
+        propagated errors. Note: EVPA errors are only considered, when
+        `threshold_abs` is set. For `threshold_factor` this functionality
+        is not implemented yet. The default is False.
+
+    Keyword arguments for the continuous rotation identification
+    ------------------------------------------------------------
+    significance_level : float, optional
+        Factor by which the uncertainties are increased when calculating
+        if a value change is significant. The default is 1.
+
+    Raises
+    ------
+    ValueError
+        Raised, if `time_gap` is neither float nor int or is equal to or
+        smaller than 0.
+    ValueError
+        Raised, if `method` is neither &#39;smooth&#39; nor &#39;continuous&#39;.
+
+    Returns
+    -------
+    None
+
+    Notes
+    -----
+    If `method=&#39;smooth&#39;`:
+        Either `threshold_abs` or `threshold_factor` must be set.
+        Let the threshold be f and the previous derivative of &#39;evpa&#39; is X1
+        and the current derivative is X2. The transition from X1 to X2 is
+        considered smooth if X2 is in the following range:
+        If `threshold_abs` is given: X2 in [X1-f, X2+f].
+        If `threshold_factor` is given: X2 in [1/f*X1, f*X1].
+
+        If `threshold_factor` is used this method implements the definition
+        of an EVPA rotation as introduced by [1].
+    If `method=&#39;continuous&#39;`:
+        This method implements the algorithm introduced by [2] and [3].
+
+    References
+    ----------
+    [1] Blinov et al, 2015
+        https://ui.adsabs.harvard.edu/abs/2015MNRAS.453.1669B/abstract
+    [2] Kiehlmann, 2015
+        https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+    [3] Kiehlmann et al, 2016
+        https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+    &#34;&#34;&#34;
+
+    if verbose &gt; 0:
+        print(f&#39;Identify {method} rotations..&#39;)
+
+    # check that data exists:
+    self._adjusted_data_exists(raise_err=True)
+
+    # split data, if needed:
+    if time_gap is None:
+        split_indices = [np.arange(0, self.evpa.size)]
+
+    else:
+        if type(time_gap) not in [float, int] or time_gap &lt;= 0:
+            raise ValueError(&#34;`time_gap` must be larger than 0.&#34;)
+
+        split_indices = self._split_data(time_gap)
+        n_split = len(split_indices)
+
+        if verbose &gt; 0 and n_split &gt; 1:
+            print(f&#39;Iterating through {n_split} split data sub-sets..&#39;)
+
+    rotation_indices = []
+
+    # identify smooth rotations:
+    if method.lower() == &#39;smooth&#39;:
+        self.rot_method = &#39;smooth&#39;
+
+        # iterate through split data sets:
+        for sel in split_indices:
+            if sel.size &lt; 2:
+                continue
+
+            temp_indices = self._identify_rot_smooth(sel=sel, **kwargs)
+
+            for ind in temp_indices:
+                rotation_indices.append(ind + sel[0])
+
+    # or identify continuous rotations:
+    elif method.lower() == &#39;continuous&#39;:
+        self.rot_method = &#39;continuous&#39;
+
+        # iterate through split data sets:
+        for sel in split_indices:
+            if sel.size &lt; 2:
+                continue
+
+            temp_indices = self._identify_rot_cont(
+                    sel=sel, verbose=verbose, **kwargs)
+
+            for ind in temp_indices:
+                rotation_indices.append(ind + sel[0])
+
+    # otherwise, raise error:
+    else:
+        raise ValueError(&#34;`method` must be &#39;smooth&#39; or &#39;continuous&#39;.&#34;)
+
+    self.rotation_indices = rotation_indices
+    n_rot = len(rotation_indices)
+
+    if verbose &gt; 0:
+        print(f&#39;{n_rot} rotations identified.&#39;)</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.normalize"><code class="name flex">
+<span>def <span class="ident">normalize</span></span>(<span>self, lower_limit=0.0)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Shifts all EVPA data points into a 180 degrees interval.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>lower_limit</code></strong> :&ensp;<code>float</code>, default=<code>0</code></dt>
+<dd>Sets the lower limit of the EVPA interval.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def normalize(self, lower_limit=0.):
+    &#34;&#34;&#34;Shifts all EVPA data points into a 180 degrees interval.
+
+    Parameters
+    ----------
+    lower_limit : float, default=0
+        Sets the lower limit of the EVPA interval.
+
+    Returns
+    -----
+    None
+    &#34;&#34;&#34;
+
+    self._data_exists(raise_err=True)
+
+    self.evpa -= np.floor(self.evpa / np.pi) * np.pi
+
+    if lower_limit:
+        sel = self.evpa &gt;= lower_limit % np.pi
+        self.evpa = np.where(sel, self.evpa - np.pi, self.evpa)
+        self.evpa += (np.floor(lower_limit / np.pi) + 1) * np.pi</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.set_data"><code class="name flex">
+<span>def <span class="ident">set_data</span></span>(<span>self, time, evpa, evpa_err=None, unit='rad')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Create instance of EVPAanalyzer.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>time</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>Time.</dd>
+<dt><strong><code>evpa</code></strong> :&ensp;<code>array-like</code></dt>
+<dd>EVPA in radians or degrees.</dd>
+<dt><strong><code>evpa_err</code></strong> :&ensp;<code>array-like</code>, optional</dt>
+<dd>Uncertainties of the EVPA in radians or degrees. The default is
+None.</dd>
+<dt><strong><code>unit</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Unit of the EVPA and uncertainties. Must be 'rad' or 'deg'. The
+default is 'rad'.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raised, if <code>unit</code> is not 'rad' or 'deg'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>None</code></dt>
+<dd>&nbsp;</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_data(self, time, evpa, evpa_err=None, unit=&#39;rad&#39;):
+    &#34;&#34;&#34;Create instance of EVPAanalyzer.
+
+    Parameters
+    ----------
+    time : array-like
+        Time.
+    evpa : array-like
+        EVPA in radians or degrees.
+    evpa_err : array-like, optional
+        Uncertainties of the EVPA in radians or degrees. The default is
+        None.
+    unit : str, optional
+        Unit of the EVPA and uncertainties. Must be &#39;rad&#39; or &#39;deg&#39;. The
+        default is &#39;rad&#39;.
+
+    Raises
+    ------
+    ValueError
+        Raised, if `unit` is not &#39;rad&#39; or &#39;deg&#39;.
+
+    Returns
+    -------
+    None
+    &#34;&#34;&#34;
+
+    # convert inputs to arrays, if needed:
+    time = np.asarray(time)
+    evpa = np.asarray(evpa)
+
+    if evpa_err is not None:
+        evpa_err = np.asarray(evpa_err)
+
+    # convert to radians if necessary:
+    if unit == &#39;rad&#39;:
+        self.unit = &#39;rad&#39;
+
+    elif unit == &#39;deg&#39;:
+        self.unit = &#39;deg&#39;
+        evpa = np.radians(evpa)
+
+        if evpa_err is not None:
+            evpa_err = np.radians(evpa_err)
+
+    else:
+        raise ValueError(&#34;`unit` must be &#39;rad&#39; or &#39;deg&#39;.&#34;)
+
+    # save as attributes:
+    self.time = time
+    self.evpa = evpa
+    self.evpa_err = evpa_err
+
+    # normalize EVPA:
+    self.normalize()
+
+    # sort by time:
+    i = np.argsort(time)
+    self.time = self.time[i]
+    self.evpa = self.evpa[i]
+
+    if self.evpa_err is not None:
+        self.evpa_err = self.evpa_err[i]</code></pre>
+</details>
+</dd>
+<dt id="evpatools.EVPAanalyzer.variation_estimator"><code class="name flex">
+<span>def <span class="ident">variation_estimator</span></span>(<span>self, sel=None, return_rates=False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Calculates the variation estimator of an EVPA curve.
+The variation estimator is the average absolute offset of the
+point-wise derivative from the average derivative of the curve, as
+defined in [1] and [2].</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>sel</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>Indices to a subsection of data. If given, the estimation runs
+only over this subsection of the data. The default is None.</dd>
+<dt><strong><code>return_rates</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>If True, the pairwise rotation rates are returned. Otherwise, not.
+The default is False.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>variation</code></strong> :&ensp;<code>float, float</code></dt>
+<dd>Variation estimator.</dd>
+<dt><strong><code>tendency</code></strong> :&ensp;<code>float</code></dt>
+<dd>Estimate of the secular trend of the EVPA curve.</dd>
+<dt><strong><code>rates</code></strong> :&ensp;<code>np.ndarray</code>, optional</dt>
+<dd>The pairwise derivatives of the EVPA curve. Only returned, if
+<code>return_rates=True</code>.</dd>
+</dl>
+<h2 id="references">References</h2>
+<p>[1] Kiehlmann, 2015
+<a href="https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract">https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract</a>
+[2] Kiehlmann et al, 2016
+<a href="https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract">https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def variation_estimator(self, sel=None, return_rates=False):
+    &#34;&#34;&#34;Calculates the variation estimator of an EVPA curve.
+    The variation estimator is the average absolute offset of the
+    point-wise derivative from the average derivative of the curve, as
+    defined in [1] and [2].
+
+    Parameters
+    ----------
+    sel : np.ndarray, optional
+        Indices to a subsection of data. If given, the estimation runs
+        only over this subsection of the data. The default is None.
+    return_rates : bool, optional
+        If True, the pairwise rotation rates are returned. Otherwise, not.
+        The default is False.
+
+    Returns
+    -----
+    variation : float, float
+        Variation estimator.
+    tendency : float
+        Estimate of the secular trend of the EVPA curve.
+    rates : np.ndarray, optional
+        The pairwise derivatives of the EVPA curve. Only returned, if
+        `return_rates=True`.
+
+    References
+    ----------
+    [1] Kiehlmann, 2015
+        https://ui.adsabs.harvard.edu/abs/2015PhDT.......630K/abstract
+    [2] Kiehlmann et al, 2016
+        https://ui.adsabs.harvard.edu/abs/2016A%26A...590A..10K/abstract
+    &#34;&#34;&#34;
+
+    # get data:
+    sel = np.arange(self.time.size) if sel is None else sel
+    evpa = self.evpa_adj[sel]
+    time = self.time[sel]
+
+    # differences:
+    devpa = np.diff(evpa)
+    dtime = np.diff(time)
+
+    # relative point-to-point variation:
+    rates = devpa / dtime
+
+    # tendency and variation estimator:
+    tendency = np.mean(rates)
+    variation = np.mean(np.absolute(rates - tendency))
+
+    if return_rates:
+        rates = np.r_[0, rates]
+        return variation, tendency, rates
+    else:
+        return variation, tendency</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="evpatools.EVPAanalyzer" href="#evpatools.EVPAanalyzer">EVPAanalyzer</a></code></h4>
+<ul class="two-column">
+<li><code><a title="evpatools.EVPAanalyzer.adjust" href="#evpatools.EVPAanalyzer.adjust">adjust</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.consistency" href="#evpatools.EVPAanalyzer.consistency">consistency</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.get_data" href="#evpatools.EVPAanalyzer.get_data">get_data</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.get_rotations" href="#evpatools.EVPAanalyzer.get_rotations">get_rotations</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.identify_rotations" href="#evpatools.EVPAanalyzer.identify_rotations">identify_rotations</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.normalize" href="#evpatools.EVPAanalyzer.normalize">normalize</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.set_data" href="#evpatools.EVPAanalyzer.set_data">set_data</a></code></li>
+<li><code><a title="evpatools.EVPAanalyzer.variation_estimator" href="#evpatools.EVPAanalyzer.variation_estimator">variation_estimator</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
