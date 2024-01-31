@@ -49,7 +49,7 @@ class EVPAanalyzer():
             self.evpa = None
             self.evpa_err = None
         else:
-            self.set_data(evpa, evpa_err=evpa_err, unit=unit)
+            self.set_data(time, evpa, evpa_err=evpa_err, unit=unit)
 
         self.evpa_adj = None
         self.rotation_indices = None
@@ -387,9 +387,9 @@ class EVPAanalyzer():
         """
 
         # check input:
-        if significance_level < 1:
+        if significance_level < 0:
             raise ValueError(
-                    "`significance_level` must be equal to or larger than 1.")
+                    "`significance_level` must be equal to or larger than 0.")
 
         # get data:
         sel = np.arange(self.time.size) if sel is None else sel
@@ -1172,9 +1172,14 @@ class EVPAanalyzer():
 
         Returns
         -------
-        results : TYPE
-            DESCRIPTION.
-
+        results : dict
+            Dictionary containing the various items requested. If `stats=True`
+            the rotation properties are saved under keys 'ampl', 'dur',
+            'rates', and 'var'. If `indices =True` a list is saved under the
+            key 'indices', where each item is a numpy.ndarray of indices
+            corresponding to the data that make up each rotation. If
+            `data=True` each rotation's data is returned as a dict in a list
+            under the key 'data'.`
         """
 
         # check if rotations exist:
