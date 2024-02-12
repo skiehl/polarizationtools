@@ -78,7 +78,7 @@ class EVPAanalyzer():
             self.evpa = None
             self.evpa_err = None
         else:
-            self.set_data(evpa, evpa_err=evpa_err, unit=unit)
+            self.set_data(time, evpa, evpa_err=evpa_err, unit=unit)
 
         self.evpa_adj = None
         self.rotation_indices = None
@@ -416,9 +416,9 @@ class EVPAanalyzer():
         &#34;&#34;&#34;
 
         # check input:
-        if significance_level &lt; 1:
+        if significance_level &lt; 0:
             raise ValueError(
-                    &#34;`significance_level` must be equal to or larger than 1.&#34;)
+                    &#34;`significance_level` must be equal to or larger than 0.&#34;)
 
         # get data:
         sel = np.arange(self.time.size) if sel is None else sel
@@ -1418,7 +1418,7 @@ default is 'rad'.</dd>
             self.evpa = None
             self.evpa_err = None
         else:
-            self.set_data(evpa, evpa_err=evpa_err, unit=unit)
+            self.set_data(time, evpa, evpa_err=evpa_err, unit=unit)
 
         self.evpa_adj = None
         self.rotation_indices = None
@@ -1756,9 +1756,9 @@ default is 'rad'.</dd>
         &#34;&#34;&#34;
 
         # check input:
-        if significance_level &lt; 1:
+        if significance_level &lt; 0:
             raise ValueError(
-                    &#34;`significance_level` must be equal to or larger than 1.&#34;)
+                    &#34;`significance_level` must be equal to or larger than 0.&#34;)
 
         # get data:
         sel = np.arange(self.time.size) if sel is None else sel
