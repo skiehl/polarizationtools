@@ -1,0 +1,1417 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>randomwalk API documentation</title>
+<meta name="description" content="Simulations of a random walk in the Stokes Q-U plane." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>randomwalk</code></h1>
+</header>
+<section id="section-intro">
+<p>Simulations of a random walk in the Stokes Q-U plane.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+&#34;&#34;&#34;
+Simulations of a random walk in the Stokes Q-U plane.
+&#34;&#34;&#34;
+
+import numpy as np
+from statsmodels.distributions.empirical_distribution import ECDF
+
+__author__ = &#34;Sebastian Kiehlmann&#34;
+__credits__ = [&#34;Sebastian Kiehlmann&#34;]
+__license__ = &#34;BSD&#34;
+__maintainer__ = &#34;Sebastian Kiehlmann&#34;
+__email__ = &#34;skiehlmann@mail.de&#34;
+__status__ = &#34;Production&#34;
+
+#==============================================================================
+# CLASSES
+#==============================================================================
+
+class RWsim():
+    &#34;&#34;&#34;A tool to run random walk simulations in the Stokes Q-U plane.
+    &#34;&#34;&#34;
+
+    #--------------------------------------------------------------------------
+    def __init__(self):
+        &#34;&#34;&#34;Create instance of RWsim.
+        &#34;&#34;&#34;
+
+        pass
+
+    #--------------------------------------------------------------------------
+    def _draw_from_powerlaw(self, index, minval, maxval, size=1):
+        &#34;&#34;&#34;Draws random numbers from a truncated power-law distribution.
+
+        Parameters
+        ----------
+        index : float
+            Power-law index.
+        minval : float
+            Lower limit of the distribution.
+        maxval : float
+            Upper limit of the distribution.
+        size : int, optional
+            Number of random data points to return. The default is 1.
+
+        Returns
+        -------
+        random_numbers : numpy.ndarray
+            Random numbers.
+        &#34;&#34;&#34;
+
+        if index == -1:
+            random_numbers = np.exp(
+                np.random.uniform(size=size) * np.log(maxval / minval) \
+                + np.log(minval))
+
+        else:
+
+            index += 1
+            random_numbers = np.power(
+                (maxval**index - minval**index) \
+                * np.random.uniform(size=size) + minval**index, 1 / index)
+
+        return random_numbers
+
+    #--------------------------------------------------------------------------
+    def _draw_from_ecdf(self, data, size=1):
+        &#34;&#34;&#34;Draws random number from an empirical cumulative distribution
+        ferrorstion (ECDF) defined by given data.
+
+        Parameters
+        ----------
+        data : list-like
+            The data which defines the ECDF.
+        size : int, optional
+            Number of random data points to return. The default is 1.
+
+        Returns
+        -----
+        random_numbers : np.ndarray
+            Random numbers.
+        &#34;&#34;&#34;
+
+        data = np.asarray(data)
+        ecdf = ECDF(data)
+        draw = np.random.uniform(low=ecdf.y[1], size=size)
+        random_numbers = np.interp(draw, ecdf.y, ecdf.x)
+
+        return random_numbers
+
+    #--------------------------------------------------------------------------
+    def _create_random_time(
+            self, total, dist, param, recursion=0):
+        &#34;&#34;&#34;Creates random time data points with time steps following a given
+        distribution.
+
+        Parameters
+        ----------
+        total : float
+            The total time to cover by the time data points
+        dist : str
+            Defines the distribution the time steps are drawn from. Choose from
+            truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+            parameters need to be set accordingly in the &#39;param&#39;.
+        param : list
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!).
+        recursion : int, optional
+            Do not manually set a value. This parameter is needed internally
+            when the drawn time steps are not enough to cover the targeted
+            total time and a recursion call of the ferrorstion is necessery. The
+            default is 0.
+
+        Raises
+        ------
+        ValueError
+            Raised if `dist` is neither &#39;lognormal&#39;, &#39;powerlaw&#39;, nor  &#39;ecdf&#39;.
+
+        Returns
+        -------
+        time : numpy.ndarray
+            Random time data points.
+        &#34;&#34;&#34;
+
+        # determine number of time steps to create:
+        if recursion:
+            size = recursion
+
+        elif dist==&#39;powerlaw&#39; and param[0] &lt; -2.:
+            mean_sampling = \
+                (param[2]**(param[0] + 2) - param[1]**(param[0] + 2)) \
+                / (param[2]**(param[0] + 1) - param[1]**(param[0] + 1)) \
+                * (param[0] + 1) /(param[0] + 2)
+            size = int(1.2 * total / mean_sampling)
+
+        elif dist==&#39;lognormal&#39;:
+            mean_sampling = np.exp((param[0] + param[1]**2) / 2)
+            size = int(1.2 * total / mean_sampling)
+
+        elif dist==&#39;ecdf&#39;:
+            mean_sampling = np.mean(param)
+            size = int(1.2 * total / mean_sampling)
+
+        else:
+            size = 100
+
+        if size &lt; 10:
+            size = 10
+
+        # create random time steps:
+        if dist==&#39;powerlaw&#39;:
+            steps = self._draw_from_powerlaw(
+                param[0], param[1], param[2], size=size)
+
+        elif dist==&#39;lognormal&#39;:
+            steps = np.random.lognormal(
+                mean=param[0], sigma=param[1], size=size)
+
+        elif dist==&#39;ecdf&#39;:
+            steps = self._draw_from_ecdf(param, size=size)
+
+        else:
+            raise ValueError(
+                f&#34;Distribution type &#39;{dist}&#39; is not supported. Either set &#34;
+                &#34;to &#39;powerlaw&#39;, &#39;lognormal&#39;, or &#39;ecdf&#39;.&#34;)
+
+        time = np.cumsum(steps)
+
+        # recursion, if time steps do not cover total time:
+        if time[-1] &lt; total:
+           size = int(np.ceil(2 * (1 - time[-1] / total) * size))
+           more = self._create_random_time(
+               total-time[-1], dist=dist, param=param, recursion=size)
+           time = np.concatenate((time, more + time[-1]))
+
+        if not recursion:
+            time = time[time&lt;=total]
+            time = np.r_[0, time]
+
+        return time
+
+    #--------------------------------------------------------------------------
+    def _create_time(self, total, dist=&#39;const&#39;, param=1):
+        &#34;&#34;&#34;
+
+        Parameters
+        ----------
+        total : float
+            The total time to cover by the time data points
+        dist : str, optional
+            Defines the distribution the time steps are drawn from. Choose from
+            truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+            parameters need to be set accordingly in the &#39;param&#39;. The default
+            is &#39;const&#39;.
+        param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+
+        Returns
+        -------
+        time : numpy.ndarray
+            Time data points.
+        &#34;&#34;&#34;
+
+        if dist == &#39;const&#39;:
+            time = np.arange(0, total, param)
+
+        else:
+            time = self._create_random_time(total, dist, param)
+
+        return time
+
+    #--------------------------------------------------------------------------
+    def _rw_simple(
+            self, time, cells, variation, cell_pol=0.72, return_cells=False):
+        &#34;&#34;&#34;Polarization random walk based on the &#39;Simple Q,U random walk
+        process&#39; [1].
+
+        Parameters
+        ----------
+        time : np.ndarray
+            Time.
+        cells : int
+            Number of cells.
+        variation : float
+            Cell variation rate, the number of cells that change every unit
+            time step.
+        cell_pol : float, optional
+            The fractional polarization of each cell. The default is 0.72.
+        return_cells : bool, optional
+            If True, all cell q and u parameters are returned. The default is
+            False.
+
+        Returns
+        -------
+        stokes_q, stokes_u : np.ndarrays
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I, if `return_cells=False`.
+        stokes_q, stokes_u, cells_q, cells_u :
+                np.ndarray, np.ndarray, np.ndarray, np.ndarray
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I and all cell q and u parameters, if `return_cells=True`.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+        &#34;&#34;&#34;
+
+        time = np.asarray(time)
+
+        # initialize randomized cells:
+        # Stokes I, Q, U for each cell and each time step;
+        # I constant (normed that total flux equals 1),
+        # Q, U random samples from Gaussian distribution:
+        cells_i = 1. /cells
+        cells_q = np.random.normal(0, 1, (time.shape[0], cells))
+        cells_u = np.random.normal(0, 1, (time.shape[0], cells))
+
+        # set number of changing cells:
+        # cumulative number of varying cells:
+        nvar = np.rint(time * variation).astype(int)
+        # current number of varying cells:
+        nvar = np.diff(nvar)
+        nvar = np.where(nvar &gt; cells, cells, nvar)
+
+        # iterate through random changes:
+        # initially all cells are randomized; pick random cells that stay
+        # constant and copy those:
+
+        for i, n in enumerate(nvar, 1):
+            # no cells change: copy latest results:
+            if n == 0:
+                cells_q[i] = cells_q[i-1]
+                cells_u[i] = cells_u[i-1]
+
+            # cells change:
+            else:
+                # select random cells that change:
+                mask = np.unique(np.random.randint(0, cells, n))
+
+                # copy constant cells:
+                sel = np.ones(cells, dtype=bool)
+                sel[mask] = False
+                cells_q[i][sel] = cells_q[i-1][sel]
+                cells_u[i][sel] = cells_u[i-1][sel]
+
+        # normalize Q, U:
+        norm = np.sqrt(cells_q**2. + cells_u**2.) / cell_pol
+        cells_q = cells_q / norm * cells_i
+        cells_u = cells_u / norm * cells_i
+
+        # integrated Stokes:
+        stokes_q = np.sum(cells_q, axis=1)
+        stokes_u = np.sum(cells_u, axis=1)
+
+        if return_cells:
+            return stokes_q, stokes_u, cells_q, cells_u
+
+        return stokes_q, stokes_u
+
+    #--------------------------------------------------------------------------
+    def _rw_ordered(
+            self, time, cells, variation, cell_pol=0.72, flux=&#39;const&#39;,
+            return_cells=False):
+        &#34;&#34;&#34;Polarization random walk based on the &#39;Ordered Q, U random walk
+        process with constant I&#39; or &#39;Ordered Q, U random walk process with
+        decreasing I&#39; [1].
+
+        Parameters
+        ----------
+        time : np.ndarray
+            Time.
+        cells : int
+            Number of cells.
+        variation : float
+            Cell variation rate, the number of cells that change every unit
+            time step.
+        cell_pol : float, optional
+            The fractional polarization of each cell. The default is 0.72.
+        flux : str, optional
+            Set to &#39;const&#39; for constant or &#39;decr&#39; for decreasing cell flux
+            density. The default is &#39;const&#39;.
+        return_cells : bool, optional
+            If True, all cell q and u parameters are returned. The default is
+            False.
+
+        Returns
+        -------
+        stokes_q, stokes_u : np.ndarray, np.ndarray
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I, if `return_cells=False`.
+        stokes_q, stokes_u, cells_q, cells_u :
+                np.ndarray, np.ndarray, np.ndarray, np.ndarray
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I and all cell q and u parameters, if `return_cells=True`.
+
+        Raises
+        ------
+        ValueError
+            Raised if `flux` is neither &#39;const&#39; nor &#39;decr&#39;.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+        &#34;&#34;&#34;
+
+        # initialize randomized cells:
+        # Stokes I, Q, U for each cell and each time step;
+        # I constant or decreasing down the shock front
+        # (normed that total flux equals 1),
+        # Q, U random samples from Gaussian distribution:
+        if flux == &#39;const&#39;:
+            cells_i = 1 / cells
+
+        elif flux == &#39;decr&#39;:
+            cells_i = np.linspace(0, 1, num=cells+1)
+            cells_i = cells_i[1:] / np.sum(cells_i)
+            cells_i = np.repeat(
+                cells_i, time.shape[0], axis=0).reshape(-1, time.shape[0]).T
+
+        else:
+            raise ValueError(&#34;Parameter &#39;flux&#39; has to be &#39;const&#39; or &#39;decr&#39;.&#34;)
+
+        cells_q = np.random.normal(0., 1., (time.shape[0], cells))
+        cells_u = np.random.normal(0., 1., (time.shape[0], cells))
+
+        # set number of changing cells:
+        # cumulative number of varying cells:
+        nvar = np.rint(time * variation).astype(int)
+        # current number of varying cells:
+        nvar = np.diff(nvar)
+        # max number of varying cells:
+        nvar = np.where(nvar &gt; cells, cells, nvar)
+
+        # iterate through random changes:
+        # initially all cells are randomized; keep the first nvar random values
+        # and copy the other cells from the previous time steps cells 0 to
+        # cells-nvar
+
+        for i, n in enumerate(nvar, 1):
+            # shift and copy constant cells:
+            cells_q[i][n:] = cells_q[i-1][0:cells-n]
+            cells_u[i][n:] = cells_u[i-1][0:cells-n]
+
+        # normalize q, u:
+        norm = np.sqrt(cells_q**2. + cells_u**2.) / cell_pol
+        cells_q = cells_q / norm * cells_i
+        cells_u = cells_u / norm * cells_i
+
+        # integrated Stokes:
+        stokes_q = np.sum(cells_q, axis=1)
+        stokes_u = np.sum(cells_u, axis=1)
+
+        if return_cells:
+            return stokes_q, stokes_u, cells_q, cells_u
+
+        return stokes_q, stokes_u
+
+    #--------------------------------------------------------------------------
+    def _add_noise(self, stokes_q, stokes_u, dist, param):
+        &#34;&#34;&#34;Create Gaussian &#34;observational&#34; noise.
+
+        Parameters
+        ----------
+        stokes_q : np.ndarray
+            Stokes q values.
+        stokes_u : np.ndarray
+            Stokes u values.
+        dist : str
+            Defines the distribution the noise levels are drawn from. Choose
+            from &#39;const&#39;, truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The
+            distribution parameters need to be set accordingly in the &#39;param&#39;.
+        param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised if `dist` is neither &#39;const&#39;, &#39;lognormal&#39;, &#39;powerlaw&#39;, nor
+            &#39;ecdf&#39;.
+
+        Returns
+        -------
+        stokes_q : numpy.ndarray
+            Stokes q with added Gaussian noise.
+        stokes_u : numpy.ndarray
+            Stokes u with added Gaussian noise.
+        stokes_err : numpy.ndarray
+            The corresponding uncertainties.
+        &#34;&#34;&#34;
+
+        size = stokes_q.shape[0]
+
+        if dist == &#39;const&#39;:
+            stokes_err = np.ones(size) * param
+
+        elif dist==&#39;lognormal&#39;:
+            stokes_err = np.random.lognormal(
+                mean=param[0], sigma=param[1], size=size)
+
+        elif dist==&#39;powerlaw&#39;:
+            stokes_err = self._draw_from_powerlaw(
+                param[0], param[1], param[2], size=size)
+
+        elif dist==&#39;ecdf&#39;:
+            stokes_err = self._draw_from_ecdf(param, size=size)
+
+        else:
+            raise ValueError(
+                f&#34;Distribution type &#39;{dist}&#39; is not supported. Either set &#34;
+                &#34;to &#39;lognormal&#39;, &#39;powerlaw&#39;, or &#39;ecdf&#39;.&#34;)
+
+        # add noise:
+        stokes_q += np.random.normal(loc=0, scale=stokes_err)
+        stokes_u += np.random.normal(loc=0, scale=stokes_err)
+
+        # ensure that the polarization does not exceed one, when data points
+        # are pushed over the unit circle by the noise:
+        pol = np.sqrt(stokes_q**2 + stokes_u**2)
+        stokes_q = np.where(pol&gt;1, stokes_q/pol, stokes_q)
+        stokes_u = np.where(pol&gt;1, stokes_u/pol, stokes_u)
+
+        return stokes_q, stokes_u, stokes_err
+
+    #--------------------------------------------------------------------------
+    def sim(self, process=&#39;simple&#39;, cells=10, variation=1., cell_pol=0.72,
+            flux=&#39;const&#39;, time_total=100, time_dist=&#39;const&#39;, time_param=1,
+            error_dist=None, error_param=1):
+        &#34;&#34;&#34;Run a random walk simulation in the Stokes Q-U plane.
+
+        Parameters
+        ----------
+        process : TYPE, optional
+            Random walk process type, a defined in [1]. Chose &#39;simple&#39; or
+            &#39;ordered. The default is &#39;simple&#39;.
+        cells : int
+            Number of cells.
+        variation : float
+            Cell variation rate, the number of cells that change every unit
+            time step.
+        cell_pol : float, optional
+            The fractional polarization of each cell. The default is 0.72.
+        flux : str, optional
+            Set to &#39;const&#39; for constant or &#39;decr&#39; for decreasing cell flux
+            density. Only releveant if `process=&#39;ordered&#39;`. The default is
+            &#39;const&#39;.
+        time_total : float
+            The total time to cover by the time data points
+        time_dist : str, optional
+            Defines the distribution the time steps are drawn from. Choose from
+            truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+            parameters need to be set accordingly in the &#39;param&#39;. The default
+            is &#39;const&#39;.
+        time_param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+        error_dist : str
+            Defines the distribution the noise levels are drawn from. Choose
+            from &#39;const&#39;, truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The
+            distribution parameters need to be set accordingly in the &#39;param&#39;.
+        error_param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised if `process` is neither &#39;simple&#39; nor &#39;ordered&#39;.
+
+        Returns
+        -------
+        time : np.ndarray
+            Time of each data point.
+        stokes_q : np.ndarray
+            Normalized Stokes values, q=Q/I.
+        stokes_u : np.ndarray
+            Normalized Stokes values, u=U/I.
+        stokes_err : np.ndarray
+            Uncertainties corresponding to each pair of Stokes values. The same
+            noise level is assumed for and added to both Stokes parameters.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+        &#34;&#34;&#34;
+
+        # create time:
+        time = self._create_time(time_total, time_dist, time_param)
+
+        # Stokes random walk:
+        if process==&#39;simple&#39;:
+            stokes_q, stokes_u = self._rw_simple(
+                    time, cells, variation, cell_pol=cell_pol)
+
+        elif process==&#39;ordered&#39;:
+            stokes_q, stokes_u = self._rw_ordered(
+                    time, cells, variation, cell_pol=cell_pol, flux=flux)
+
+        else:
+            raise ValueError(&#34;`process` must be either &#39;simple&#39; or &#39;ordered&#39;.&#34;)
+
+        # add noise:
+        if error_dist:
+            stokes_q, stokes_u, stokes_err = self._add_noise(
+                stokes_q, stokes_u, error_dist, error_param)
+
+        else:
+            stokes_err = np.zeros(time.shape[0])
+
+        return time, stokes_q, stokes_u, stokes_err
+
+#==============================================================================
+
+if __name__ == &#39;__main__&#39;:
+    sim = RWsim()
+    time, stokes_q, stokes_u, stokes_err = sim.sim(
+        time_dist=&#39;lognormal&#39;, time_param=(1, 1), error_dist=&#39;const&#39;, error_param=0.1)
+
+    print(time)
+    print(stokes_q)
+    print(stokes_u)
+    print(stokes_err)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="randomwalk.RWsim"><code class="flex name class">
+<span>class <span class="ident">RWsim</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>A tool to run random walk simulations in the Stokes Q-U plane.</p>
+<p>Create instance of RWsim.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class RWsim():
+    &#34;&#34;&#34;A tool to run random walk simulations in the Stokes Q-U plane.
+    &#34;&#34;&#34;
+
+    #--------------------------------------------------------------------------
+    def __init__(self):
+        &#34;&#34;&#34;Create instance of RWsim.
+        &#34;&#34;&#34;
+
+        pass
+
+    #--------------------------------------------------------------------------
+    def _draw_from_powerlaw(self, index, minval, maxval, size=1):
+        &#34;&#34;&#34;Draws random numbers from a truncated power-law distribution.
+
+        Parameters
+        ----------
+        index : float
+            Power-law index.
+        minval : float
+            Lower limit of the distribution.
+        maxval : float
+            Upper limit of the distribution.
+        size : int, optional
+            Number of random data points to return. The default is 1.
+
+        Returns
+        -------
+        random_numbers : numpy.ndarray
+            Random numbers.
+        &#34;&#34;&#34;
+
+        if index == -1:
+            random_numbers = np.exp(
+                np.random.uniform(size=size) * np.log(maxval / minval) \
+                + np.log(minval))
+
+        else:
+
+            index += 1
+            random_numbers = np.power(
+                (maxval**index - minval**index) \
+                * np.random.uniform(size=size) + minval**index, 1 / index)
+
+        return random_numbers
+
+    #--------------------------------------------------------------------------
+    def _draw_from_ecdf(self, data, size=1):
+        &#34;&#34;&#34;Draws random number from an empirical cumulative distribution
+        ferrorstion (ECDF) defined by given data.
+
+        Parameters
+        ----------
+        data : list-like
+            The data which defines the ECDF.
+        size : int, optional
+            Number of random data points to return. The default is 1.
+
+        Returns
+        -----
+        random_numbers : np.ndarray
+            Random numbers.
+        &#34;&#34;&#34;
+
+        data = np.asarray(data)
+        ecdf = ECDF(data)
+        draw = np.random.uniform(low=ecdf.y[1], size=size)
+        random_numbers = np.interp(draw, ecdf.y, ecdf.x)
+
+        return random_numbers
+
+    #--------------------------------------------------------------------------
+    def _create_random_time(
+            self, total, dist, param, recursion=0):
+        &#34;&#34;&#34;Creates random time data points with time steps following a given
+        distribution.
+
+        Parameters
+        ----------
+        total : float
+            The total time to cover by the time data points
+        dist : str
+            Defines the distribution the time steps are drawn from. Choose from
+            truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+            parameters need to be set accordingly in the &#39;param&#39;.
+        param : list
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!).
+        recursion : int, optional
+            Do not manually set a value. This parameter is needed internally
+            when the drawn time steps are not enough to cover the targeted
+            total time and a recursion call of the ferrorstion is necessery. The
+            default is 0.
+
+        Raises
+        ------
+        ValueError
+            Raised if `dist` is neither &#39;lognormal&#39;, &#39;powerlaw&#39;, nor  &#39;ecdf&#39;.
+
+        Returns
+        -------
+        time : numpy.ndarray
+            Random time data points.
+        &#34;&#34;&#34;
+
+        # determine number of time steps to create:
+        if recursion:
+            size = recursion
+
+        elif dist==&#39;powerlaw&#39; and param[0] &lt; -2.:
+            mean_sampling = \
+                (param[2]**(param[0] + 2) - param[1]**(param[0] + 2)) \
+                / (param[2]**(param[0] + 1) - param[1]**(param[0] + 1)) \
+                * (param[0] + 1) /(param[0] + 2)
+            size = int(1.2 * total / mean_sampling)
+
+        elif dist==&#39;lognormal&#39;:
+            mean_sampling = np.exp((param[0] + param[1]**2) / 2)
+            size = int(1.2 * total / mean_sampling)
+
+        elif dist==&#39;ecdf&#39;:
+            mean_sampling = np.mean(param)
+            size = int(1.2 * total / mean_sampling)
+
+        else:
+            size = 100
+
+        if size &lt; 10:
+            size = 10
+
+        # create random time steps:
+        if dist==&#39;powerlaw&#39;:
+            steps = self._draw_from_powerlaw(
+                param[0], param[1], param[2], size=size)
+
+        elif dist==&#39;lognormal&#39;:
+            steps = np.random.lognormal(
+                mean=param[0], sigma=param[1], size=size)
+
+        elif dist==&#39;ecdf&#39;:
+            steps = self._draw_from_ecdf(param, size=size)
+
+        else:
+            raise ValueError(
+                f&#34;Distribution type &#39;{dist}&#39; is not supported. Either set &#34;
+                &#34;to &#39;powerlaw&#39;, &#39;lognormal&#39;, or &#39;ecdf&#39;.&#34;)
+
+        time = np.cumsum(steps)
+
+        # recursion, if time steps do not cover total time:
+        if time[-1] &lt; total:
+           size = int(np.ceil(2 * (1 - time[-1] / total) * size))
+           more = self._create_random_time(
+               total-time[-1], dist=dist, param=param, recursion=size)
+           time = np.concatenate((time, more + time[-1]))
+
+        if not recursion:
+            time = time[time&lt;=total]
+            time = np.r_[0, time]
+
+        return time
+
+    #--------------------------------------------------------------------------
+    def _create_time(self, total, dist=&#39;const&#39;, param=1):
+        &#34;&#34;&#34;
+
+        Parameters
+        ----------
+        total : float
+            The total time to cover by the time data points
+        dist : str, optional
+            Defines the distribution the time steps are drawn from. Choose from
+            truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+            parameters need to be set accordingly in the &#39;param&#39;. The default
+            is &#39;const&#39;.
+        param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+
+        Returns
+        -------
+        time : numpy.ndarray
+            Time data points.
+        &#34;&#34;&#34;
+
+        if dist == &#39;const&#39;:
+            time = np.arange(0, total, param)
+
+        else:
+            time = self._create_random_time(total, dist, param)
+
+        return time
+
+    #--------------------------------------------------------------------------
+    def _rw_simple(
+            self, time, cells, variation, cell_pol=0.72, return_cells=False):
+        &#34;&#34;&#34;Polarization random walk based on the &#39;Simple Q,U random walk
+        process&#39; [1].
+
+        Parameters
+        ----------
+        time : np.ndarray
+            Time.
+        cells : int
+            Number of cells.
+        variation : float
+            Cell variation rate, the number of cells that change every unit
+            time step.
+        cell_pol : float, optional
+            The fractional polarization of each cell. The default is 0.72.
+        return_cells : bool, optional
+            If True, all cell q and u parameters are returned. The default is
+            False.
+
+        Returns
+        -------
+        stokes_q, stokes_u : np.ndarrays
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I, if `return_cells=False`.
+        stokes_q, stokes_u, cells_q, cells_u :
+                np.ndarray, np.ndarray, np.ndarray, np.ndarray
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I and all cell q and u parameters, if `return_cells=True`.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+        &#34;&#34;&#34;
+
+        time = np.asarray(time)
+
+        # initialize randomized cells:
+        # Stokes I, Q, U for each cell and each time step;
+        # I constant (normed that total flux equals 1),
+        # Q, U random samples from Gaussian distribution:
+        cells_i = 1. /cells
+        cells_q = np.random.normal(0, 1, (time.shape[0], cells))
+        cells_u = np.random.normal(0, 1, (time.shape[0], cells))
+
+        # set number of changing cells:
+        # cumulative number of varying cells:
+        nvar = np.rint(time * variation).astype(int)
+        # current number of varying cells:
+        nvar = np.diff(nvar)
+        nvar = np.where(nvar &gt; cells, cells, nvar)
+
+        # iterate through random changes:
+        # initially all cells are randomized; pick random cells that stay
+        # constant and copy those:
+
+        for i, n in enumerate(nvar, 1):
+            # no cells change: copy latest results:
+            if n == 0:
+                cells_q[i] = cells_q[i-1]
+                cells_u[i] = cells_u[i-1]
+
+            # cells change:
+            else:
+                # select random cells that change:
+                mask = np.unique(np.random.randint(0, cells, n))
+
+                # copy constant cells:
+                sel = np.ones(cells, dtype=bool)
+                sel[mask] = False
+                cells_q[i][sel] = cells_q[i-1][sel]
+                cells_u[i][sel] = cells_u[i-1][sel]
+
+        # normalize Q, U:
+        norm = np.sqrt(cells_q**2. + cells_u**2.) / cell_pol
+        cells_q = cells_q / norm * cells_i
+        cells_u = cells_u / norm * cells_i
+
+        # integrated Stokes:
+        stokes_q = np.sum(cells_q, axis=1)
+        stokes_u = np.sum(cells_u, axis=1)
+
+        if return_cells:
+            return stokes_q, stokes_u, cells_q, cells_u
+
+        return stokes_q, stokes_u
+
+    #--------------------------------------------------------------------------
+    def _rw_ordered(
+            self, time, cells, variation, cell_pol=0.72, flux=&#39;const&#39;,
+            return_cells=False):
+        &#34;&#34;&#34;Polarization random walk based on the &#39;Ordered Q, U random walk
+        process with constant I&#39; or &#39;Ordered Q, U random walk process with
+        decreasing I&#39; [1].
+
+        Parameters
+        ----------
+        time : np.ndarray
+            Time.
+        cells : int
+            Number of cells.
+        variation : float
+            Cell variation rate, the number of cells that change every unit
+            time step.
+        cell_pol : float, optional
+            The fractional polarization of each cell. The default is 0.72.
+        flux : str, optional
+            Set to &#39;const&#39; for constant or &#39;decr&#39; for decreasing cell flux
+            density. The default is &#39;const&#39;.
+        return_cells : bool, optional
+            If True, all cell q and u parameters are returned. The default is
+            False.
+
+        Returns
+        -------
+        stokes_q, stokes_u : np.ndarray, np.ndarray
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I, if `return_cells=False`.
+        stokes_q, stokes_u, cells_q, cells_u :
+                np.ndarray, np.ndarray, np.ndarray, np.ndarray
+            The simulated, integrated, normalized Stokes parameters q=Q/I,
+            u=U/I and all cell q and u parameters, if `return_cells=True`.
+
+        Raises
+        ------
+        ValueError
+            Raised if `flux` is neither &#39;const&#39; nor &#39;decr&#39;.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+        &#34;&#34;&#34;
+
+        # initialize randomized cells:
+        # Stokes I, Q, U for each cell and each time step;
+        # I constant or decreasing down the shock front
+        # (normed that total flux equals 1),
+        # Q, U random samples from Gaussian distribution:
+        if flux == &#39;const&#39;:
+            cells_i = 1 / cells
+
+        elif flux == &#39;decr&#39;:
+            cells_i = np.linspace(0, 1, num=cells+1)
+            cells_i = cells_i[1:] / np.sum(cells_i)
+            cells_i = np.repeat(
+                cells_i, time.shape[0], axis=0).reshape(-1, time.shape[0]).T
+
+        else:
+            raise ValueError(&#34;Parameter &#39;flux&#39; has to be &#39;const&#39; or &#39;decr&#39;.&#34;)
+
+        cells_q = np.random.normal(0., 1., (time.shape[0], cells))
+        cells_u = np.random.normal(0., 1., (time.shape[0], cells))
+
+        # set number of changing cells:
+        # cumulative number of varying cells:
+        nvar = np.rint(time * variation).astype(int)
+        # current number of varying cells:
+        nvar = np.diff(nvar)
+        # max number of varying cells:
+        nvar = np.where(nvar &gt; cells, cells, nvar)
+
+        # iterate through random changes:
+        # initially all cells are randomized; keep the first nvar random values
+        # and copy the other cells from the previous time steps cells 0 to
+        # cells-nvar
+
+        for i, n in enumerate(nvar, 1):
+            # shift and copy constant cells:
+            cells_q[i][n:] = cells_q[i-1][0:cells-n]
+            cells_u[i][n:] = cells_u[i-1][0:cells-n]
+
+        # normalize q, u:
+        norm = np.sqrt(cells_q**2. + cells_u**2.) / cell_pol
+        cells_q = cells_q / norm * cells_i
+        cells_u = cells_u / norm * cells_i
+
+        # integrated Stokes:
+        stokes_q = np.sum(cells_q, axis=1)
+        stokes_u = np.sum(cells_u, axis=1)
+
+        if return_cells:
+            return stokes_q, stokes_u, cells_q, cells_u
+
+        return stokes_q, stokes_u
+
+    #--------------------------------------------------------------------------
+    def _add_noise(self, stokes_q, stokes_u, dist, param):
+        &#34;&#34;&#34;Create Gaussian &#34;observational&#34; noise.
+
+        Parameters
+        ----------
+        stokes_q : np.ndarray
+            Stokes q values.
+        stokes_u : np.ndarray
+            Stokes u values.
+        dist : str
+            Defines the distribution the noise levels are drawn from. Choose
+            from &#39;const&#39;, truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The
+            distribution parameters need to be set accordingly in the &#39;param&#39;.
+        param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised if `dist` is neither &#39;const&#39;, &#39;lognormal&#39;, &#39;powerlaw&#39;, nor
+            &#39;ecdf&#39;.
+
+        Returns
+        -------
+        stokes_q : numpy.ndarray
+            Stokes q with added Gaussian noise.
+        stokes_u : numpy.ndarray
+            Stokes u with added Gaussian noise.
+        stokes_err : numpy.ndarray
+            The corresponding uncertainties.
+        &#34;&#34;&#34;
+
+        size = stokes_q.shape[0]
+
+        if dist == &#39;const&#39;:
+            stokes_err = np.ones(size) * param
+
+        elif dist==&#39;lognormal&#39;:
+            stokes_err = np.random.lognormal(
+                mean=param[0], sigma=param[1], size=size)
+
+        elif dist==&#39;powerlaw&#39;:
+            stokes_err = self._draw_from_powerlaw(
+                param[0], param[1], param[2], size=size)
+
+        elif dist==&#39;ecdf&#39;:
+            stokes_err = self._draw_from_ecdf(param, size=size)
+
+        else:
+            raise ValueError(
+                f&#34;Distribution type &#39;{dist}&#39; is not supported. Either set &#34;
+                &#34;to &#39;lognormal&#39;, &#39;powerlaw&#39;, or &#39;ecdf&#39;.&#34;)
+
+        # add noise:
+        stokes_q += np.random.normal(loc=0, scale=stokes_err)
+        stokes_u += np.random.normal(loc=0, scale=stokes_err)
+
+        # ensure that the polarization does not exceed one, when data points
+        # are pushed over the unit circle by the noise:
+        pol = np.sqrt(stokes_q**2 + stokes_u**2)
+        stokes_q = np.where(pol&gt;1, stokes_q/pol, stokes_q)
+        stokes_u = np.where(pol&gt;1, stokes_u/pol, stokes_u)
+
+        return stokes_q, stokes_u, stokes_err
+
+    #--------------------------------------------------------------------------
+    def sim(self, process=&#39;simple&#39;, cells=10, variation=1., cell_pol=0.72,
+            flux=&#39;const&#39;, time_total=100, time_dist=&#39;const&#39;, time_param=1,
+            error_dist=None, error_param=1):
+        &#34;&#34;&#34;Run a random walk simulation in the Stokes Q-U plane.
+
+        Parameters
+        ----------
+        process : TYPE, optional
+            Random walk process type, a defined in [1]. Chose &#39;simple&#39; or
+            &#39;ordered. The default is &#39;simple&#39;.
+        cells : int
+            Number of cells.
+        variation : float
+            Cell variation rate, the number of cells that change every unit
+            time step.
+        cell_pol : float, optional
+            The fractional polarization of each cell. The default is 0.72.
+        flux : str, optional
+            Set to &#39;const&#39; for constant or &#39;decr&#39; for decreasing cell flux
+            density. Only releveant if `process=&#39;ordered&#39;`. The default is
+            &#39;const&#39;.
+        time_total : float
+            The total time to cover by the time data points
+        time_dist : str, optional
+            Defines the distribution the time steps are drawn from. Choose from
+            truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+            parameters need to be set accordingly in the &#39;param&#39;. The default
+            is &#39;const&#39;.
+        time_param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+        error_dist : str
+            Defines the distribution the noise levels are drawn from. Choose
+            from &#39;const&#39;, truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The
+            distribution parameters need to be set accordingly in the &#39;param&#39;.
+        error_param : float or list, optional
+            A list of distribution parameters depending on the chosen
+            distribution:
+            For &#39;const&#39; give a float that defines the fixed time interval.
+            For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+            (3) the upper limit of the truncated distribution.
+            For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+            For &#39;ecdf&#39; give an array of time steps (differences between time
+            data points not the time data points!). The default is 1.
+
+        Raises
+        ------
+        ValueError
+            Raised if `process` is neither &#39;simple&#39; nor &#39;ordered&#39;.
+
+        Returns
+        -------
+        time : np.ndarray
+            Time of each data point.
+        stokes_q : np.ndarray
+            Normalized Stokes values, q=Q/I.
+        stokes_u : np.ndarray
+            Normalized Stokes values, u=U/I.
+        stokes_err : np.ndarray
+            Uncertainties corresponding to each pair of Stokes values. The same
+            noise level is assumed for and added to both Stokes parameters.
+
+        References
+        ----------
+        [1] Kiehlmann et al, 2016
+            https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+        &#34;&#34;&#34;
+
+        # create time:
+        time = self._create_time(time_total, time_dist, time_param)
+
+        # Stokes random walk:
+        if process==&#39;simple&#39;:
+            stokes_q, stokes_u = self._rw_simple(
+                    time, cells, variation, cell_pol=cell_pol)
+
+        elif process==&#39;ordered&#39;:
+            stokes_q, stokes_u = self._rw_ordered(
+                    time, cells, variation, cell_pol=cell_pol, flux=flux)
+
+        else:
+            raise ValueError(&#34;`process` must be either &#39;simple&#39; or &#39;ordered&#39;.&#34;)
+
+        # add noise:
+        if error_dist:
+            stokes_q, stokes_u, stokes_err = self._add_noise(
+                stokes_q, stokes_u, error_dist, error_param)
+
+        else:
+            stokes_err = np.zeros(time.shape[0])
+
+        return time, stokes_q, stokes_u, stokes_err</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="randomwalk.RWsim.sim"><code class="name flex">
+<span>def <span class="ident">sim</span></span>(<span>self, process='simple', cells=10, variation=1.0, cell_pol=0.72, flux='const', time_total=100, time_dist='const', time_param=1, error_dist=None, error_param=1)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run a random walk simulation in the Stokes Q-U plane.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>process</code></strong> :&ensp;<code>TYPE</code>, optional</dt>
+<dd>Random walk process type, a defined in [1]. Chose 'simple' or
+'ordered. The default is 'simple'.</dd>
+<dt><strong><code>cells</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of cells.</dd>
+<dt><strong><code>variation</code></strong> :&ensp;<code>float</code></dt>
+<dd>Cell variation rate, the number of cells that change every unit
+time step.</dd>
+<dt><strong><code>cell_pol</code></strong> :&ensp;<code>float</code>, optional</dt>
+<dd>The fractional polarization of each cell. The default is 0.72.</dd>
+<dt><strong><code>flux</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Set to 'const' for constant or 'decr' for decreasing cell flux
+density. Only releveant if <code>process='ordered'</code>. The default is
+'const'.</dd>
+<dt><strong><code>time_total</code></strong> :&ensp;<code>float</code></dt>
+<dd>The total time to cover by the time data points</dd>
+<dt><strong><code>time_dist</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>Defines the distribution the time steps are drawn from. Choose from
+truncated 'powerlaw', 'lognormal' and 'ecdf'. The distribution
+parameters need to be set accordingly in the 'param'. The default
+is 'const'.</dd>
+<dt><strong><code>time_param</code></strong> :&ensp;<code>float</code> or <code>list</code>, optional</dt>
+<dd>A list of distribution parameters depending on the chosen
+distribution:
+For 'const' give a float that defines the fixed time interval.
+For 'powerlaw' give (1) the power-law index, (2) the lower, and
+(3) the upper limit of the truncated distribution.
+For 'lognormal' give the distribution (1) mu and (2) sigma.
+For 'ecdf' give an array of time steps (differences between time
+data points not the time data points!). The default is 1.</dd>
+<dt><strong><code>error_dist</code></strong> :&ensp;<code>str</code></dt>
+<dd>Defines the distribution the noise levels are drawn from. Choose
+from 'const', truncated 'powerlaw', 'lognormal' and 'ecdf'. The
+distribution parameters need to be set accordingly in the 'param'.</dd>
+<dt><strong><code>error_param</code></strong> :&ensp;<code>float</code> or <code>list</code>, optional</dt>
+<dd>A list of distribution parameters depending on the chosen
+distribution:
+For 'const' give a float that defines the fixed time interval.
+For 'powerlaw' give (1) the power-law index, (2) the lower, and
+(3) the upper limit of the truncated distribution.
+For 'lognormal' give the distribution (1) mu and (2) sigma.
+For 'ecdf' give an array of time steps (differences between time
+data points not the time data points!). The default is 1.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raised if <code>process</code> is neither 'simple' nor 'ordered'.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><strong><code>time</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Time of each data point.</dd>
+<dt><strong><code>stokes_q</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Normalized Stokes values, q=Q/I.</dd>
+<dt><strong><code>stokes_u</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Normalized Stokes values, u=U/I.</dd>
+<dt><strong><code>stokes_err</code></strong> :&ensp;<code>np.ndarray</code></dt>
+<dd>Uncertainties corresponding to each pair of Stokes values. The same
+noise level is assumed for and added to both Stokes parameters.</dd>
+</dl>
+<h2 id="references">References</h2>
+<p>[1] Kiehlmann et al, 2016
+<a href="https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/">https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/</a></p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def sim(self, process=&#39;simple&#39;, cells=10, variation=1., cell_pol=0.72,
+        flux=&#39;const&#39;, time_total=100, time_dist=&#39;const&#39;, time_param=1,
+        error_dist=None, error_param=1):
+    &#34;&#34;&#34;Run a random walk simulation in the Stokes Q-U plane.
+
+    Parameters
+    ----------
+    process : TYPE, optional
+        Random walk process type, a defined in [1]. Chose &#39;simple&#39; or
+        &#39;ordered. The default is &#39;simple&#39;.
+    cells : int
+        Number of cells.
+    variation : float
+        Cell variation rate, the number of cells that change every unit
+        time step.
+    cell_pol : float, optional
+        The fractional polarization of each cell. The default is 0.72.
+    flux : str, optional
+        Set to &#39;const&#39; for constant or &#39;decr&#39; for decreasing cell flux
+        density. Only releveant if `process=&#39;ordered&#39;`. The default is
+        &#39;const&#39;.
+    time_total : float
+        The total time to cover by the time data points
+    time_dist : str, optional
+        Defines the distribution the time steps are drawn from. Choose from
+        truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The distribution
+        parameters need to be set accordingly in the &#39;param&#39;. The default
+        is &#39;const&#39;.
+    time_param : float or list, optional
+        A list of distribution parameters depending on the chosen
+        distribution:
+        For &#39;const&#39; give a float that defines the fixed time interval.
+        For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+        (3) the upper limit of the truncated distribution.
+        For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+        For &#39;ecdf&#39; give an array of time steps (differences between time
+        data points not the time data points!). The default is 1.
+    error_dist : str
+        Defines the distribution the noise levels are drawn from. Choose
+        from &#39;const&#39;, truncated &#39;powerlaw&#39;, &#39;lognormal&#39; and &#39;ecdf&#39;. The
+        distribution parameters need to be set accordingly in the &#39;param&#39;.
+    error_param : float or list, optional
+        A list of distribution parameters depending on the chosen
+        distribution:
+        For &#39;const&#39; give a float that defines the fixed time interval.
+        For &#39;powerlaw&#39; give (1) the power-law index, (2) the lower, and
+        (3) the upper limit of the truncated distribution.
+        For &#39;lognormal&#39; give the distribution (1) mu and (2) sigma.
+        For &#39;ecdf&#39; give an array of time steps (differences between time
+        data points not the time data points!). The default is 1.
+
+    Raises
+    ------
+    ValueError
+        Raised if `process` is neither &#39;simple&#39; nor &#39;ordered&#39;.
+
+    Returns
+    -------
+    time : np.ndarray
+        Time of each data point.
+    stokes_q : np.ndarray
+        Normalized Stokes values, q=Q/I.
+    stokes_u : np.ndarray
+        Normalized Stokes values, u=U/I.
+    stokes_err : np.ndarray
+        Uncertainties corresponding to each pair of Stokes values. The same
+        noise level is assumed for and added to both Stokes parameters.
+
+    References
+    ----------
+    [1] Kiehlmann et al, 2016
+        https://ui.adsabs.harvard.edu/abs/2016A%2526A...590A..10K/
+    &#34;&#34;&#34;
+
+    # create time:
+    time = self._create_time(time_total, time_dist, time_param)
+
+    # Stokes random walk:
+    if process==&#39;simple&#39;:
+        stokes_q, stokes_u = self._rw_simple(
+                time, cells, variation, cell_pol=cell_pol)
+
+    elif process==&#39;ordered&#39;:
+        stokes_q, stokes_u = self._rw_ordered(
+                time, cells, variation, cell_pol=cell_pol, flux=flux)
+
+    else:
+        raise ValueError(&#34;`process` must be either &#39;simple&#39; or &#39;ordered&#39;.&#34;)
+
+    # add noise:
+    if error_dist:
+        stokes_q, stokes_u, stokes_err = self._add_noise(
+            stokes_q, stokes_u, error_dist, error_param)
+
+    else:
+        stokes_err = np.zeros(time.shape[0])
+
+    return time, stokes_q, stokes_u, stokes_err</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="randomwalk.RWsim" href="#randomwalk.RWsim">RWsim</a></code></h4>
+<ul class="">
+<li><code><a title="randomwalk.RWsim.sim" href="#randomwalk.RWsim.sim">sim</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
