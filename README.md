@@ -5,6 +5,7 @@ Python3 tools to deal with astrophysical polarization data.
 
 * **evpatools.py** Tools to analyze EVPA time series data.
 * **misc.py** Miscellaneous tools.
+* **randomwalk.py** Simulate random walks in the Stokes Q-U plane.
 * **stokesconversion.py** Convert Stokes parameters into linear polarization parameters and vice versa.
 
 ### Module details
@@ -15,6 +16,8 @@ Python3 tools to deal with astrophysical polarization data.
         * Identify rotations according to the definitions of [4] or [5].
 * **misc.py**
     * **debias_pol** function: Debias the fractional linear polarization, following [2].
+* **randomwalk.py**
+    * **RWsim** class: Simulate random walks in the Stokes Q-U plane, following [1].
 * **stokesconversion.py**
     * **StokesConversion** class: Convert Stokes parameters into linear polarization parameters with proper treatment of the uncertainties as explained in [3].
     * **StokesConversionSimple** class: Convert Stokes parameters into linear polarization parameters and vice versa with simple Gaussian error propagation.

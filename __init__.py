@@ -1,1 +1,1 @@
-__all__ = ['evpatools', 'misc', 'stokesconversion']
+__all__ = ['evpatools', 'misc', 'randomwalk', 'stokesconversion']
