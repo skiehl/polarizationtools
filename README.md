@@ -22,6 +22,27 @@ Python3 tools to deal with astrophysical polarization data.
     * **StokesConversion** class: Convert Stokes parameters into linear polarization parameters with proper treatment of the uncertainties as explained in [3].
     * **StokesConversionSimple** class: Convert Stokes parameters into linear polarization parameters and vice versa with simple Gaussian error propagation.
 
+## Citation
+
+Bibtex:
+
+```
+@software{2024ascl.soft02006K,
+       author = {{Kiehlmann}, Sebastian},
+        title = "{polarizationtools: Polarization analysis and simulation tools in python}",
+ howpublished = {Astrophysics Source Code Library, record ascl:2402.006},
+         year = 2024,
+        month = feb,
+          eid = {ascl:2402.006},
+       adsurl = {https://ui.adsabs.harvard.edu/abs/2024ascl.soft02006K},
+      adsnote = {Provided by the SAO/NASA Astrophysics Data System}
+}
+```
+
+
+This software package is indexed on [ASCL](https://ascl.net/2402.006) and [ADS](https://ui.adsabs.harvard.edu/abs/2024ascl.soft02006K).
+
+
 ## License
 
 polarizationtools is licensed under the BSD 3-Clause License - see the

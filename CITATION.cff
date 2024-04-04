@@ -1,0 +1,16 @@
+cff-version: 1.1.0
+message: "Please cite the following works when using this software: https://ui.adsabs.harvard.edu/abs/2024ascl.soft02006K"
+authors:
+- family-names: Kiehlmann
+  given-names: Sebastian
+title: "polarizationtools: Polarization analysis and simulation tools in python"
+version: PLACEHOLDER
+date-released: PLACEHOLDER
+identifiers:
+ - type: "ascl-id"
+   value: "2402.006"
+ - type: "doi"
+   value: PLACEHOLDER
+ - type: "bibcode"
+   value: "2024ascl.soft02006K"
+abstract: "polarizationtools converts, analyzes, and simulates polarization data. The different python scripts (1) convert Stokes parameters into linear polarization parameters with proper treatment of the uncertainties and vice versa; (2) shift electric vector position angle (EVPA) data points in time series to account for the 180 degrees ambiguity; (3) identify rotations of the EVPA e.g. in blazar polarization monitoring data according to various rotation definitions; and (4) simulate polarization time series as a random walk in the Stokes Q-U plane."
